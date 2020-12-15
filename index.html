@@ -1,1 +1,892 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EECS 370">
+  <meta name="keywords" content="EECS370, EECS 370, Introduction to Computer Organization, University of Michigan Computer Science">
+  <title>EECS 370</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Fomantic UI CSS library
+       https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider --> 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+
+  <!-- FullCalendar JS library
+       https://fullcalendar.io/docs
+       https://fullcalendar.io/docs/google-calendar  -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js'></script>
+</head>
+
+<body>
+  <!-- Nav bar on left side -->
+  <div class="ui left vertical inverted sidebar menu labeled icon">
+
+    <!-- Logo and Course Title -->
+    <div class="item">
+      <a class="ui logo icon image mini" href="#">
+        <img src="images/um_seal.gif" alt="logo">
+      </a>
+      <br>
+      <br>
+      <a href="#"><b>EECS 370</b></a>
+    </div>
+
+    <!-- Internal links -->
+    <div class="item">
+      <div class="menu">
+        <a class="item" href="#lectures">
+          Lectures
+        </a>
+        <a class="item" href="#discussions">
+          Discussions
+        </a>
+        <a class="item" href="#projects">
+          Projects
+        </a>
+        <a class="item" href="#resources">
+          Resources
+        </a>
+        <a class="item" href="#video_review">
+          Video Review
+        </a>
+        <a class="item" href="#staff">
+          Staff
+        </a>
+        <a class="item" href="#exams">
+          Exams
+        </a>
+        <a class="item" href="#admin">
+          Administrative Requests
+        </a>
+      </div>
+    </div><!-- Internal links -->
+
+    <!-- External links -->
+    <!-- TODO: Update all external links, remove any that aren't relevant -->
+    <div class="menu">
+      <a class="item" href="https://piazza.com/class/ke8o95o8lyk3zp" target="_blank">
+        <i class="talk outline icon big"></i>
+        <br>
+        Piazza
+      </a>
+      <a class="item" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS04NZdKdlIsl2uN0BsoJhNdng3ycqeaptH41p5ZUITCVzydTfAu46X5UzH-Kyu-lfHp5oi-XlzB-F6/pubhtml?gid=0&single=true" target="_blank">
+        <i class="video icon big"></i>
+        <br>
+        Lecture Recordings
+      </a>
+      <a class="item" href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
+        <i class="google icon big"></i>
+        <br>
+        EECS 370 Drive
+      </a>
+      <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
+        <i class="help circle icon big"></i>
+        <br>
+        Office Hours
+      </a>
+      <a class="item" href="https://autograder.io/" target="_blank">
+        <i class="upload icon big"></i>
+        <br>
+        Autograder
+      </a>
+      <a class="item" href="https://www.gradescope.com/courses/166282" target="_blank">
+        <i class="chart bar icon big"></i>
+        <br>
+        Gradescope
+      </a>
+      <!--
+           <a class="item" href="https://umich.instructure.com/courses/391021" target="_blank">
+           <i class="tasks icon big"></i>
+           <br>
+           Canvas
+           </a>
+      -->
+    </div><!-- External links -->
+
+  </div><!-- Nav bar -->
+
+
+  <!-- Main page  -->
+  <div class="pusher">
+    <div class="ui text container">
+      <button class="ui right floated icon button" id="left-sidebar-toggle">
+        <i class="bars icon"></i>
+      </button>
+
+      <h1>EECS 370: Intro to Computer Organization</h1>
+      <div class="inline">
+        <i>The University of Michigan, Fall 2020</i>
+      </div>
+      <p></p>
+      <p>Welcome to EECS 370 Fall 2020!</p>
+      <p>You may attend any section you wish.</p>
+      <p>Sections 001, 002, and 003 will be delivered asynchronously. You can find the recordings by clicking ''Lecture Recordings"</p>
+      <p>Section 004 will be delivered live via Zoom from 4:30-6 pm, MW. Use the following link to join: <a href="https://umich.zoom.us/j/91644316554" target="_blank">https://umich.zoom.us/j/91644316554</a></p>
+      <p>
+        <b><a href="syllabus.html" target="_blank">Syllabus</a></b>
+      </p>
+      <div class="ui section divider"></div>
+
+      <!-- Test Info (Use it to link info for Midterm and Final)
+        <h2 id="thisweek">Final Information</h2>
+
+        <div class="ui two stackable cards">
+          <div class="ui card">
+            <div class="content" style="flex-grow: 0;">
+              <div class="header">Before</div>
+            </div>
+            <div class="content">
+              <div class="ui small feed">
+              <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      <p>Read over <a href="https://piazza.com/class/k9vihaw2wd07b0?cid=3531" target="_blank">exam information</a></p>
+                    </div>
+                  </div>
+                </div>
+              <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                        <p>Take <a href="https://drive.google.com/drive/u/1/folders/1j7OlohR6aS23Gja6FtxJ6ao6PijuJHAQ" target="_blank">practice exams</a></p>
+                    </div>
+                  </div>
+                </div>
+              <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      <p>Ask questions on <a href="https://piazza.com/class/k9vihaw2wd07b0" target="_blank">piazza</a> and during <a href="https://lobster.eecs.umich.edu/eecsoh/queue.html#1gpzdUu0VqVjBodsFCps47cdfyZ" target="_blank">office hours</a></p>
+                    </div>
+                  </div>
+                </div>
+              <div class="event">
+                  <div class="content">
+                      <div class="summary">
+                          Exam Review Session
+                      </div>
+                      <div class="meta">
+                        <a href="https://umich.zoom.us/rec/share/hGbk0MIF-xBuaQWmr2QiNHvROds8qeGtMJOSiQ53aeDbQKQ-zgCpxsJwxKk39pki.9zeie2S3_UMc8eZZ" target="_blank">
+                          <i class="video icon"></i> Recording
+                        </a>
+                        </div>
+                      <div class="meta">
+                        <a href="https://docs.google.com/presentation/d/1R0h9njnpXuFmPLAJmGaln3Js6y2oFQGEZonbacSfAKA/edit?usp=sharing" target="_blank">
+                          <i class="linkify icon"></i> Slides
+                        </a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui card">
+            <div class="content" style="flex-grow: 0;">
+              <div class="header">During</div>
+            </div>
+            <div class="content">
+              <div class="ui small feed">
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Exam is 12/10 from 7-9pm EST on <a href="https://www.gradescope.com/courses/128426" target="_blank">gradescope</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Ask questions by either joining this <a href="https://umich.zoom.us/j/99635807532" target="_blank">zoom call</a> or a private <a href="https://piazza.com/class/k9vihaw2wd07b0" target="_blank">piazza</a> post
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Take your time and good luck!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    -->
+
+      <!--
+           Google Calendar
+
+           The FullCalendar JS library inserts a Google Calendar here.  See
+           the JavaScript source code at the end of this file.  Remember to
+           update the 'googleCalendarId' found in the JavaScript code.
+      -->
+      <div id="calendar"></div>
+      <!-- TODO: Update this Google Calendar link -->
+      <p>
+        <a href="https://calendar.google.com/calendar/embed?src=c_gef62vt225u7m46dnn97ft9rds%40group.calendar.google.com&ctz=America%2FNew_York" target="_blank">
+          Open calendar in new window
+        </a>
+      </p>
+      <div class="ui section divider"></div>
+
+      <!-- Lectures -->
+      <h2 id="lectures">Lectures</h2>
+      <table class="ui celled unstackable striped table">
+        <thead>
+          <tr>
+            <th class="two wide">Day</th>
+            <th class="three wide">Lecture</th>
+            <th class="two wide">Discussions</th>
+            <th class="one wide">Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Week 1<br>
+              Aug 31 - Sep 5
+            </td>
+            <td>
+              <p>L01 Introduction and ISA<br>
+                <a class="ui label" href="https://drive.google.com/file/d/14CVn8iluD_MnSOqCx1L2gfXOhJOd7K94/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/9_UsAbv33XFIGtLcwUfBffR_B5i0eaa8hyJI_vtYn0hcFio7IdDox2smDZuLcHm-" target="_blank"><i class="video icon"></i>Synchronous</a>
+                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/176Yw3ybjBG-YxIQ0OEuV_pUPk9cSG7zT" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
+              </p>
+              <p>L02 ISA - storage types and addressing modes<br>
+                <a class="ui label" href="https://drive.google.com/file/d/1dZxASG5mLne00sBMlMlkwLDC96X0AyIC/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L02</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/L77befJPt7_rF2zy9gXjI2tLXW7p4EV6Ca7ojc8i2SY_rLE6R1NhilIuXRRnocE.SVkFyWVtiWZyBu4c" target="_blank"><i class="video icon"></i>Synchronous</a>
+                <a class="ui label" href="https://drive.google.com/drive/u/1/folders/1RDqMynHaAMFW6hRLvky9XJZR2dhBD-bl" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
+              </p>
+            </td>
+            <td>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/QjjI7ID8DwMEd_j-jVhe11QNhWHhBnMxPsm8RNz05eU5Vhlj3eCV0R8-CHt9Gbao.LlzsTPjmXpersCaG" target="_blank"><i class="video icon"></i>Week 1 Discussion - Hershal</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/j5BH7x2o-pn5Aos_4OEcwRU68zlPyiYni2kr7QcbOsAoD2o_pMleprPbKSqyoQne.6_Hvx4DKDXTnijcB" target="_blank"><i class="video icon"></i>Week 1 Discussion - Abigail</a>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 2<br>
+              Sep 7 - 11
+            </td>
+            <td>
+              <p>L03 LC2K and ARM ISAs<br>
+                <a class="ui label" href="https://drive.google.com/file/d/1aVRKB0WicehoO0epZk2PZAsHy8yMXvmS/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/Xt1KIhYvdj-OW4QAjIPqxPFx2HSLTHGfDpw40wIkPRBJAmP1mjysgVbPYqjlB8o.iwwBAb-jUDbhbl3x" target="_blank"><i class="video icon"></i>Synchronous</a>
+                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/1nLaeZYzu1wLByzWv6Muo_KHisfRb-ac5" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
+              </p>
+              <p>L04 ARM and C to ARM<br>
+                <a class="ui label" href="https://drive.google.com/file/d/1v-nTIKH_--JCYodnf5RHc6IySTYUAHKU/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/5A59A07ceXl9DmS5pm_vPwm8cX9PpfpLDBFdvNJiHw1fSQ9Ayz4bGnISOLIVMkff.BUDfW8VpcU6I81RL" target="_blank"><i class="video icon"></i>Synchronous</a>
+                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/11sGsGg8D2sEdtgmnnj97Hl63uB7aAOYS" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
+              </p>
+            </td>
+            <td>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/hOiEwrIZXQqwKziuWs679s3uTEb23ocVc-qNaoqqlIeieW8STFIZF__kryVTx0ob.jrSXJktU2sTghVBu" target="_blank"><i class="video icon"></i>Week 2 Discussion - Hershal</a>
+                <a class="ui label" href="https://umich.zoom.us/rec/share/u-3nO5PyLb61W0tLLE2VZG5XP21UOmaLBbOiqqYnleIfbZIxWfsJuNqP8aMAMfFU.K6qlNIfYrRjPxncr" target="_blank"><i class="video icon"></i>Week 2 Discussion - Abigail</a>
+            </td>
+            <td>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui section divider"></div>
+
+    <!-- Discussions section -->
+    <h2 id="discussions">Discussions</h2>
+    <ul>
+        <li>Abigail - Monday 4:30pm – 5:30pm (https://umich.zoom.us/j/94520936732)</li>
+        <li>Hershal - Friday 1:30pm – 2:30pm (https://umich.zoom.us/j/97135367624)</li>
+        <li>Alex - Friday 3:30pm - 4:30pm (https://umich.zoom.us/j/95948690503)</li>
+    </ul>
+
+    <div class="ui three stackable cards" id="project-cards">
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/drive/folders/19pitKXD9YnssfR7nAbc_jKGJyClbmTve">
+            <div class="content">
+            <div class="header">
+                Discussion Pods
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/drive/folders/1KUefovDP1AazzwizioH-E-QUR0X7F3AP">
+            <div class="content">
+            <div class="header">
+                Discussion Slides
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/drive/folders/1dAp7qBjVQ_3zWLo8naPghQZpM9FW584w">
+            <div class="content">
+            <div class="header">
+                Review Slides
+            </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="ui section divider"></div>
+
+      <!-- Projects section -->
+      <h2 id="projects">Projects</h2>
+      <div class="ui three stackable cards" id="project-cards">
+
+        <!-- <a class="ui raised card" target="_blank" href="https://github.com/eecs485staff/issues/issues/new/choose">
+          <div class="content">
+            <div class="header">
+              <i class="bug alternate icon"></i>
+              Feedback
+            </div>
+            <div class="description">
+              <p>Report a bug in a project or lab</p>
+            </div>
+          </div>
+        </a> -->
+
+        <a class="ui raised card" target="_blank" href="projects/p1_spec.html">
+          <div class="content">
+            <div class="header">
+              Project 1
+            </div>
+            <div class="description">
+              <p> Assembler, Simulator, Assembly-Language Multiplier</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="projects/p2_spec.html">
+          <div class="content">
+            <div class="header">
+              Project 2
+            </div>
+            <div class="description">
+              <p>Assembler, Linker, Assembly-Language Combination</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="projects/p3_spec.html">
+          <div class="content">
+            <div class="header">
+              Project 3
+            </div>
+            <div class="description">
+              <p>Pipeline Simulator</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="projects/p4_spec.html">
+          <div class="content">
+            <div class="header">
+              Project 4
+            </div>
+            <div class="description">
+              <p>Cache Simulator</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      <div class="ui section divider"></div>
+
+      <!-- Resources section -->
+      <h2 id="resources">Resources</h2>
+      <div class="ui three stackable cards">
+
+        <!-- Simulators -->
+        <a class="ui raised card" target="_blank" href="http://vhosts.eecs.umich.edu/370simulators/cache/simulator.html">
+          <div class="content">
+            <div class="header">
+              Cache Simulator
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="http://vhosts.eecs.umich.edu/370simulators/pipeline/simulator.html">
+          <div class="content">
+            <div class="header">
+              Pipeline Simulator
+            </div>
+            <div class="description">
+              <p>Note this is explicitly a simulator for the pipeline as presented in class</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- ARM assembly -->
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/open?id=1ysv_I8FjC00oIY_Td9UbgCzsQwdlpPzQ">
+          <div class="content">
+            <div class="header">
+                ARMv8 (LEG) Cheat Sheet
+            </div>
+          </div>
+        </a>
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/ARM-v8-Quick-Reference-Guide.pdf">
+          <div class="content">
+            <div class="header">
+                ARMv8 (LEG) Quick Reference Guide
+            </div>
+          </div>
+        </a>
+        <a class="ui raised card" target="_blank" href="https://www.element14.com/community/servlet/JiveServlet/previewBody/41836-102-1-229511/ARM.Reference_Manual.pdf">
+          <div class="content">
+            <div class="header">
+                ARMv8 (LEG) Reference Manual
+            </div>
+          </div>
+        </a>
+        <a class="ui raised card" target="_blank" href="https://yurichev.com/mirrors/ARMv8-A_Architecture_Reference_Manual_(Issue_A.a).pdf">
+          <div class="content">
+            <div class="header">
+                ARMv8 (LEG) Full Reference Manual
+            </div>
+          </div>
+        </a>
+
+        <!-- Programming and Debugging -->
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/ccc.html">
+          <div class="content">
+            <div class="header">
+                C for C++ users by Ian Cooke
+            </div>
+            <div class="description">
+              <p> Guide to using C with prior C++ knowledge</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="http://c-faq.com/">
+          <div class="content">
+            <div class="header">
+                comp.lang.c Frequently Asked Questions
+            </div>
+            <div class="description">
+              <p>Note this is explicitly a simulator for the pipeline as presented in class</p>
+            </div>
+          </div>
+        </a>
+        
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/gdb_tutorial.html">
+          <div class="content">
+            <div class="header">
+                GDB brief tutorial
+            </div>
+            <div class="description">
+              <p>Learn to debug using GDB</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/gdb_refcard.ps">
+          <div class="content">
+            <div class="header">
+                GDB reference card (in .ps)
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/number_systems.html">
+          <div class="content">
+            <div class="header">
+                Binary, Hex, and 2's complement
+            </div>
+            <div class="description">
+              <p>Includes practice questions</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/Symbol-Relocation-Data-Mapping.pdf">
+          <div class="content">
+            <div class="header">
+                Symbol and Relocation Table Guide
+            </div>
+          </div>
+        </a>
+
+    </div>
+    <div class="ui section divider"></div>
+
+      <!-- Exams section -->
+      <h2 id="exams">Exams</h2>
+      <ul>
+          <li>Midterm: 10/20 7:00 pm</li>
+          <li>Final: 12/14 10:30 am</li>
+      </ul>
+
+      <div class="ui three stackable cards" id="project-cards">
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/drive/folders/1XQmPfXW5xwwus3GtRdc5XS39GgOwblgn">
+            <div class="content">
+            <div class="header">
+                Practice Final Solutions
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://drive.google.com/drive/folders/1cZ823hkyGKsRRqjFaM2bBycRHt0vhK59">
+            <div class="content">
+            <div class="header">
+                Practice Finals
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://docs.google.com/document/d/1Hwo3zMpmxBT6CsOHa3RK8LiUY_vHLNym6022HThqB3E/edit?usp=drive_web">
+            <div class="content">
+            <div class="header">
+                Online Final Exam Instructions
+            </div>
+            </div>
+        </a>
+    </div>
+
+
+      <div class="ui section divider"></div>
+
+      <!-- Administrative Requests section -->
+      <h2 id="admin">Administrative Requests</h2>
+
+      <div class="ui three stackable cards" id="project-cards">
+        <a class="ui raised card" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScbpGd0_R5jam0pDrz8F1qH_MRVSAgZ8f7iJTPDbYbWWzKyOQ/viewform?usp=sf_link">
+            <div class="content">
+            <div class="header">
+                General Admin Requests
+            </div>
+            <div class="description">
+                <p>For general administrative requests</p>
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://forms.gle/y7Qugw9RjVRzvtDu6">
+            <div class="content">
+            <div class="header">
+                Exam Conflict Form
+            </div>
+            <div class="description">
+                <p>Please declare all exam conflicts by September 22nd 2020. In extraordinary circumstances, we will offer an alternate time for taking your exam.</p>
+            </div>
+            </div>
+        </a>
+
+        <a class="ui raised card" target="_blank" href="https://forms.gle/ecJ7nzgytdxaA3vDA">
+            <div class="content">
+            <div class="header">
+                Special Accomodations Form
+            </div>
+            <div class="description">
+                <p>If you think you need an accommodation for a disability, please let us know by September 22nd for BOTH the Midterm and Final.</p>
+            </div>
+            </div>
+        </a>
+      </div>
+
+      <div class="ui section divider"></div>
+
+
+      <!-- Staff section -->
+      <h2 id="staff">Staff</h2>
+      <p>When you have a question related to the material taught in class, in the book, or a general homework/project question, use the class forum (Piazza) first. First, check to see if your question has been asked. If not, post the question to the forum. This will allow other students with the same question to see the answer. It will also allow your question to be answered by other students in addition to the instruction staff. Effective use of the forum will make the class run more efficiently for both students and the staff.</p>
+      <p>For submitting any administrative requests, including exam conflicts and SSD, please check the tab ''Administrative Requests'' on the left of this screen.</p>
+      <div class="ui three stackable cards">
+
+        <!-- Instructors -->
+        
+        <div class="ui card">
+          <a class="image" href="" target="_blank">
+            <img src="images/warthur.png" alt="warthur"/>
+          </a>
+          <div class="content">
+            <a class="header" href="https://andrewdeorio.com" target="_blank">
+              Bill Arthur
+            </a>
+            <div class="description">
+              <p><i class="icon envelope"></i>warthur@umich.edu</p>
+              <!-- <p><i class="icon calendar"></i>10:30 1109 FXB</p>
+                   <p><i class="icon calendar"></i>3:00 1060 FMCRB</p> -->
+              <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/jbbeau.png" alt="jbbeau"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Jon Beaumont
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
+              <!-- <p><i class="icon calendar"></i>4:30 1670 BBB</p>
+                   <p><i class="icon calendar"></i>6:00 1013 DOW</p> -->
+              <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/nsatish.png" alt="nsatish"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Satish Narayanasamy
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>nsatish@umich.edu</p>
+              <!-- <p><i class="icon calendar"></i>4:30 1670 BBB</p>
+                   <p><i class="icon calendar"></i>6:00 1013 DOW</p> -->
+              <!-- <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- IAs/GSIs -->
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/abifox.png" alt="abifox"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Abigail Fox
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>abifox@umich.edu</p>
+              <p><i class="icon apple"></i>MacOS</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/yujiaxie.png" alt="yujiaxie"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Yujia Xie
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>yujiaxie@umich.edu</p>
+              <p><i class="icon apple"></i>MacOS, <i class="icon linux"></i>Linux</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/jackhong.png" alt="jackhong"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Jack Hong
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>jackhong@umich.edu</p>
+              <p><i class="icon linux"></i>Linux</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/gminn.png" alt="gminn"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Gillian Minnehan
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>gminn@umich.edu</p>
+              <p><i class="icon apple"></i>MacOS</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/hsatam.png" alt="hsatam"/>
+          </div>
+          <div class="content">
+            <div class="header">
+              Hershal Satam
+            </div>
+            <div class="description">
+              <p><i class="icon envelope"></i>hsatam@umich.edu</p>
+              <p><i class="icon windows"></i>Windows, <i class="icon linux"></i>Linux</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- ui stackable cards -->
+
+      <div class="ui section divider"></div>
+
+    </div><!-- ui text container -->
+  </div>
+
+  <footer>
+    <div class="ui inverted menu">
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  <script>
+   // Sidebar show and hide logic.
+   //
+   // On large screens, show the sidebar by default.  On small screens, hide it.
+   (function() {
+     renderSidebar();
+   })();
+
+   function isSmallScreen() {
+     return screen.width < 900;
+   }
+
+   function renderSidebar() {
+     $sidebar = $('.ui.sidebar');
+     $sidebar.sidebar({
+       dimPage: false,
+       transition: 'overlay',
+       mobileTransition: 'overlay',
+       exclusive: false,
+       closable: false
+     });
+     $sidebar.sidebar('attach events', '#left-sidebar-toggle');
+     if (!isSmallScreen()) {
+       $sidebar.sidebar('toggle');
+     }
+   }
+  </script>
+
+  <script>
+   // Insert Google Calendar in <div id="calendar">
+   //
+   // REMINDER: update googleCalendarId each semester
+   //
+   // Uses the FullCalendar library and connects to Google Calendar
+   // https://fullcalendar.io/docs
+   // https://fullcalendar.io/docs/google-calendar
+   document.addEventListener('DOMContentLoaded', function() {
+     var calendarEl = document.getElementById('calendar');
+     var calendar = new FullCalendar.Calendar(calendarEl, {
+       // Google Calendar API, DO NOT CHANGE
+       // https://fullcalendar.io/docs/google-calendar
+       googleCalendarApiKey: 'AIzaSyAiEWXOLNCeznI7k6r0-taknkWGh0rcRwU',
+
+       // Google Calendar ID CHANGE THIS EACH SEMESTER
+       events: {
+         // TODO: Update this Google calendar ID based on the Google calendar URL
+         googleCalendarId: 'c_gef62vt225u7m46dnn97ft9rds@group.calendar.google.com',
+       },
+
+       // Tool bar options.  Hide "today" button on mobile to save space.
+       // https://fullcalendar.io/docs/headerToolbar
+       headerToolbar: {
+         end: isSmallScreen() ? 'prev,next' : 'today prev,next',
+       },
+
+       // View options
+       // https://fullcalendar.io/docs/timegrid-view
+       initialView: isSmallScreen() ? 'timeGridDay' : 'timeGridWeek',
+       allDaySlot: true,
+       nowIndicator: true,
+       scrollTime: "08:00:00",
+
+       // Selectively recolor calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventContent: recolorCalendarEvent,
+
+       // Add click-for-popup to calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventDidMount: addPopup,
+
+       aspectRatio: isSmallScreen() ? .75 : 1.35,
+     });
+     calendar.render();
+   });
+
+   function recolorCalendarEvent(arg) {
+     // TODO: Consider updating these strings based on your Google Calendar needs
+     // Change calendar event colors based on string prefix
+     var color_basil = 'rgb(57, 125, 73)';
+     var color_cornflowerblue = 'rgb(100, 149, 237)';
+     var color_blueberry = 'rgb(64, 84, 175)';
+     var color_saddlebrown = 'rgb(119, 33, 32)';
+     var color_darkseagreen = 'rgb(143, 188, 143)';
+     if (
+       arg.event.title.toLowerCase().includes('due') ||
+       arg.event.title.toLowerCase().includes('deadline') ||
+       arg.event.title.toLowerCase().includes('exam')
+     ) {
+       arg.backgroundColor = color_saddlebrown;
+       arg.borderColor = color_saddlebrown;
+     }
+     else if (arg.event.title.toLowerCase().includes('lecture')) {
+       arg.backgroundColor = color_darkseagreen;
+       arg.borderColor = color_darkseagreen;
+     }
+     else if (arg.event.title.toLowerCase().includes('lab')) {
+       arg.backgroundColor = color_basil;
+       arg.borderColor = color_basil;
+     }
+     else if (arg.event.title.toLowerCase().includes('proffice hours')) {
+       arg.backgroundColor = color_blueberry;
+       arg.borderColor = color_blueberry;
+     }
+     else if (arg.event.title.toLowerCase().includes('oh')) {
+       arg.backgroundColor = color_cornflowerblue;
+       arg.borderColor = color_cornflowerblue;
+     }
+     else if (arg.event.title.toLowerCase().includes('office hour')) {
+       arg.backgroundColor = color_cornflowerblue;
+       arg.borderColor = color_cornflowerblue;
+     }
+
+   }
+
+   function addPopup(arg) {
+     // Add a popup to a calendar event
+     //
+     // arg.event.extendedProps contains extra information from the Google
+     // Calendar event, e.g., description and location.
+     var element = arg.el;
+     var location = arg.event.extendedProps.location || '';
+     var description = arg.event.extendedProps.description || '';
+
+     // Remove link to Google Calendar automatically added by FullCalendar
+     $(element).removeAttr('href');
+
+     // Add Popup to DOM, links in the location field are clickable
+     // https://semantic-ui.com/modules/popup.html#/usage
+     //
+     // NOTE: overflow:scroll avoids text spilling out of the popup on iOS.
+     if (location.toLowerCase().startsWith('http')) {
+       var location_html = `<a href="${location}" target="_blank">${location}</a>`;
+     } else {
+       var location_html = `${location}<br>${description}`;
+     }
+     $(element).popup({
+       on: 'click',
+       html: `
+         <div class="header">${arg.event.title}</div>
+         <div class="content" style="overflow:auto">${location_html}</div>
+       `,
+     });
+   }
+  </script>
+
+</body>
+</html>

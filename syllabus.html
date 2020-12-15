@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO: Update references to EECS 370 -->
+  <meta name="description" content="EECS 370">
+  <meta name="keywords" content="EECS370, EECS 370, Introduction to Computer Introduction, Syllabus">
+  <title>EECS 370 Syllabus</title>
+
+  <!-- Fomantic UI CSS library https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider --> 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+</head>
+
+<body>
+  <!-- Main page  -->
+  <div class="pusher">
+    <div class="ui text container">
+
+      <h1>EECS 370: Intro to Computer Organization Syllabus</h1>
+      <p><i>The University of Michigan, Fall 2020</i></p>
+      <p>This course is intended to give you a basic understanding of how computers execute programs. Understanding computers means understanding the hardware/software process of how you and the computer work together to have the computer carry out a task.</p>
+      <p>In your introductory programming courses (e.g. EECS 280), you learned how to express a task in terms of a high-level programming language such as C or C++. In EECS 370, you will see how a low-level language is executed by the hardware, and you will see how to put together basic hardware building blocks to form the functional units of a computer.</p>
+      <p>To achieve these goals, you will design and "build" simple computers at various levels of detail. In this course, building will not mean connecting chips and gates. Rather, you will describe the hardware in diagrams, finite-state machines, and hardware simulators (written in C). To further your understanding of other topics, we will provide practice questions that will be discussed in small "discussion pods" (see below).</p>
+
+      <h2>Instructors</h2>
+      <p>Bill Arthur, Jon Beaumont, and Satish Narayanasamy</p>
+
+      <h3>Prerequisites</h3>
+      <p>Students must have taken EECS 280. From that course they should have learned and be comfortable with programming C++ on Unix. A brief overview of C vs. C++ will occur during the first discussion section of the semester. Also you can go to staff office hours for additional help.</p>
+      <p>In addition, students should have taken either EECS 203 or EECS 270</p>
+
+      <h3>Class Projects</h3>
+      <p>Four projects will be assigned during the term, each of which will require a substantial time commitment on your part. The first project will be divided in three parts, each with a separate deadline. Many students find the work load in this course to be heavy.</p>
+      <p>The most common reason for not doing well on the projects is not starting them early enough. You will be given plenty of time to complete each project. However, if you wait until the last minute to start, you may not be able to finish. Plan to do some work on a project every day. Also plan to have it finished about 2 days ahead of the due date - many unexpected problems arise during programming, especially in the debugging phase. Office hours can become quite crowded as deadlines approach, making it difficult to get help. Plan for these things to happen. Your lack of starting early is not an excuse for turning in your project late, even if some unfortunate situations arise such as having your computer crash.</p>
+      <p>There are many sources of help on which you can draw. Many questions can be submitted to the course staff and your fellow classmates via Piazza. These will typically be answered within the day, often more quickly during working hours. However, some types of questions cannot be answered without seeing your project. If you have detailed questions on your program, speak to a GSI or professor during office hours.</p>
+      <p>Students are also encouraged to help one another on the course concepts (but not the implementation of the projects). One of the best ways for you to make sure that you understand a concept is to explain it to someone else. Keep in mind, however, that you should not expect anyone else to do any part of your project for you. The project that you turn in must be completely your own.</p>
+      <p>Many computing sites have consultants who are available to help you at the site. They are fine sources of help with questions regarding the computers and installed software (such as Unix and the C compiler). However, they are not likely to be able to help you with questions about computer programming, the C language, or specific errors in your program.</p>
+
+
+      <h3>Turning in Projects</h3>
+      <p>Projects are due at 11:55pm Eastern time exactly on the due date.</p>
+      <!--- TODO: add link to autograder ---->
+      <p>You will be submitting your projects electronically by going to <a href="https://autograder.io/" target="_blank">autograder.io</a>. Your projects will be graded automatically using an autograder program. You are allowed to submit your programs as frequently as you wish. However, to deter you from using the autograder as a debugger, you will receive autograder feedback only FIVE TIMES a day. That is, only the first 5 submissions will be graded and returned to you with your score on any given day. Additional submissions beyond the initial 5 will be graded and recorded, but you will not receive any feedback about them. For each project, your final score will be derived from your best submission to the autograder.</p>
+
+      <h3>Extensions</h3>
+      <p>Sometimes unexpected problems make it difficult to get a project in on time. For this reason, each person will have a total of 3 free late days to be used for projects throughout the semester. These late days should only be used to deal with unexpected problems such as illness. They should not be used simply to start later on a project or because you are having difficulty completing the project. Thus, please plan your work accordingly so that you won't need to use any of the late days unless there is a personal emergency. If you are having trouble understanding the material or designing a program, please come to office hours for help right away.</p>
+
+      <h3>Project Grading</h3>
+      <p>The projects will be graded primarily for correctness (doing all the required tasks, simulating at the correct hardware level, and giving correct results). All grading questions should first be discussed with a GSI or IA. If you cannot resolve a problem with them, bring the project to the instructor.</p>
+
+      <h3>Doing Your Own Project</h3>
+      <b>All projects and exams in this course are to be done on your own. Any suspected violation will result in the initiation of formal procedures with the LS&A or Engineering Honor Council. Violators will receive a 0 in the project, in addition to additional grade repercussions, as recommended by the appropriate Honor Council.</b>
+      <p>We will be using a sophisticated automated program to correlate projects, including those submitted in previous semesters.</p>
+      <p>We do encourage students to help each other learn the course material. As in most courses, there is a boundary separating these two situations. You may give or receive help on any of the concepts covered in lecture or discussion and on the specifics of C syntax. You are allowed to consult with other students in the current class to help you understand the project specification (i.e. the problem definition). However, you may not collaborate in any way when constructing your solution - the solution to the project must be generated by your work alone and the work of other students must not have contributed to your solution. You are not allowed to work out the programming details of the problems with anyone or to collaborate to the extent that your programs are identifiably similar. You are not allowed to look at or in any way derive advantage from the existence of project specifications or solutions prepared in prior years (e.g. programs written by former students, solutions provided by instructors, project handouts).</p>
+      <p>If you have any questions as to what constitutes unacceptable collaboration, please talk to the instructor right away. You are expected to exercise reasonable precautions in protecting your own work. Do not leave your program in a publicly accessible directory, and take care when discarding printouts.</p>
+
+      <h3>Exams</h3>
+      <p>There will be two exams this semester. You are expected to take the exams at the scheduled times. If you do not take an exam without verifying a documented medical or personal emergency causing you to miss an exam, you will receive a zero for that exam. If you anticipate conflicts with the exam time, declare your conflicts by 9/24/20. The exam dates are given near the beginning of the semester so you can avoid scheduling job interviews or other commitments on exam days. Outside commitments are not considered a valid reason for missing an exam. If you need to request any special accommodation during any exam, please bring the necessary paperwork from the SSD office by the end of the first month of classes.</p>
+
+      <h3>Homework</h3>
+      <p>There will be six individual homework assignments during the semester, and there is NO late day for homework assignments. Your homework assignments will be posted on this website and will have a deadline set at 11:55pm for the day the homework is due on Gradescope. Students can re-submit as much as they would like until the deadline. Only the last submission will be graded. The files can be typed up or written and then scanned. You will be able to drop one homework assignment. Late assignments (even 1 minute late) turned in within 24 hours of when they are due will generally get 50% credit. Later assignments will get a zero. Do note that you can drop one homework score.</p>
+      <p>Further, you will have group assignments. These will be done in groups of four or five, with just one assignment turned in on Gradescope for the entire group. Group assignments will be completed within the Discussion Pods detailed below. Please be sure to have each member's name on the scanned document and to turn in the assignment as a group assignment with everyone's name on Gradescope.</p>
+      <p>You may not post homework answers on piazza or place them in any other public forum (a webpage for example) or share them with others. Note that homework constitutes a fairly small factor in your final grade. Their main purpose is to help you in getting trained for the type of questions that you will find in the course exams.</p>
+
+      <h3>Discussion Pods</h3>
+      <p>For this semester, due to the challenges associated with collaborative learning with remote instruction, we will be facilitating an alternate form of discussion. A reduced number of live, interactive discussion sections will still be led by student staff. These will be both streamed live, as well as recorded and made available to all students afterward. In addition, you will be required to attend a one hour-long “discussion pod” per week with your homework group, which you will schedule with the course staff and attend on Zoom. This time is intended to be used to work through the group homework assignment or discuss the course material. For 15 minutes of this hour, a staff member will join your pod to facilitate conversation and to answer any questions you have on the material or assignment. Attendance is required to receive full credit on the assignment. The staff member will not assist with any project debugging during this time.</p>
+      <p>We will send out information in the first week of class to facilitate forming groups and scheduling times for your pod. Attendance is mandatory to receive full credit for the assignment.</p>
+      <p>This is a new layout. We may augment, change, or replace this scheme entirely based on feedback from you and the course staff. We appreciate your flexibility and patience.</p>
+
+      <h3>Grading Policy</h3>
+      <p>Final grades will be based on the total points earned on homework, projects and exams. Factors such as class participation may be used to adjust your final grade, especially if it falls on a borderline. The grade distribution is as follows:</p>
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th>Assignment</th>
+            <th>Percentage of Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Projects</td>
+            <td>4 assignments x 10% each= 40%</td>
+          </tr>
+          <tr>
+            <td>Individual Homework (drop the lowest)</td>
+            <td>5%</td>
+          </tr>
+          <tr>
+            <td>Discussion pod assignments (drop 2 lowest)</td>
+            <td>3%</td>
+          </tr>
+          <tr>
+            <td>Discussion pod attendance (drop 2 lowest)</td>
+            <td>2%*</td>
+          </tr>
+          <tr>
+            <td>Midterm</td>
+            <td>25%</td>
+          </tr>
+          <tr>
+            <td>Final exam</td>
+            <td>25%</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>100%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Optional: 3% of the midterm and final's score weight (combined) can be replaced with participation score (see below)</p>
+      <p>*UPDATE TO DISCUSSION POD ATTENDANCE POLICY: Students who are absent for two or fewer appointments with staff will receive the full 2%. A linearly decreasing score will be used for students who miss more. Absences caused by exceptional circumstances will be considered on a case-by-case basis.</p>
+
+      <h3>Participation</h3>
+      <p>You can earn participation points in two ways, depending on whether you are engaging in the synchronous or asynchronous lectures:</p>
+      <ol>
+        <li>Synchronous lectures- Live polling will be conducted during lectures through Zoom, with your responses recorded. A linear score will be calculated based on how many polls you respond to. Responding to 2/3 or more of the polls will garner full points.</li>
+        <li>Asynchronous lectures- Quizzes covering the lecture material will be administered regularly via Canvas and graded to determine your participation score. The time windows that you can take these quizzes will be made available on Canvas</li>
+      </ol>
+      <p>Participation is not required, but if doing so increases your grade, 3% of the exams' weight in your overall grade will be replaced with the participation score. You may choose either method (and switch between them), regardless of which section you are enrolled in.</p>
+
+      <h3>COVID-19 Policy</h3>
+      <p>If at any point you become unable to complete your work due to factors related to the COVID-19 pandemic (e.g. you or a loved one becomes infected or loses their job, you lose prolonged access to the internet, etc.), please contact the staff as soon as you can. We will do our best to work with you to find a solution. If this happens near the start of term, we may encourage you to drop the course. If it occurs later, we may encourage you to take an “Incomplete” for the term to finish your work after the semester has ended.</p>
+
+      <h3>Computers</h3>
+      <p>You may develop on any machine that runs gcc. However, we will only support programs which run correctly on a CAEN machine. If you are not an engineering student (or declared CS-major), we recommend you to get a CAEN account. The autograder should work for submissions from ITCS Linux workstations, but we cannot guarantee this.</p>
+      <p>Finally, you are responsible for reading your umich e-mail inbox: class announcements and other student communications may be sent there.</p>
+
+      <div class="ui section divider"></div>
+    </div><!-- ui text container -->
+  </div>
+
+  <footer>
+    <div class="ui inverted menu">
+    </div>
+  </footer>
+
+</body>
+</html>

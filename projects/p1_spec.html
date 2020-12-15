@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:locale" content="en_US" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"/p1_sesh_test.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <!-- BEGIN CUSTOM SPEC CODE -->
+        
+        <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/css/primer-spec-base.css">
+        <link rel="preload" href="https://eecs485staff.github.io/primer-spec/assets/js/primer_spec_plugin.min.js" as="script" crossorigin>
+        <!-- END CUSTOM SPEC CODE -->
+    </head>
+    <body>
+        <!-- Actual content -->
+        <!-- 
+            The explicit onClick handler is needed to force Safari (iOS) to propagate
+            click events for the sidebar.
+        -->
+        <div id="primer-spec-plugin-main-content" onClick="return true;">
+            
+
+            <h1 class="primer-spec-toc-ignore" id="project-1--eecs-370-winter-2020">Project 1  EECS 370 (Fall 2020)</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Worth:</td>
+      <td>100 points</td>
+    </tr>
+    <tr>
+      <td>Assigned:</td>
+      <td>Tuesday, September 1, 2020</td>
+    </tr>
+    <tr>
+      <td>Part 1a Due:</td>
+      <td>11:55 pm, Thursday, September 17, 2020</td>
+    </tr>
+    <tr>
+      <td>Part 1s &amp; 1m Due:</td>
+      <td>11:55 pm, Thursday, September 24, 2020</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="1-purpose">1. Purpose</h1>
+
+<p>This project is intended to help you understand the instructions of a very
+simple assembly language and how to assemble programs into machine language.</p>
+
+<h1 id="2-problem">2. Problem</h1>
+
+<p>This project has three parts.  In the <a href="#4-lc-2k-assembly-language-and-assembler-40">first part</a>, you will write a program
+to take an assembly-language program and produce the corresponding machine
+language.  In the <a href="#5-behavioral-simulator-40">second part</a>, you will write a behavioral simulator for
+the resulting machine code.  In the <a href="#6-assembly-language-multiplication-20">third part</a>, you will write a short
+assembly-language program to multiply two numbers.</p>
+
+<h1 id="3-lc-2k-instruction-set-architecture">3. LC-2K Instruction-Set Architecture</h1>
+
+<p>In this and several of the following projects, you will be gradually building
+the LC-2K (Little Computer 2000). The LC-2K is very simple, but it is general
+enough to solve complex problems. For this project, you will only need to
+know the instruction set and instruction format of the LC-2K.</p>
+
+<p>The LC-2K is an 8-register, 32-bit computer.  All addresses are
+word-addresses.  The LC-2K has 65536 words of memory.  By assembly-language
+convention, register 0 will always contain 0 (i.e. the machine will not enforce
+this, but no assembly-language program should ever change register 0 from its
+initial value of 0).</p>
+
+<h2 id="31-instruction-formats">3.1. Instruction Formats</h2>
+
+<p>There are 4 instruction formats (bit 0 is the least-significant bit).  Bits
+31-25 are unused for all instructions, and should always be 0.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>R-type instructions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">nor</code>)</td>
+      <td>bits 24-22: <code class="highlighter-rouge">opcode</code> <br /> bits 21-19: <code class="highlighter-rouge">reg A</code> <br /> bits 18-16: <code class="highlighter-rouge">reg B</code> <br /> bits 15-3: <code class="highlighter-rouge">unused</code> (should all be 0) <br /> bits 2-0: <code class="highlighter-rouge">destReg</code></td>
+    </tr>
+    <tr>
+      <td>I-type instructions (<code class="highlighter-rouge">lw</code>, <code class="highlighter-rouge">sw</code>, <code class="highlighter-rouge">beq</code>)</td>
+      <td>bits 24-22: <code class="highlighter-rouge">opcode</code> <br /> bits 21-19: <code class="highlighter-rouge">reg A</code> <br /> bits 18-16: <code class="highlighter-rouge">reg B</code> <br /> bits 15-0:  <code class="highlighter-rouge">offsetField</code> (a 16-bit, 2s complement number with a range of -32768 to 32767)</td>
+    </tr>
+    <tr>
+      <td>J-type instructions (<code class="highlighter-rouge">jalr</code>)</td>
+      <td>bits 24-22: <code class="highlighter-rouge">opcode</code> <br /> bits 21-19: <code class="highlighter-rouge">reg A</code> <br /> bits 18-16: <code class="highlighter-rouge">reg B</code> <br /> bits 15-0: <code class="highlighter-rouge">unused</code> (should all be 0)</td>
+    </tr>
+    <tr>
+      <td>O-type instructions (<code class="highlighter-rouge">halt</code>, <code class="highlighter-rouge">noop</code>)</td>
+      <td>bits 24-22: <code class="highlighter-rouge">opcode</code> <br /> bits 21-0: <code class="highlighter-rouge">unused</code> (should all be 0)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="32-description-of-machine-instructions">3.2. Description of Machine Instructions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Assembly language name for instruction</th>
+      <th style="text-align: center">Opcode in binary (bits 24, 23, 22)</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">add</code><br />(R-type format)</td>
+      <td style="text-align: center">000</td>
+      <td>Add contents of <code class="highlighter-rouge">regA</code> with contents of <code class="highlighter-rouge">regB</code>, store results in <code class="highlighter-rouge">destReg</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nor</code><br />(R-type format)</td>
+      <td style="text-align: center">001</td>
+      <td>Nor contents of <code class="highlighter-rouge">regA</code> with contents of <code class="highlighter-rouge">regB</code>, store results in <code class="highlighter-rouge">destReg</code>.  This is a bitwise nor; each bit is treated independently.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">lw</code><br />(I-type format)</td>
+      <td style="text-align: center">010</td>
+      <td>Load <code class="highlighter-rouge">regB</code> from memory. Memory address is formed by adding <code class="highlighter-rouge">offsetField</code> with the contents of <code class="highlighter-rouge">regA</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">sw</code><br />(I-type format)</td>
+      <td style="text-align: center">011</td>
+      <td>Store <code class="highlighter-rouge">regB</code> into memory. Memory address is formed by adding <code class="highlighter-rouge">offsetField</code> with the contents of <code class="highlighter-rouge">regA</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">beq</code><br />(I-type format)</td>
+      <td style="text-align: center">100</td>
+      <td>If the contents of <code class="highlighter-rouge">regA</code> and <code class="highlighter-rouge">regB</code> are the same, then branch to the address <code class="highlighter-rouge">PC+1+offsetField</code>, where <code class="highlighter-rouge">PC</code> is the address of this beq instruction.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">jalr</code><br />(J-type format)</td>
+      <td style="text-align: center">101</td>
+      <td>First store <code class="highlighter-rouge">PC+1</code> into <code class="highlighter-rouge">regB</code>, where <code class="highlighter-rouge">PC</code> is the address of this <code class="highlighter-rouge">jalr</code> instruction. Then branch to the address contained in <code class="highlighter-rouge">regA</code>. Note that this implies if <code class="highlighter-rouge">regA</code> and <code class="highlighter-rouge">regB</code> refer to the same register, the net effect will be jumping to <code class="highlighter-rouge">PC+1</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">halt</code><br />(O-type format)</td>
+      <td style="text-align: center">110</td>
+      <td>Increment the <code class="highlighter-rouge">PC</code> (as with all instructions), then halt the machine (let the simulator notice that the machine halted).</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">noop</code><br />(O-type format)</td>
+      <td style="text-align: center">111</td>
+      <td>Do nothing.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="4-lc-2k-assembly-language-and-assembler-40">4. LC-2K Assembly Language and Assembler (40%)</h1>
+
+<p>The first part of this project is to write a program to take an
+assembly-language program and translate it into machine language. You will
+translate assembly-language names for instructions, such as beq, into their
+numeric equivalent (e.g. 100), and you will translate symbolic names for
+addresses into numeric values. The final output will be a series of 32-bit
+instructions (instruction bits 31-25 are always 0).</p>
+
+<p>The format for a line of assembly code is (<code class="highlighter-rouge">&lt;white&gt;</code> means a series of tabs
+and/or spaces):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>label&lt;white&gt;instruction&lt;white&gt;field0&lt;white&gt;field1&lt;white&gt;field2&lt;white&gt;comments
+</code></pre></div></div>
+
+<p>The leftmost field on a line is the label field.  Valid labels contain a
+maximum of 6 characters and can consist of letters and numbers (but must start
+with a letter). The label is optional (the white space following the label
+field is required).  Labels make it much easier to write assembly-language
+programs, since otherwise you would need to modify all address fields each time
+you added a line to your assembly-language program!</p>
+
+<p>After the optional label is white space.  Then follows the instruction field,
+where the instruction can be any of the assembly-language instruction names
+listed in the above table.  After more white space comes a series of fields.
+All fields are given as decimal numbers or labels.  The number of fields
+depends on the instruction, and unused fields should be ignored (treat them
+like comments).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R-type instructions (add, nor) instructions require 3 fields: 
+    - field0 is regA
+    - field1 is regB
+    - field2 is destReg
+
+I-type instructions (lw, sw, beq) require 3 fields: 
+    - field0 is regA
+    - field1 is regB
+    - field2 is either a numeric value for offsetField or a
+        symbolic address. Numeric offsetFields can be positive
+        or negative; symbolic addresses are discussed below.
+
+J-type instructions (jalr) require 2 fields: 
+    - field0 is regA
+    - field1 is regB.
+
+O-type instructions (noop and halt) require no fields.
+</code></pre></div></div>
+
+<p>Symbolic addresses refer to labels.  For <code class="highlighter-rouge">lw</code> or <code class="highlighter-rouge">sw</code> instructions, the assembler
+should compute <code class="highlighter-rouge">offsetField</code> to be equal to the address of the label.  This could
+be used with a zero base register to refer to the label, or could be used with
+a non-zero base register to index into an array starting at the label.  For <code class="highlighter-rouge">beq</code>
+instructions, the assembler should translate the label into the numeric
+<code class="highlighter-rouge">offsetField</code> needed to branch to that label.</p>
+
+<p>After the last used field comes more white space, then any comments.  The
+comment field ends at the end of a line.  Comments are vital to creating
+understandable assembly-language programs, because the instructions themselves
+are rather cryptic.</p>
+
+<p>All valid LC-2K programs must have a newline character at the end of each line.
+Some text editors enforce this for the last line of the file, and some do not.
+Failing to have a newline on the last line of assembly code can lead to strange
+bugs that can be quite difficult to find.  Thus, be sure to end your assembly
+language files with newlines.  In many editors, you can guarantee this by putting
+a blank line at the end of the file, and then deleting the blank line.  Leaving a
+blank line in place is not recommended, as this will typically cause assembly
+to fail with an <code class="highlighter-rouge">unrecognized opcode</code> error.</p>
+
+<p>In addition to LC-2K instructions, an assembly-language program may contain
+directions for the assembler. The only assembler directive we will use is <code class="highlighter-rouge">.fill</code>
+(note the leading period). <code class="highlighter-rouge">.fill</code> tells the assembler to put a number into the
+place where the instruction would normally be stored. <code class="highlighter-rouge">.fill</code> instructions use
+one field, which can be either a numeric value or a symbolic address.  For
+example, <code class="highlighter-rouge">.fill 32</code> puts the value 32 where the instruction would normally be
+stored.  <code class="highlighter-rouge">.fill</code> with a symbolic address will store the address of the label.
+In the example below, <code class="highlighter-rouge">.fill start</code> will store the value 2, because the label
+<code class="highlighter-rouge">start</code> is at address 2. The bounds of the numeric value for <code class="highlighter-rouge">.fill</code> instructions
+are -2^31 to +2^31-1 (-2147483648 to 2147483647).</p>
+
+<p>The assembler should make two passes over the assembly-language program. In the
+first pass, it will calculate the address for every symbolic label.  Assume
+that the first instruction is at address 0.  In the second pass, it will
+generate a machine-language instruction (in decimal) for each line of assembly
+language.  For example, here is an assembly-language program (that counts down
+from 5, stopping when it hits 0).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        lw      0       1       five    load reg1 with 5 (symbolic address)
+        lw      1       2       3       load reg2 with -1 (numeric address)
+start   add     1       2       1       decrement reg1
+        beq     0       1       2       goto end of program when reg1==0
+        beq     0       0       start   go back to the beginning of the loop
+        noop
+done    halt                            end of program
+five    .fill   5
+neg1    .fill   -1
+stAddr  .fill   start                   will contain the address of start (2)
+
+</code></pre></div></div>
+
+<p>And here is the corresponding machine language:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(address 0): 8454151 (hex 0x810007)
+(address 1): 9043971 (hex 0x8a0003)
+(address 2): 655361 (hex 0xa0001)
+(address 3): 16842754 (hex 0x1010002)
+(address 4): 16842749 (hex 0x100fffd)
+(address 5): 29360128 (hex 0x1c00000)
+(address 6): 25165824 (hex 0x1800000)
+(address 7): 5 (hex 0x5)
+(address 8): -1 (hex 0xffffffff)
+(address 9): 2 (hex 0x2)
+</code></pre></div></div>
+
+<p>Be sure you understand how the above assembly-language program got translated
+to machine language.</p>
+
+<p>Since your programs will always start at address 0, your program should only
+output the contents, not the addresses.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8454151
+9043971
+655361
+16842754
+16842749
+29360128
+25165824
+5
+-1
+2
+</code></pre></div></div>
+
+<h2 id="41-running-your-assembler">4.1. Running Your Assembler</h2>
+
+<p>Write your program to take two command-line arguments.  The first argument is
+the file name where the assembly-language program is stored, and the second
+argument is the file name where the output (the machine-code) is written.
+For example, with a program name of <code class="highlighter-rouge">assemble</code>, an assembly-language program
+in <code class="highlighter-rouge">program.as</code>, the following would generate a machine-code file <code class="highlighter-rouge">program.mc</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./assemble program.as program.mc
+</code></pre></div></div>
+
+<p>Note that the format for running the command must use command-line arguments
+for the file names (rather than standard input and standard output).  Your
+program should store only the list of decimal numbers in the machine-code
+file, one instruction per line. The decimal numbers will range from -2^31 to
++2^31-1 (-2147483648 to 2147483647). Any deviation from this format (e.g. extra
+spaces or empty lines) will render your machine-code file ungradeable.  Any
+other output that you want the program to generate (e.g. debugging output) can
+be printed to standard output.</p>
+
+<h2 id="42-error-checking">4.2. Error Checking</h2>
+
+<p>Your assembler should catch the following errors in the assembly-language
+program:</p>
+<ul>
+  <li>Use of undefined labels</li>
+  <li>Duplicate labels</li>
+  <li><code class="highlighter-rouge">offsetFields</code> that dont fit in 16 bits</li>
+  <li>Unrecognized opcodes</li>
+</ul>
+
+<p>Your assembler should <code class="highlighter-rouge">exit(1)</code> if it detects an error and <code class="highlighter-rouge">exit(0)</code> if it finishes without detecting any errors.  Your
+assembler should NOT catch simulation-time errors, i.e. errors that would occur
+at the time the assembly-language program executes (e.g. branching to address
+-1, infinite loops, etc.).</p>
+
+<h2 id="43-test-cases">4.3. Test Cases</h2>
+
+<p>An integral (and graded) part of writing your assembler will be to write a
+suite of test cases to validate any LC-2K assembler.  This is common practice
+in the real world software companies maintain a suite of test cases for their
+programs and use this suite to check the programs correctness after a change.
+Writing a comprehensive suite of test cases will deepen your understanding of
+the project specification and your program, and it will help you a lot as you
+debug your program.</p>
+
+<p>The test cases for the assembler part of this project will be short
+assembly-language programs that serve as input to an assembler.  You will
+submit your suite of test cases together with your assembler, and we will grade
+your test suite according to how thoroughly it exercises an assembler.  Each
+test case may be at most 50 lines long, and your test suite may contain up to
+20 test cases.  These limits are much larger than needed for full credit (the
+solution test suite is composed of 5 test cases, each &lt; 10 lines long).  See
+<a href="#7-grading-auto-grading-and-formatting">Section 7</a> for how your test suite will be graded.</p>
+
+<p><strong>Hints:</strong> The example assembly-language program above is a good case to include
+in your test suite, though youll need to write more test cases to get full
+credit.  Remember to create some test cases that test the ability of an
+assembler to check for the errors in <a href="#42-error-checking">Section 4.2</a>.</p>
+
+<h2 id="44-assembler-hints">4.4. Assembler Hints</h2>
+
+<p>Since <code class="highlighter-rouge">offsetField</code> is a 2s complement number, it can only store numbers ranging
+from -32768 to 32767.  For symbolic addresses, your assembler will compute
+<code class="highlighter-rouge">offsetField</code> so that the instruction refers to the correct label.</p>
+
+<p>Remember that <code class="highlighter-rouge">offsetField</code> is only a 16-bit 2s complement number.  Since Linux
+integers are 32 bits, youll have to chop off all but the lowest 16 bits for
+negative values of <code class="highlighter-rouge">offsetField</code>.</p>
+
+<h1 id="5-behavioral-simulator-40">5. Behavioral Simulator (40%)</h1>
+
+<p>The second part of this assignment is to write a program that can simulate any
+legal LC-2K machine-code program.  The input for this part will be the
+machine-code file that you created with your assembler.  With a program name
+of <code class="highlighter-rouge">simulate</code> and a machine-code file of <code class="highlighter-rouge">program.mc</code>, your program should be
+run as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./simulate program.mc &gt; output
+</code></pre></div></div>
+
+<p>This directs all printfs to the file <code class="highlighter-rouge">output</code>.</p>
+
+<p>The simulator should begin by initializing all registers and the program
+counter to 0.  The simulator will then simulate the program until the program
+executes a halt.</p>
+
+<!-- TODO: It's not included...? -->
+
+<p>The simulator should call <code class="highlighter-rouge">printState</code> (included below) before executing each
+instruction and once just before exiting the program.  This function prints the
+current state of the machine (program counter, registers, memory).  <code class="highlighter-rouge">printState</code>
+will print the memory contents for memory locations defined in the machine-code
+file (addresses 0-9 in the <a href="#4-lc-2k-assembly-language-and-assembler-40">Section 4</a> example).</p>
+
+<h2 id="51-test-cases">5.1 Test Cases</h2>
+
+<p>As with the assembler, you will write a suite of test cases to validate any
+LC-2K simulator.</p>
+
+<p>The test cases for the simulator part of this project will be short, valid
+assembly-language programs that, after being assembled into machine code, serve
+as input to a simulator.  You will submit your suite of test cases together
+with your simulator, and we will grade your test suite according to how
+thoroughly it exercises an LC-2K simulator.  Each test case may execute at
+most 200 instructions on a correct simulator, and your test suite may contain
+up to 20 test cases.  These limits are much larger than needed for full credit
+(the solution test suite is composed of a couple test cases, each executing
+less than 40 instructions).  See <a href="#7-grading-auto-grading-and-formatting">Section 7</a> for how your test suite will be
+graded.</p>
+
+<h2 id="52-simulator-hints">5.2 Simulator Hints</h2>
+
+<p>Be careful how you handle <code class="highlighter-rouge">offsetField</code> for <code class="highlighter-rouge">lw</code>, <code class="highlighter-rouge">sw</code>, and <code class="highlighter-rouge">beq</code>. Remember that its a
+2s complement 16-bit number, so you need to convert a negative <code class="highlighter-rouge">offsetField</code> to
+a negative 32-bit integer on the Linux workstations (by sign extending it).
+One way to do this is to use the following function, also given in the starter
+code:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">convertNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* convert a 16-bit number into a 32-bit Linux integer */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">15</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">num</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">16</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An example run of the simulator (not for the specified task of multiplication)
+is included in <a href="#12-example-run-of-simulator">Section 12</a>.</p>
+
+<h1 id="6-assembly-language-multiplication-20">6. Assembly-Language Multiplication (20%)</h1>
+
+<p>The third part of this assignment is to write an assembly-language program to
+multiply two numbers.  Input the numbers by reading memory locations called
+<code class="highlighter-rouge">mcand</code> and <code class="highlighter-rouge">mplier</code>.  The result should be stored in register 1 when the
+program halts.  You may assume that the two input numbers are at most 15 bits
+and are positive; this ensures that the (positive) result fits in an LC-2K
+word. Remember that shifting left by one bit is the same as adding the number
+to itself.  Given the LC-2K instruction set, its easiest to modify the
+algorithm so that you avoid the right shift.  Submit a version of the program
+that computes (32766 * 10383).</p>
+
+<p>Your multiplication program must be reasonably efficient  it must be at most
+50 lines long and execute at most 1000 instructions for any valid input (this
+is several times longer and slower than the solution).  To achieve this,
+you are strongly encouraged to consider using a loop and shift algorithm
+to perform the multiplication; algorithms such as successive addition
+(e.g. multiplying 5 * 6 by adding 5 six times) will take too long.</p>
+
+<h1 id="7-grading-auto-grading-and-formatting">7. Grading, Auto-Grading, and Formatting</h1>
+
+<p>We will grade primarily on functionality, including error handling, correctly
+assembling and simulating all instructions, input and output format, method of
+executing your program, correctly multiplying, and comprehensiveness of the
+test suites.</p>
+
+<p>To help you validate your project, your submission will be graded automatically 
+after submission.  You may then continue to work on the
+project and re-submit.  To deter you from using the autograder as a debugger,
+you will receive feedback from the autograder only for the first <strong>FIVE
+SUBMISSIONS</strong> on any given day.  That is, you will receive feedback your
+score only three times on any given day.  All subsequent submissions will be
+silently graded.  Your final score will be derived from your overall best
+submission to the autograder.</p>
+
+<p>The feedback from the autograder will not be very illuminating; it wont tell
+you where your problem is or give you the test programs.  The purpose of the
+autograder is to let you know that you should keep working on your project
+(rather than thinking its perfect and ending up with a 0).  The best way to
+debug your program is to generate your own test cases, figure out the correct
+answers, and compare your programs output to the correct answer.  This is also
+one of the best ways to learn the concepts in the project.</p>
+
+<p>The student suite of test cases for the assembler and simulator parts of this
+project will be graded according to how thoroughly they test an LC-2K
+assembler or simulator.  We will judge thoroughness of the test suite by how
+well it exposes potential bugs in an assembler or simulator.</p>
+
+<p>For the assembler test suite, the auto-grader will use each test case as input
+to a set of buggy assemblers.  A test case exposes a buggy assembler by
+causing it to generate a different answer from a correct assembler.  The test
+suite is graded based on how many of the buggy assemblers were exposed by at
+least one test case.  This is known as <em>mutation testing</em> in the research
+literature on automated testing.</p>
+
+<p>For the simulator test suite, the auto-grader will correctly assemble each
+test case, then use it as input to a set of buggy simulators.  A test case
+exposes a buggy simulator by causing it to generate a different answer from a
+correct simulator.  The test suite is graded based on how many of the buggy
+simulators were exposed by at least one test case.  Note that the test cases
+for the simulator should all be valid, correct assembly language programs.</p>
+
+<p>Because all programs will be auto-graded, you must be careful to follow the
+exact formatting rules in the project description:</p>
+
+<ol>
+  <li>
+    <p><strong>(assembler)</strong> Follow exactly the format for inputting the assembly-language
+ program and outputting the machine-code file.</p>
+  </li>
+  <li>
+    <p><strong>(assembler)</strong> Call <code class="highlighter-rouge">exit(1)</code> if you detect errors in the assembly-language
+ program.  Call <code class="highlighter-rouge">exit(0)</code> if you finish without detecting errors.</p>
+  </li>
+  <li>
+    <p><strong>(simulator)</strong> Dont modify <code class="highlighter-rouge">printState</code> or <code class="highlighter-rouge">stateStruct</code> at all.  Download
+ this code into your program directly (don't re-type it) to
+ avoid typos.</p>
+  </li>
+  <li>
+    <p><strong>(simulator)</strong> Call <code class="highlighter-rouge">printState</code> exactly once before each instruction
+ executes and once just before the simulator exits.  Do not call
+ printState at any other time.</p>
+  </li>
+  <li>
+    <p><strong>(simulator)</strong> Dont print the sequence @@@ anywhere
+(except where the provided <code class="highlighter-rouge">printState</code> function prints it).</p>
+  </li>
+  <li>
+    <p><strong>(simulator)</strong> <code class="highlighter-rouge">state.numMemory</code> must be equal to the number of lines in the
+ machine-code file.</p>
+  </li>
+  <li>
+    <p><strong>(simulator)</strong> Initialize all registers to 0.</p>
+  </li>
+  <li>
+    <p><strong>(multiplication)</strong> Store the result in register 1.</p>
+  </li>
+  <li>
+    <p><strong>(multiplication)</strong> The two input numbers must be in locations labeled
+ <code class="highlighter-rouge">mcand</code> and <code class="highlighter-rouge">mplier</code> (lower-case).</p>
+  </li>
+</ol>
+
+<h1 id="8-turning-in-the-project">8. Turning in the Project</h1>
+
+<p>Use <a href="https://autograder.io/">autograder.io</a> to submit your files.  You have been added as a student to 
+the class, so you should see EECS 370 listed as a class if you visit:
+<a href="https://autograder.io/">https://autograder.io/</a></p>
+
+<p>Here are the files you should submit for each project part:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1) assembler (part 1a)
+    a. Your assembler, a C program named "assembler.c"
+    b. Suite of test cases (each test case is an assembly-language program
+        in a separate file, ending in ".as")
+
+2) simulator (part 1s)
+    a. Your simulator, a C program named "simulator.c"
+    b. suite of test cases (each test case is an assembly-language program
+        in a separate file, ending in ".as")
+
+3) multiplication (part 1m)
+    a. Your assembly program for multiplication, named "mult.as"
+</code></pre></div></div>
+
+<p>Your assembler and simulator must each be in a single C file.  We will compile
+your program on a Linux workstation using the command below so your program 
+should not require additional compiler flags or libraries.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc program.c -lm -std=c99
+</code></pre></div></div>
+
+<p>The official time of submission for your project will be the time the last
+file is sent. If you send in anything after the due date, your project will
+be considered late (and will use up your late days).  If you have already
+used up all of your late days, additional late submissions will not be
+scored for your project grade.</p>
+
+<h1 id="9-code-fragment-for-assembler">9. Code Fragment for Assembler</h1>
+
+<p>The focus of this class is machine organization, not C programming skills.  To
+build your computer, however, you will be doing a lot of C programming.  To
+help you, use the given fragment of the C program for the assembler.  This shows
+how to specify command-line arguments to the program (via argc and argv), how
+to parse the assembly-language file, etc.  This fragment is provided strictly
+to help you, though it may take a bit for you to understand and use the file.
+You may also choose to not use this fragment.</p>
+
+<h1 id="10-code-fragment-for-simulator">10. Code Fragment for Simulator</h1>
+
+<p>We have also given you some C code that may help you write the simulator.
+Again, you should take this merely as a hint.  You may have to re-code this to
+make it do exactly what you want, but this should help you get started.
+Remember not to change <code class="highlighter-rouge">stateStruct</code> or <code class="highlighter-rouge">printState</code>.</p>
+
+<h1 id="11-c-programming-tips">11. C Programming Tips</h1>
+
+<p>Here are a few programming tips for writing C programs to manipulate bits:</p>
+
+<p>1) To indicate a hexadecimal constant in C, precede the number by <code class="highlighter-rouge">0x</code>.
+For example, 27 decimal is <code class="highlighter-rouge">0x1b</code> in hexadecimal.</p>
+
+<p>2) The value of the expression <code class="highlighter-rouge">(a &gt;&gt; b)</code> is the number a shifted right by b
+bits. Neither a nor b are changed. E.g. <code class="highlighter-rouge">(25 &gt;&gt; 2)</code> is 6. Note that 25 is <code class="highlighter-rouge">11001</code>
+in binary, and 6 is <code class="highlighter-rouge">110</code> in binary.</p>
+
+<p>3) The value of the expression <code class="highlighter-rouge">(a &lt;&lt; b)</code> is the number a shifted left by b
+bits. Neither a nor b are changed. E.g. <code class="highlighter-rouge">(25 &lt;&lt; 2)</code> is 100. Note that 25 is <code class="highlighter-rouge">11001</code>
+in binary, and 100 is <code class="highlighter-rouge">1100100</code> in binary.</p>
+
+<p>4) To find the value of the expression <code class="highlighter-rouge">(a &amp; b)</code>, perform a logical AND on each
+bit of a and b (i.e. bit 31 of a ANDed with bit 31 of b, bit 30 of a ANDed with
+bit 30 of b, etc.). E.g.  <code class="highlighter-rouge">(25 &amp; 11)</code> is 9, since:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    11001 (binary)
+  &amp; 01011 (binary)
+---------------------
+ =  01001 (binary), which is 9 decimal.
+</code></pre></div></div>
+
+<p>5) To find the value of the expression <code class="highlighter-rouge">(a | b)</code>, perform a logical OR on each
+bit of a and b (i.e. bit 31 of a ORed with bit 31 of b, bit 30 of a ORed with
+bit 30 of b, etc.). E.g.  <code class="highlighter-rouge">(25 | 11)</code> is 27, since:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    11001 (binary)
+  | 01011 (binary)
+---------------------
+ =  11011 (binary), which is 27 decimal.
+</code></pre></div></div>
+
+<p>6) <code class="highlighter-rouge">~a</code> is the bit-wise complement of a (a is not changed).</p>
+
+<p>Use these operations to create and manipulate machine-code. For example:</p>
+
+<ul>
+  <li>
+    <p>To look at bit
+3 of the variable a, you might do: <code class="highlighter-rouge">(a&gt;&gt;3) &amp; 0x1</code></p>
+  </li>
+  <li>
+    <p>To look at bits (bits 15-12)
+of a 16-bit word, you could do: <code class="highlighter-rouge">(a&gt;&gt;12) &amp; 0xF</code></p>
+  </li>
+  <li>
+    <p>To put a 6 into bits 5-3 and a 3
+into bits 2-1, you could do: <code class="highlighter-rouge">(6&lt;&lt;3) | (3&lt;&lt;1)</code></p>
+  </li>
+</ul>
+
+<p>If youre not sure what an
+operation is doing, print some intermediate results to help you debug.</p>
+
+<hr />
+
+<h1 id="12-example-run-of-simulator">12. Example Run of Simulator</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>memory[0]=8454151
+memory[1]=9043971
+memory[2]=655361
+memory[3]=16842754
+memory[4]=16842749
+memory[5]=29360128
+memory[6]=25165824
+memory[7]=5
+memory[8]=-1
+memory[9]=2
+
+
+@@@
+state:
+	pc 0
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] 0
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 1
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 5
+		reg[ 2 ] 0
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 5
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 4
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 4
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 4
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 4
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 3
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 4
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 3
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 3
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 2
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 4
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 2
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 2
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 1
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 4
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 1
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 1
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+@@@
+state:
+	pc 6
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+machine halted
+total of 17 instructions executed
+final state of machine:
+
+@@@
+state:
+	pc 7
+	memory:
+		mem[ 0 ] 8454151
+		mem[ 1 ] 9043971
+		mem[ 2 ] 655361
+		mem[ 3 ] 16842754
+		mem[ 4 ] 16842749
+		mem[ 5 ] 29360128
+		mem[ 6 ] 25165824
+		mem[ 7 ] 5
+		mem[ 8 ] -1
+		mem[ 9 ] 2
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] -1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+
+</code></pre></div></div>
+
+
+            
+        </div> <!-- .container-lg -->
+
+        
+
+        <!-- BEGIN CUSTOM SPEC CODE -->
+        <script src="https://eecs485staff.github.io/primer-spec/assets/js/primer_spec_plugin.min.js" crossorigin="anonymous"></script>
+        <!-- END CUSTOM SPEC CODE -->
+    </body>
+</html>
