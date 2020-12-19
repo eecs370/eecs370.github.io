@@ -1,0 +1,25 @@
+{
+  "name": "eecs370.github.io",
+  "version": "1.0.0",
+  "description": "eecs370.org ============= EECS 370 course web site",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eecs370/eecs370.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eecs370/eecs370.github.io/issues"
+  },
+  "homepage": "https://github.com/eecs370/eecs370.github.io#readme",
+  "dependencies": {
+    "fomantic-ui": "^2.8.7"
+  }
+}

@@ -7,12 +7,17 @@
   <meta name="keywords" content="EECS370, EECS 370, Introduction to Computer Organization, University of Michigan Computer Science">
   <title>EECS 370</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- You MUST include jQuery before Fomantic -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="semantic/dist/semantic.min.js"></script>
+
 
   <!-- Fomantic UI CSS library
        https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider --> 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.css">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.js"></script> -->
 
   <!-- FullCalendar JS library
        https://fullcalendar.io/docs
@@ -23,105 +28,61 @@
 
 <body>
   <!-- Nav bar on left side -->
-  <div class="ui left vertical inverted sidebar menu labeled icon">
-
-    <!-- Logo and Course Title -->
-    <div class="item">
-      <a class="ui logo icon image mini" href="#">
-        <img src="images/um_seal.gif" alt="logo">
+  
+  <div class="ui secondary blue vertical inverted sidebar menu">
+      <!-- Internal links -->
+      <br><br><br><br><br>
+      <a class="item" href="#">
+        <h1> EECS 370 </h1>
       </a>
       <br>
-      <br>
-      <a href="#"><b>EECS 370</b></a>
-    </div>
-
+      <a class="item" href="#lectures">
+        <h3> Lectures </h3>
+      </a>
+      <a class="item" href="#discussions">
+        <h3>Discussions</h3>
+      </a>
+      <a class="item" href="#projects">
+        <h3>Projects</h3>
+      </a>
+      <a class="item" href="#video_review">
+        <h3>Video Review</h3>
+      </a>
+      <a class="item" href="#exams">
+        <h3>Exams</h3>
+      </a>
+      <a class="item" href="#admin">
+        <h3>Admin Requests</h3>
+      </a>
+      <a class="item" href="#staff">
+        <h3>Staff</h3>
+      </a>
     <!-- Internal links -->
-    <div class="item">
-      <div class="menu">
-        <a class="item" href="#lectures">
-          Lectures
-        </a>
-        <a class="item" href="#discussions">
-          Discussions
-        </a>
-        <a class="item" href="#projects">
-          Projects
-        </a>
-        <a class="item" href="#resources">
-          Resources
-        </a>
-        <a class="item" href="#video_review">
-          Video Review
-        </a>
-        <a class="item" href="#exams">
-          Exams
-        </a>
-        <a class="item" href="#admin">
-          Administrative Requests
-        </a>
-        <a class="item" href="#staff">
-          Staff
-        </a>
-      </div>
-    </div><!-- Internal links -->
-
-    <!-- External links -->
-    <!-- TODO: Update all external links, remove any that aren't relevant -->
-    <div class="menu">
-      <a class="item" href="https://piazza.com/class/ke8o95o8lyk3zp" target="_blank">
-        <i class="talk outline icon big"></i>
-        <br>
-        Piazza
-      </a>
-      <a class="item" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS04NZdKdlIsl2uN0BsoJhNdng3ycqeaptH41p5ZUITCVzydTfAu46X5UzH-Kyu-lfHp5oi-XlzB-F6/pubhtml?gid=0&single=true" target="_blank">
-        <i class="video icon big"></i>
-        <br>
-        Lecture Recordings
-      </a>
-      <a class="item" href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
-        <i class="google icon big"></i>
-        <br>
-        EECS 370 Drive
-      </a>
-      <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
-        <i class="help circle icon big"></i>
-        <br>
-        Office Hours
-      </a>
-      <a class="item" href="https://autograder.io/" target="_blank">
-        <i class="upload icon big"></i>
-        <br>
-        Autograder
-      </a>
-      <a class="item" href="https://www.gradescope.com/courses/166282" target="_blank">
-        <i class="chart bar icon big"></i>
-        <br>
-        Gradescope
-      </a>
-      <!--
-           <a class="item" href="https://umich.instructure.com/courses/391021" target="_blank">
-           <i class="tasks icon big"></i>
-           <br>
-           Canvas
-           </a>
-      -->
-    </div><!-- External links -->
-
   </div><!-- Nav bar -->
 
 
   <!-- Main page  -->
   <div class="pusher">
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="ui text container">
       <button class="ui right floated icon button" id="left-sidebar-toggle">
         <i class="bars icon"></i>
       </button>
 
-      <h1>EECS 370: Intro to Computer Organization</h1>
-      <div class="inline">
-        <i>The University of Michigan, Fall 2020</i>
-      </div>
-      <p></p>
+      <h1 class="ui image header">
+        <img src="images/um_seal.gif" class="ui rounded image">
+        <div class="content">
+          EECS 370: Intro to Computer Organization
+          <div class="inline sub header">
+            <i>The University of Michigan, Fall 2020</i>
+          </div>
+        </div>
+      </h1>
+      
+      <br><br><br>
       <p>Welcome to EECS 370 Fall 2020!</p>
       <p>You may attend any section you wish.</p>
       <p>Sections 001, 002, and 003 will be delivered asynchronously. You can find the recordings by clicking ''Lecture Recordings"</p>
@@ -130,91 +91,6 @@
         <b><a href="syllabus.html" target="_blank">Syllabus</a></b>
       </p>
       <div class="ui section divider"></div>
-
-      <!-- Test Info (Use it to link info for Midterm and Final)
-        <h2 id="thisweek">Final Information</h2>
-
-        <div class="ui two stackable cards">
-          <div class="ui card">
-            <div class="content" style="flex-grow: 0;">
-              <div class="header">Before</div>
-            </div>
-            <div class="content">
-              <div class="ui small feed">
-              <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      <p>Read over <a href="https://piazza.com/class/k9vihaw2wd07b0?cid=3531" target="_blank">exam information</a></p>
-                    </div>
-                  </div>
-                </div>
-              <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                        <p>Take <a href="https://drive.google.com/drive/u/1/folders/1j7OlohR6aS23Gja6FtxJ6ao6PijuJHAQ" target="_blank">practice exams</a></p>
-                    </div>
-                  </div>
-                </div>
-              <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      <p>Ask questions on <a href="https://piazza.com/class/k9vihaw2wd07b0" target="_blank">piazza</a> and during <a href="https://lobster.eecs.umich.edu/eecsoh/queue.html#1gpzdUu0VqVjBodsFCps47cdfyZ" target="_blank">office hours</a></p>
-                    </div>
-                  </div>
-                </div>
-              <div class="event">
-                  <div class="content">
-                      <div class="summary">
-                          Exam Review Session
-                      </div>
-                      <div class="meta">
-                        <a href="https://umich.zoom.us/rec/share/hGbk0MIF-xBuaQWmr2QiNHvROds8qeGtMJOSiQ53aeDbQKQ-zgCpxsJwxKk39pki.9zeie2S3_UMc8eZZ" target="_blank">
-                          <i class="video icon"></i> Recording
-                        </a>
-                        </div>
-                      <div class="meta">
-                        <a href="https://docs.google.com/presentation/d/1R0h9njnpXuFmPLAJmGaln3Js6y2oFQGEZonbacSfAKA/edit?usp=sharing" target="_blank">
-                          <i class="linkify icon"></i> Slides
-                        </a>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="ui card">
-            <div class="content" style="flex-grow: 0;">
-              <div class="header">During</div>
-            </div>
-            <div class="content">
-              <div class="ui small feed">
-                <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      Exam is 12/10 from 7-9pm EST on <a href="https://www.gradescope.com/courses/128426" target="_blank">gradescope</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      Ask questions by either joining this <a href="https://umich.zoom.us/j/99635807532" target="_blank">zoom call</a> or a private <a href="https://piazza.com/class/k9vihaw2wd07b0" target="_blank">piazza</a> post
-                    </div>
-                  </div>
-                </div>
-                <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      Take your time and good luck!
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    -->
 
       <!--
            Google Calendar
@@ -337,18 +213,6 @@
       <!-- Projects section -->
       <h2 id="projects">Projects</h2>
       <div class="ui three stackable cards" id="project-cards">
-
-        <!-- <a class="ui raised card" target="_blank" href="https://github.com/eecs485staff/issues/issues/new/choose">
-          <div class="content">
-            <div class="header">
-              <i class="bug alternate icon"></i>
-              Feedback
-            </div>
-            <div class="description">
-              <p>Report a bug in a project or lab</p>
-            </div>
-          </div>
-        </a> -->
 
         <a class="ui raised card" target="_blank" href="projects/p1_spec.html">
           <div class="content">
@@ -681,7 +545,7 @@
       <div class="ui section divider"></div>
 
       <!-- Administrative Requests section -->
-      <h2 id="admin">Administrative Requests</h2>
+      <h2 id="admin">Admin Requests</h2>
 
       <div class="ui three stackable cards" id="project-cards">
         <a class="ui raised card" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScbpGd0_R5jam0pDrz8F1qH_MRVSAgZ8f7iJTPDbYbWWzKyOQ/viewform?usp=sf_link">
@@ -739,8 +603,6 @@
             </a>
             <div class="description">
               <p><i class="icon envelope"></i>warthur@umich.edu</p>
-              <!-- <p><i class="icon calendar"></i>10:30 1109 FXB</p>
-                   <p><i class="icon calendar"></i>3:00 1060 FMCRB</p> -->
               <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
             </div>
           </div>
@@ -756,8 +618,6 @@
             </div>
             <div class="description">
               <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
-              <!-- <p><i class="icon calendar"></i>4:30 1670 BBB</p>
-                   <p><i class="icon calendar"></i>6:00 1013 DOW</p> -->
               <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
             </div>
           </div>
@@ -773,9 +633,6 @@
             </div>
             <div class="description">
               <p><i class="icon envelope"></i>nsatish@umich.edu</p>
-              <!-- <p><i class="icon calendar"></i>4:30 1670 BBB</p>
-                   <p><i class="icon calendar"></i>6:00 1013 DOW</p> -->
-              <!-- <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p> -->
             </div>
           </div>
         </div>
@@ -899,6 +756,20 @@
      }
    }
   </script>
+
+  <script>
+
+  $('.ui.blue.menu')
+      .on('click', '.item', function() {
+        if(!$(this).hasClass('dropdown')) {
+          $(this)
+            .addClass('active')
+            .siblings('.item')
+            .removeClass('active');
+        }
+      });
+  </script>
+
 
   <script>
    // Insert Google Calendar in <div id="calendar">
