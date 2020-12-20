@@ -90,12 +90,13 @@
       
     <!-- Internal links -->
   </div><!-- Nav bar -->
-
   <!-- Main page  -->
   <div class="pusher">
-    <button class="ui floated icon button" id="left-sidebar-toggle">
+    <br>
+    <br>
+    <div class="ui floated sticky launch right attached fixed centered button" id="left-sidebar-toggle">
       <i class="bars icon"></i>
-    </button>
+    </div>
     <br>
     <br>
     <div class="ui text container">
@@ -729,7 +730,14 @@
   </script>
 
   <script>
+    $('.ui.sticky')
+      .sticky({
+        context: '#example1'
+      })
+    ;
+  </script>
 
+  <script>
   $('.ui.blue.menu')
       .on('click', '.item', function() {
         if(!$(this).hasClass('dropdown') && !$(this).hasClass('external')) {
