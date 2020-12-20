@@ -7,17 +7,11 @@
   <meta name="keywords" content="EECS370, EECS 370, Introduction to Computer Organization, University of Michigan Computer Science">
   <title>EECS 370</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <!-- You MUST include jQuery before Fomantic -->
+
+  <!-- Fomantic UI CSS library -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="semantic/dist/semantic.min.js"></script>
-
-
-  <!-- Fomantic UI CSS library
-       https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider --> 
-       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.css">
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.js"></script> -->
 
   <!-- FullCalendar JS library
        https://fullcalendar.io/docs
@@ -49,6 +43,9 @@
       </a>
       <a class="item" href="#projects">
         <span class="ui large text"> Projects</span>
+      </a>
+      <a class="item" href="#resources">
+        <span class="ui large text"> Resources </span>
       </a>
       <a class="item" href="#video_review">
         <span class="ui large text"> Video Review</span>
@@ -97,28 +94,48 @@
       <!-- External Links -->
 
       <a href="https://autograder.io/" target="_blank">
-        <button class="ui labeled icon button">
-          <i class="file code icon"></i>
-          Autograder
-        </button>
+        <div id="my-button" class="ui animated button full-circle" tabindex="0">
+          <div class="visible content">
+            <i class="file code icon"></i>
+            Autograder
+          </div>
+          <div class="hidden content">
+              <i class="right arrow icon"></i>
+          </div>
+      </div>
       </a>
       <a href="https://www.gradescope.com/courses/166282" target="_blank">
-        <button class="ui labeled icon button">
-          <i class="chart bar icon"></i>
-          Gradescope
-        </button>
+        <div id="my-button" class="ui animated button full-circle" tabindex="0">
+          <div class="visible content">
+            <i class="chart bar icon"></i>
+            Gradescope
+          </div>
+          <div class="hidden content">
+              <i class="right arrow icon"></i>
+          </div>
+      </div>
       </a>
       <a href="https://piazza.com/class/ke8o95o8lyk3zp" target="_blank">
-        <button class="ui labeled icon button">
-          <i class="question circle icon"></i>
+        <div id="my-button" class="ui animated button full-circle" tabindex="0">
+          <div class="visible content">
+            <i class="question circle icon"></i>
           Piazza
-        </button>
+          </div>
+          <div class="hidden content">
+              <i class="right arrow icon"></i>
+          </div>
+      </div>
       </a>
       <a href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
-        <button class="ui labeled icon button">
-          <i class="google drive icon"></i>
-          Google Drive
-        </button>
+        <div id="my-button" class="ui animated button full-circle" tabindex="0">
+          <div class="visible content">
+            <i class="google drive icon"></i>
+            Google Drive
+          </div>
+          <div class="hidden content">
+              <i class="right arrow icon"></i>
+          </div>
+        </div>
       </a>
       <div class="ui section divider"></div>
 
@@ -525,142 +542,179 @@
       <h2 id="staff">Staff</h2>
       <p>When you have a question related to the material taught in class, in the book, or a general homework/project question, use the class forum (Piazza) first. First, check to see if your question has been asked. If not, post the question to the forum. This will allow other students with the same question to see the answer. It will also allow your question to be answered by other students in addition to the instruction staff. Effective use of the forum will make the class run more efficiently for both students and the staff.</p>
       <p>For submitting any administrative requests, including exam conflicts and SSD, please check the tab ''Administrative Requests'' on the left of this screen.</p>
-      <div class="ui three stackable cards">
 
-        <!-- Instructors -->
         
-        <div class="ui card">
-          <a class="image" href="" target="_blank">
-            <img src="images/warthur.png" alt="warthur"/>
-          </a>
+      <div class="ui three stackable special cards">
+        
+        <!-- Instructors -->
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>warthur@umich.edu</p>
+                  <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/warthur.png">
+          </div>
           <div class="content">
-            <a class="header" href="https://andrewdeorio.com" target="_blank">
-              Bill Arthur
-            </a>
-            <div class="description">
-              <p><i class="icon envelope"></i>warthur@umich.edu</p>
-              <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+            <a class="header">Bill Arthur</a>
+            <div class="meta">
+              <span class="date">Instructor</span>
             </div>
           </div>
         </div>
 
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/jbbeau.png" alt="jbbeau"/>
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
+                  <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/jbbeau.png">
           </div>
           <div class="content">
-            <div class="header">
-              Jon Beaumont
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
-              <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+            <a class="header">Jon Beaumont</a>
+            <div class="meta">
+              <span class="date">Instructor</span>
             </div>
           </div>
         </div>
 
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/nsatish.png" alt="nsatish"/>
+
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>nsatish@umich.edu</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/nsatish.png">
           </div>
           <div class="content">
-            <div class="header">
-              Satish Narayanasamy
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>nsatish@umich.edu</p>
+            <a class="header">Satish Narayanasamy</a>
+            <div class="meta">
+              <span class="date">Instructor</span>
             </div>
           </div>
         </div>
 
         <!-- IAs/GSIs -->
-
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/abifox.png" alt="abifox"/>
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>hsatam@umich.edu</p>
+                  <p><i class="icon windows"></i>Windows, <i class="icon linux"></i>Linux</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/hsatam.png">
           </div>
           <div class="content">
-            <div class="header">
-              Abigail Fox
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>abifox@umich.edu</p>
-              <p><i class="icon apple"></i>MacOS</p>
+            <a class="header">Hershal Satam</a>
+            <div class="meta">
+              <span class="date">IA</span>
             </div>
           </div>
         </div>
 
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/yujiaxie.png" alt="yujiaxie"/>
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>gminn@umich.edu</p>
+                  <p><i class="icon apple"></i>MacOS</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/gminn.png">
           </div>
           <div class="content">
-            <div class="header">
-              Yujia Xie
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>yujiaxie@umich.edu</p>
-              <p><i class="icon apple"></i>MacOS, <i class="icon linux"></i>Linux</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/jackhong.png" alt="jackhong"/>
-          </div>
-          <div class="content">
-            <div class="header">
-              Jack Hong
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>jackhong@umich.edu</p>
-              <p><i class="icon linux"></i>Linux</p>
+            <a class="header">Gillian Minnehan</a>
+            <div class="meta">
+              <span class="date">IA</span>
             </div>
           </div>
         </div>
 
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/gminn.png" alt="gminn"/>
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>jackhong@umich.edu</p>
+                  <p><i class="icon linux"></i>Linux</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/jackhong.png">
           </div>
           <div class="content">
-            <div class="header">
-              Gillian Minnehan
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>gminn@umich.edu</p>
-              <p><i class="icon apple"></i>MacOS</p>
+            <a class="header">Jack Hong</a>
+            <div class="meta">
+              <span class="date">IA</span>
             </div>
           </div>
         </div>
 
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="images/hsatam.png" alt="hsatam"/>
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>yujiaxie@umich.edu</p>
+                  <p><i class="icon apple"></i>MacOS, <i class="icon linux"></i>Linux</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/yujiaxie.png">
           </div>
           <div class="content">
-            <div class="header">
-              Hershal Satam
-            </div>
-            <div class="description">
-              <p><i class="icon envelope"></i>hsatam@umich.edu</p>
-              <p><i class="icon windows"></i>Windows, <i class="icon linux"></i>Linux</p>
+            <a class="header">Yujia Xie</a>
+            <div class="meta">
+              <span class="date">GSI</span>
             </div>
           </div>
         </div>
 
-      </div><!-- ui stackable cards -->
+        <div class="card">
+          <div class="blurring dimmable image">
+            <div class="ui inverted dimmer">
+              <div class="content">
+                <div class="center">
+                  <p><i class="icon envelope"></i>abifox@umich.edu</p>
+                  <p><i class="icon apple"></i>MacOS</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/abifox.png">
+          </div>
+          <div class="content">
+            <a class="header">Abigail Fox</a>
+            <div class="meta">
+              <span class="date">IA</span>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- ui three stackable special cards -->
+      
 
       <div class="ui section divider"></div>
 
     </div><!-- ui text container -->
   </div>
-
-  <footer>
-    <div class="ui inverted menu">
-    </div>
-  </footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -706,6 +760,11 @@
       });
   </script>
 
+  <script>
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+  </script>
 
   <script>
    // Insert Google Calendar in <div id="calendar">
