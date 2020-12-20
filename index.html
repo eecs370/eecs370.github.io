@@ -18,7 +18,9 @@
        https://fullcalendar.io/docs/google-calendar  -->
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css' rel='stylesheet' />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js'></script>
+
 </head>
+
 
 <body>
   <!-- Nav bar on left side -->
@@ -59,9 +61,33 @@
       <a class="item" href="#staff">
         <span class="ui large text"> Staff</span>
       </a>
+      
+      <br><br><br><br><br><br>
+
+
+      <a class="item" href="https://autograder.io/" target="_blank">
+        <i class="file code large icon"></i>
+        <span class="ui medium text">Autograder</span>
+      </a>
+      <a class="item" href="https://www.gradescope.com/courses/166282" target="_blank">
+        <i class="chart bar large icon"></i>
+        <span class="ui medium text">Gradescope</span>
+      </a>
+      <a class="item" href="https://piazza.com/class/ke8o95o8lyk3zp" target="_blank">
+        <i class="question circle large icon"></i>
+        <span class="ui medium text">Piazza</span>
+      </a>
+      <a class="item" href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
+        <i class="google drive large icon"></i>
+        <span class="ui medium text">Google Drive</span>
+      </a>
+      <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
+        <i class="hands helping large icon"></i>
+        <span class="ui medium text">Office Hours</span>
+      </a>
+      
     <!-- Internal links -->
   </div><!-- Nav bar -->
-
 
   <!-- Main page  -->
   <div class="pusher">
@@ -90,55 +116,7 @@
       <br>
       <br>
 
-      <p><span class="ui large text">External Links: </span></p>
-      <!-- External Links -->
-
-      <a href="https://autograder.io/" target="_blank">
-        <div id="my-button" class="ui animated button full-circle" tabindex="0">
-          <div class="visible content">
-            <i class="file code icon"></i>
-            Autograder
-          </div>
-          <div class="hidden content">
-              <i class="right arrow icon"></i>
-          </div>
-      </div>
-      </a>
-      <a href="https://www.gradescope.com/courses/166282" target="_blank">
-        <div id="my-button" class="ui animated button full-circle" tabindex="0">
-          <div class="visible content">
-            <i class="chart bar icon"></i>
-            Gradescope
-          </div>
-          <div class="hidden content">
-              <i class="right arrow icon"></i>
-          </div>
-      </div>
-      </a>
-      <a href="https://piazza.com/class/ke8o95o8lyk3zp" target="_blank">
-        <div id="my-button" class="ui animated button full-circle" tabindex="0">
-          <div class="visible content">
-            <i class="question circle icon"></i>
-          Piazza
-          </div>
-          <div class="hidden content">
-              <i class="right arrow icon"></i>
-          </div>
-      </div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
-        <div id="my-button" class="ui animated button full-circle" tabindex="0">
-          <div class="visible content">
-            <i class="google drive icon"></i>
-            Google Drive
-          </div>
-          <div class="hidden content">
-              <i class="right arrow icon"></i>
-          </div>
-        </div>
-      </a>
       <div class="ui section divider"></div>
-
       <!--
            Google Calendar
 
@@ -751,7 +729,7 @@
 
   $('.ui.blue.menu')
       .on('click', '.item', function() {
-        if(!$(this).hasClass('dropdown')) {
+        if(!$(this).hasClass('dropdown') && !$(this).hasClass('external')) {
           $(this)
             .addClass('active teal')
             .siblings('.item')
