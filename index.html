@@ -24,10 +24,12 @@
 
 <body>
   <!-- Nav bar on left side -->
-  
   <div class="ui secondary blue vertical inverted sidebar menu">
       <!-- Internal links -->
-      <br><br>
+      <button class="ui blue right floated icon button" id="close_sidebar_button">
+        <i class="times icon"></i>
+      </button>
+      <br>
       <br>
       <br>
       <br>
@@ -91,12 +93,12 @@
 
   <!-- Main page  -->
   <div class="pusher">
+    <button class="ui floated icon button" id="left-sidebar-toggle">
+      <i class="bars icon"></i>
+    </button>
     <br>
     <br>
     <div class="ui text container">
-      <button class="ui right floated icon button" id="left-sidebar-toggle">
-        <i class="bars icon"></i>
-      </button>
       <h1 class="ui image header">
         <img src="images/um_seal.gif" class="ui rounded image">
         <div class="content">
@@ -719,6 +721,7 @@
        closable: false
      });
      $sidebar.sidebar('attach events', '#left-sidebar-toggle');
+     $sidebar.sidebar('attach events', '#close_sidebar_button');
      if (!isSmallScreen()) {
        $sidebar.sidebar('toggle');
      }
