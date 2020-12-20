@@ -8,12 +8,12 @@
 
 /* Menu */
 @verticalMargin: @medium;
-@horizontalMargin: 0;
+@horizontalMargin: 500;
 @margin: @verticalMargin @horizontalMargin;
 @background: #518d9e;
 @fontFamily: @pageFont;
 @itemBackground: none;
-@fontWeight: @medium;
+@fontWeight: @normal;
 @borderWidth: 10px;
 @border: @borderWidth solid @borderColor;
 @boxShadow: @subtleShadow;
@@ -22,7 +22,7 @@
 
 /* Menu Item */
 @itemVerticalPadding: @relative16px;
-@itemHorizontalPadding: @relative1px;
+@itemHorizontalPadding: @relative20px;
 @itemTextTransform: none;
 @itemTransition:
   background @defaultDuration @defaultEasing,
@@ -64,11 +64,11 @@
 
 /* Header */
 @headerBackground: '';
-@headerWeight: @bold;
+@headerWeight: @normal;
 @headerTextTransform: @normal;
 
 /* Vertical Icon */
-@verticalIconFloat: right;
+@verticalIconFloat: center;
 @verticalIconMargin: 0 0 0 0.5em;
 
 /* Vertical Header */
@@ -307,7 +307,7 @@
 
 
 /* Icon */
-@iconMenuTextAlign: left;
+@iconMenuTextAlign: right;
 @iconMenuItemColor: @black;
 @iconMenuInvertedItemColor: @white;
 
@@ -355,7 +355,7 @@
 @textMenuItemColor: @mutedTextColor;
 @textMenuItemFontWeight: @normal;
 @textMenuItemMargin: 0 0;
-@textMenuItemPadding: @relative16px @textMenuItemSpacing;
+@textMenuItemPadding: @relative30px @textMenuItemSpacing;
 @textMenuItemTransition: opacity @defaultDuration @defaultEasing;
 
 @textMenuSubMenuMargin: 0;
@@ -367,7 +367,7 @@
 
 @textMenuHeaderSize: @relativeSmall;
 @textMenuHeaderColor: @darkTextColor;
-@textMenuHeaderFontWeight: @bold;
+@textMenuHeaderFontWeight: @normal;
 @textMenuHeaderTextTransform: uppercase;
 
 @textVerticalMenuMargin: @relativeMedium 0;

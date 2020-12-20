@@ -480,7 +480,7 @@
 -------------- */
 
 .ui.primary.toast {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.primary.toast,
@@ -543,7 +543,7 @@
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.teal.toast {
-  background-color: #00B5AD;
+  background-color: #3AAFA9;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.teal.toast,
@@ -552,7 +552,7 @@
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.blue.toast {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.blue.toast,

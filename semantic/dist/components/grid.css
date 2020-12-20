@@ -1332,7 +1332,7 @@
 .ui.grid > .primary.row,
 .ui.grid > .primary.column,
 .ui.grid > .row > .primary.column {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: #FFFFFF;
 }
 .ui.grid > .secondary.row,
@@ -1374,13 +1374,13 @@
 .ui.grid > .teal.row,
 .ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
-  background-color: #00B5AD;
+  background-color: #3AAFA9;
   color: #FFFFFF;
 }
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: #FFFFFF;
 }
 .ui.grid > .violet.row,

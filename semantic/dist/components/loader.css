@@ -292,7 +292,7 @@
 .ui.primary.loading.loading.loading.loading .input > i.icon:after,
 .ui.primary.loading.loading.loading.loading > i.icon:after,
 .ui.primary.loader.loader.loader:after {
-  color: #2d3c54;
+  color: #17252A;
 }
 .ui.inverted.primary.elastic.loader:before,
 .ui.inverted.primary.elastic.loading.loading.loading:not(.segment):before,
@@ -446,7 +446,7 @@
 .ui.teal.loading.loading.loading.loading .input > i.icon:after,
 .ui.teal.loading.loading.loading.loading > i.icon:after,
 .ui.teal.loader.loader.loader:after {
-  color: #00B5AD;
+  color: #3AAFA9;
 }
 .ui.inverted.teal.elastic.loader:before,
 .ui.inverted.teal.elastic.loading.loading.loading:not(.segment):before,
@@ -468,7 +468,7 @@
 .ui.blue.loading.loading.loading.loading .input > i.icon:after,
 .ui.blue.loading.loading.loading.loading > i.icon:after,
 .ui.blue.loader.loader.loader:after {
-  color: #2d3c54;
+  color: #17252A;
 }
 .ui.inverted.blue.elastic.loader:before,
 .ui.inverted.blue.elastic.loading.loading.loading:not(.segment):before,

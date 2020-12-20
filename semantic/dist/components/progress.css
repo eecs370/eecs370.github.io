@@ -457,7 +457,7 @@
 .ui.indeterminate.primary.progress .bar::before,
 .ui.primary.progress .bar,
 .ui.progress .primary.bar {
-  background-color: #2d3c54;
+  background-color: #17252A;
 }
 .ui.inverted.indeterminate.primary.progress .bar::before,
 .ui.primary.inverted.progress .bar,
@@ -527,7 +527,7 @@
 .ui.indeterminate.teal.progress .bar::before,
 .ui.teal.progress .bar,
 .ui.progress .teal.bar {
-  background-color: #00B5AD;
+  background-color: #3AAFA9;
 }
 .ui.inverted.indeterminate.teal.progress .bar::before,
 .ui.teal.inverted.progress .bar,
@@ -537,7 +537,7 @@
 .ui.indeterminate.blue.progress .bar::before,
 .ui.blue.progress .bar,
 .ui.progress .blue.bar {
-  background-color: #2d3c54;
+  background-color: #17252A;
 }
 .ui.inverted.indeterminate.blue.progress .bar::before,
 .ui.blue.inverted.progress .bar,

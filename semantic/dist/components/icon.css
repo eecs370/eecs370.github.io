@@ -239,14 +239,14 @@ i.inverted.icon {
 --------------------*/
 
 i.primary.icon.icon.icon.icon {
-  color: #2d3c54;
+  color: #17252A;
 }
 i.inverted.primary.icon.icon.icon.icon {
   color: #54C8FF;
 }
 i.inverted.bordered.primary.icon.icon.icon.icon,
 i.inverted.circular.primary.icon.icon.icon.icon {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: #FFFFFF;
 }
 i.secondary.icon.icon.icon.icon {
@@ -316,25 +316,25 @@ i.inverted.circular.green.icon.icon.icon.icon {
   color: #FFFFFF;
 }
 i.teal.icon.icon.icon.icon {
-  color: #00B5AD;
+  color: #3AAFA9;
 }
 i.inverted.teal.icon.icon.icon.icon {
   color: #6DFFFF;
 }
 i.inverted.bordered.teal.icon.icon.icon.icon,
 i.inverted.circular.teal.icon.icon.icon.icon {
-  background-color: #00B5AD;
+  background-color: #3AAFA9;
   color: #FFFFFF;
 }
 i.blue.icon.icon.icon.icon {
-  color: #2d3c54;
+  color: #17252A;
 }
 i.inverted.blue.icon.icon.icon.icon {
   color: #54C8FF;
 }
 i.inverted.bordered.blue.icon.icon.icon.icon,
 i.inverted.circular.blue.icon.icon.icon.icon {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: #FFFFFF;
 }
 i.violet.icon.icon.icon.icon {

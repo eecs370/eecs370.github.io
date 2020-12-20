@@ -605,17 +605,17 @@
   color: #FFFFFF;
 }
 .ui.teal.segment.segment.segment.segment.segment:not(.inverted) {
-  border-top: 2px solid #00B5AD;
+  border-top: 2px solid #3AAFA9;
 }
 .ui.inverted.teal.segment.segment.segment.segment.segment {
-  background-color: #00B5AD;
+  background-color: #3AAFA9;
   color: #FFFFFF;
 }
 .ui.blue.segment.segment.segment.segment.segment:not(.inverted) {
-  border-top: 2px solid #2d3c54;
+  border-top: 2px solid #17252A;
 }
 .ui.inverted.blue.segment.segment.segment.segment.segment {
-  background-color: #2d3c54;
+  background-color: #17252A;
   color: #FFFFFF;
 }
 .ui.violet.segment.segment.segment.segment.segment:not(.inverted) {
