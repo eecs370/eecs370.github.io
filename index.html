@@ -25,22 +25,25 @@
 <body>
   <!-- Nav bar on left side -->
   <div class="ui secondary blue vertical inverted sidebar menu">
-      <!-- Internal links -->
-      <button class="ui blue right floated icon button" id="close_sidebar_button">
-        <i class="times icon"></i>
-      </button>
-      <br>
-      <br>
-      <br>
-      <br>
+
+    <!-- Close sidebar button -->
+    <button class="ui blue right floated icon button" id="close_sidebar_button">
+      <i class="times icon"></i>
+    </button>
+
+    <br><br><br><br>
+
+    <!-- Internal links -->
       <a class="item" href="#">
         <i class="home icon big"></i>
       </a>
       <a class="item" href="syllabus.html" target="_blank">
         <span class="ui float right large text"> Syllabus </span>
+        <i class="external alternate large icon"></i>
       </a>
-      <a class="item" href="#lectures">
+      <a class="item" href="lectures.html" target="_blank">
         <span class="ui large text"> Lectures </span>
+        <i class="external alternate large icon"></i>
       </a>
       <a class="item" href="#discussions">
         <span class="ui large text"> Discussions</span>
@@ -66,7 +69,7 @@
       
       <br><br><br><br><br><br>
 
-
+      <!-- External Links -->
       <a class="item" href="https://autograder.io/" target="_blank">
         <i class="file code large icon"></i>
         <span class="ui medium text">Autograder</span>
@@ -88,8 +91,9 @@
         <span class="ui medium text">Office Hours</span>
       </a>
       
-    <!-- Internal links -->
   </div><!-- Nav bar -->
+
+
   <!-- Main page  -->
   <div class="pusher">
     <br>
@@ -116,10 +120,8 @@
       <p>Sections 001, 002, and 003 will be delivered asynchronously. You can find the recordings by clicking ''Lecture Recordings"</p>
       <p>Section 004 will be delivered live via Zoom from 4:30-6 pm, MW. Use the following link to join: <a href="https://umich.zoom.us/j/91644316554" target="_blank">https://umich.zoom.us/j/91644316554</a></p>
       <br>
-      <br>
-      <br>
-
       <div class="ui section divider"></div>
+
       <!--
            Google Calendar
 
@@ -134,72 +136,6 @@
           Open calendar in new window
         </a>
       </p>
-      <div class="ui section divider"></div>
-
-      <!-- Lectures -->
-      <h2 id="lectures">Lectures</h2>
-      <table class="ui celled unstackable striped table">
-        <thead>
-          <tr>
-            <th class="two wide">Day</th>
-            <th class="three wide">Lecture</th>
-            <th class="two wide">Discussions</th>
-            <th class="one wide">Due</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              Week 1<br>
-              Aug 31 - Sep 5
-            </td>
-            <td>
-              <p>L01 Introduction and ISA<br>
-                <a class="ui label" href="https://drive.google.com/file/d/14CVn8iluD_MnSOqCx1L2gfXOhJOd7K94/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/9_UsAbv33XFIGtLcwUfBffR_B5i0eaa8hyJI_vtYn0hcFio7IdDox2smDZuLcHm-" target="_blank"><i class="video icon"></i>Synchronous</a>
-                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/176Yw3ybjBG-YxIQ0OEuV_pUPk9cSG7zT" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
-              </p>
-              <p>L02 ISA - storage types and addressing modes<br>
-                <a class="ui label" href="https://drive.google.com/file/d/1dZxASG5mLne00sBMlMlkwLDC96X0AyIC/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L02</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/L77befJPt7_rF2zy9gXjI2tLXW7p4EV6Ca7ojc8i2SY_rLE6R1NhilIuXRRnocE.SVkFyWVtiWZyBu4c" target="_blank"><i class="video icon"></i>Synchronous</a>
-                <a class="ui label" href="https://drive.google.com/drive/u/1/folders/1RDqMynHaAMFW6hRLvky9XJZR2dhBD-bl" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
-              </p>
-            </td>
-            <td>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/QjjI7ID8DwMEd_j-jVhe11QNhWHhBnMxPsm8RNz05eU5Vhlj3eCV0R8-CHt9Gbao.LlzsTPjmXpersCaG" target="_blank"><i class="video icon"></i>Week 1 Discussion - Hershal</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/j5BH7x2o-pn5Aos_4OEcwRU68zlPyiYni2kr7QcbOsAoD2o_pMleprPbKSqyoQne.6_Hvx4DKDXTnijcB" target="_blank"><i class="video icon"></i>Week 1 Discussion - Abigail</a>
-            </td>
-            <td>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Week 2<br>
-              Sep 7 - 11
-            </td>
-            <td>
-              <p>L03 LC2K and ARM ISAs<br>
-                <a class="ui label" href="https://drive.google.com/file/d/1aVRKB0WicehoO0epZk2PZAsHy8yMXvmS/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/Xt1KIhYvdj-OW4QAjIPqxPFx2HSLTHGfDpw40wIkPRBJAmP1mjysgVbPYqjlB8o.iwwBAb-jUDbhbl3x" target="_blank"><i class="video icon"></i>Synchronous</a>
-                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/1nLaeZYzu1wLByzWv6Muo_KHisfRb-ac5" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
-              </p>
-              <p>L04 ARM and C to ARM<br>
-                <a class="ui label" href="https://drive.google.com/file/d/1v-nTIKH_--JCYodnf5RHc6IySTYUAHKU/view?usp=sharing" target="_blank"><i class="file pdf icon"></i>L01</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/5A59A07ceXl9DmS5pm_vPwm8cX9PpfpLDBFdvNJiHw1fSQ9Ayz4bGnISOLIVMkff.BUDfW8VpcU6I81RL" target="_blank"><i class="video icon"></i>Synchronous</a>
-                <a class="ui label" href="https://drive.google.com/drive/u/0/folders/11sGsGg8D2sEdtgmnnj97Hl63uB7aAOYS" target="_blank"><i class="file folder icon"></i>Asynchronous</a>
-              </p>
-            </td>
-            <td>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/hOiEwrIZXQqwKziuWs679s3uTEb23ocVc-qNaoqqlIeieW8STFIZF__kryVTx0ob.jrSXJktU2sTghVBu" target="_blank"><i class="video icon"></i>Week 2 Discussion - Hershal</a>
-                <a class="ui label" href="https://umich.zoom.us/rec/share/u-3nO5PyLb61W0tLLE2VZG5XP21UOmaLBbOiqqYnleIfbZIxWfsJuNqP8aMAMfFU.K6qlNIfYrRjPxncr" target="_blank"><i class="video icon"></i>Week 2 Discussion - Abigail</a>
-            </td>
-            <td>
-            
-            </td>
-          </tr>
-        </tbody>
-      </table>
       <div class="ui section divider"></div>
 
     <!-- Discussions section -->
@@ -235,8 +171,8 @@
             </div>
         </a>
     </div>
-    
     <div class="ui section divider"></div>
+
 
       <!-- Projects section -->
       <h2 id="projects">Projects</h2>
@@ -443,256 +379,254 @@
     <div class="ui section divider"></div>
 
       <!-- Exams section -->
-      <h2 id="exams">Exams</h2>
-      <ul>
-          <li>Midterm: 10/20 7:00 pm</li>
-          <li>Final: 12/14 10:30 am</li>
-      </ul>
+    <h2 id="exams">Exams</h2>
+    <ul>
+        <li>Midterm: 10/20 7:00 pm</li>
+        <li>Final: 12/14 10:30 am</li>
+    </ul>
 
-      <div class="ui three stackable cards" id="project-cards">
-        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1XQmPfXW5xwwus3GtRdc5XS39GgOwblgn">
-            <div class="content">
-            <div class="description">
-                Practice Final Solutions
-            </div>
-            </div>
-        </a>
+    <div class="ui three stackable cards" id="project-cards">
+      <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1XQmPfXW5xwwus3GtRdc5XS39GgOwblgn">
+          <div class="content">
+          <div class="description">
+              Practice Final Solutions
+          </div>
+          </div>
+      </a>
 
-        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1cZ823hkyGKsRRqjFaM2bBycRHt0vhK59">
-            <div class="content">
-            <div class="description">
-                Practice Finals
-            </div>
-            </div>
-        </a>
+      <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1cZ823hkyGKsRRqjFaM2bBycRHt0vhK59">
+          <div class="content">
+          <div class="description">
+              Practice Finals
+          </div>
+          </div>
+      </a>
 
-        <a class="ui card" target="_blank" href="https://docs.google.com/document/d/1Hwo3zMpmxBT6CsOHa3RK8LiUY_vHLNym6022HThqB3E/edit?usp=drive_web">
-            <div class="content">
-            <div class="description">
-                Online Final Exam Instructions
-            </div>
-            </div>
-        </a>
+      <a class="ui card" target="_blank" href="https://docs.google.com/document/d/1Hwo3zMpmxBT6CsOHa3RK8LiUY_vHLNym6022HThqB3E/edit?usp=drive_web">
+          <div class="content">
+          <div class="description">
+              Online Final Exam Instructions
+          </div>
+          </div>
+      </a>
     </div>
 
 
-      <div class="ui section divider"></div>
+    <div class="ui section divider"></div>
 
-      <!-- Administrative Requests section -->
-      <h2 id="admin">Admin Requests</h2>
+    <!-- Administrative Requests section -->
+    <h2 id="admin">Admin Requests</h2>
 
-      <div class="ui three stackable cards" id="project-cards">
-        <a class="ui card" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScbpGd0_R5jam0pDrz8F1qH_MRVSAgZ8f7iJTPDbYbWWzKyOQ/viewform?usp=sf_link">
+    <div class="ui three stackable cards" id="project-cards">
+      <a class="ui card" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScbpGd0_R5jam0pDrz8F1qH_MRVSAgZ8f7iJTPDbYbWWzKyOQ/viewform?usp=sf_link">
+          <div class="content">
+          <div class="description">
+              General Admin Requests
+          </div>
+          <div class="meta">
+              <i>For general administrative requests</i>
+          </div>
+          </div>
+      </a>
+
+      <a class="ui card" target="_blank" href="https://forms.gle/y7Qugw9RjVRzvtDu6">
+          <div class="content">
+          <div class="description">
+              Exam Conflict Form
+          </div>
+          <div class="meta">
+              <i>Please declare all exam conflicts by September 22nd 2020. In extraordinary circumstances, we will offer an alternate time for taking your exam.</i>
+          </div>
+          </div>
+      </a>
+
+      <a class="ui card" target="_blank" href="https://forms.gle/ecJ7nzgytdxaA3vDA">
+          <div class="content">
+          <div class="description">
+              Special Accomodations Form
+          </div>
+          <div class="meta">
+              <i>If you think you need an accommodation for a disability, please let us know by September 22nd for BOTH the Midterm and Final.</i>
+          </div>
+          </div>
+      </a>
+    </div>
+
+    <div class="ui section divider"></div>
+
+
+    <!-- Staff section -->
+    <h2 id="staff">Staff</h2>
+    <p>When you have a question related to the material taught in class, in the book, or a general homework/project question, use the class forum (Piazza) first. First, check to see if your question has been asked. If not, post the question to the forum. This will allow other students with the same question to see the answer. It will also allow your question to be answered by other students in addition to the instruction staff. Effective use of the forum will make the class run more efficiently for both students and the staff.</p>
+    <p>For submitting any administrative requests, including exam conflicts and SSD, please check the tab ''Administrative Requests'' on the left of this screen.</p>
+
+      
+    <div class="ui three stackable special cards">
+      
+      <!-- Instructors -->
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui dimmer">
             <div class="content">
-            <div class="description">
-                General Admin Requests
+              <div class="center">
+                <p><i class="icon envelope"></i>warthur@umich.edu</p>
+                <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
+              </div>
             </div>
-            <div class="meta">
-                <i>For general administrative requests</i>
-            </div>
-            </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="https://forms.gle/y7Qugw9RjVRzvtDu6">
-            <div class="content">
-            <div class="description">
-                Exam Conflict Form
-            </div>
-            <div class="meta">
-                <i>Please declare all exam conflicts by September 22nd 2020. In extraordinary circumstances, we will offer an alternate time for taking your exam.</i>
-            </div>
-            </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="https://forms.gle/ecJ7nzgytdxaA3vDA">
-            <div class="content">
-            <div class="description">
-                Special Accomodations Form
-            </div>
-            <div class="meta">
-                <i>If you think you need an accommodation for a disability, please let us know by September 22nd for BOTH the Midterm and Final.</i>
-            </div>
-            </div>
-        </a>
+          </div>
+          <img src="images/warthur.png">
+        </div>
+        <div class="content">
+          <a class="header">Bill Arthur</a>
+          <div class="meta">
+            <span class="date">Instructor</span>
+          </div>
+        </div>
       </div>
 
-      <div class="ui section divider"></div>
-
-
-      <!-- Staff section -->
-      <h2 id="staff">Staff</h2>
-      <p>When you have a question related to the material taught in class, in the book, or a general homework/project question, use the class forum (Piazza) first. First, check to see if your question has been asked. If not, post the question to the forum. This will allow other students with the same question to see the answer. It will also allow your question to be answered by other students in addition to the instruction staff. Effective use of the forum will make the class run more efficiently for both students and the staff.</p>
-      <p>For submitting any administrative requests, including exam conflicts and SSD, please check the tab ''Administrative Requests'' on the left of this screen.</p>
-
-        
-      <div class="ui three stackable special cards">
-        
-        <!-- Instructors -->
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>warthur@umich.edu</p>
-                  <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
-                </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
+                <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
               </div>
             </div>
-            <img src="images/warthur.png">
           </div>
-          <div class="content">
-            <a class="header">Bill Arthur</a>
-            <div class="meta">
-              <span class="date">Instructor</span>
-            </div>
+          <img src="images/jbbeau.png">
+        </div>
+        <div class="content">
+          <a class="header">Jon Beaumont</a>
+          <div class="meta">
+            <span class="date">Instructor</span>
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>jbbeau@umich.edu</p>
-                  <p><i class="icon windows"></i>Windows, <i class="icon ubuntu"></i>Ubuntu</p>
-                </div>
+
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>nsatish@umich.edu</p>
               </div>
             </div>
-            <img src="images/jbbeau.png">
           </div>
-          <div class="content">
-            <a class="header">Jon Beaumont</a>
-            <div class="meta">
-              <span class="date">Instructor</span>
-            </div>
+          <img src="images/nsatish.png">
+        </div>
+        <div class="content">
+          <a class="header">Satish Narayanasamy</a>
+          <div class="meta">
+            <span class="date">Instructor</span>
           </div>
         </div>
+      </div>
 
-
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>nsatish@umich.edu</p>
-                </div>
+      <!-- IAs/GSIs -->
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>hsatam@umich.edu</p>
+                <p><i class="icon windows"></i>Windows, <i class="icon linux"></i>Linux</p>
               </div>
             </div>
-            <img src="images/nsatish.png">
           </div>
-          <div class="content">
-            <a class="header">Satish Narayanasamy</a>
-            <div class="meta">
-              <span class="date">Instructor</span>
-            </div>
+          <img src="images/hsatam.png">
+        </div>
+        <div class="content">
+          <a class="header">Hershal Satam</a>
+          <div class="meta">
+            <span class="date">IA</span>
           </div>
         </div>
+      </div>
 
-        <!-- IAs/GSIs -->
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>hsatam@umich.edu</p>
-                  <p><i class="icon windows"></i>Windows, <i class="icon linux"></i>Linux</p>
-                </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>gminn@umich.edu</p>
+                <p><i class="icon apple"></i>MacOS</p>
               </div>
             </div>
-            <img src="images/hsatam.png">
           </div>
-          <div class="content">
-            <a class="header">Hershal Satam</a>
-            <div class="meta">
-              <span class="date">IA</span>
-            </div>
+          <img src="images/gminn.png">
+        </div>
+        <div class="content">
+          <a class="header">Gillian Minnehan</a>
+          <div class="meta">
+            <span class="date">IA</span>
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>gminn@umich.edu</p>
-                  <p><i class="icon apple"></i>MacOS</p>
-                </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>jackhong@umich.edu</p>
+                <p><i class="icon linux"></i>Linux</p>
               </div>
             </div>
-            <img src="images/gminn.png">
           </div>
-          <div class="content">
-            <a class="header">Gillian Minnehan</a>
-            <div class="meta">
-              <span class="date">IA</span>
-            </div>
+          <img src="images/jackhong.png">
+        </div>
+        <div class="content">
+          <a class="header">Jack Hong</a>
+          <div class="meta">
+            <span class="date">IA</span>
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>jackhong@umich.edu</p>
-                  <p><i class="icon linux"></i>Linux</p>
-                </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>yujiaxie@umich.edu</p>
+                <p><i class="icon apple"></i>MacOS, <i class="icon linux"></i>Linux</p>
               </div>
             </div>
-            <img src="images/jackhong.png">
           </div>
-          <div class="content">
-            <a class="header">Jack Hong</a>
-            <div class="meta">
-              <span class="date">IA</span>
-            </div>
+          <img src="images/yujiaxie.png">
+        </div>
+        <div class="content">
+          <a class="header">Yujia Xie</a>
+          <div class="meta">
+            <span class="date">GSI</span>
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>yujiaxie@umich.edu</p>
-                  <p><i class="icon apple"></i>MacOS, <i class="icon linux"></i>Linux</p>
-                </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i>abifox@umich.edu</p>
+                <p><i class="icon apple"></i>MacOS</p>
               </div>
             </div>
-            <img src="images/yujiaxie.png">
           </div>
-          <div class="content">
-            <a class="header">Yujia Xie</a>
-            <div class="meta">
-              <span class="date">GSI</span>
-            </div>
+          <img src="images/abifox.png">
+        </div>
+        <div class="content">
+          <a class="header">Abigail Fox</a>
+          <div class="meta">
+            <span class="date">IA</span>
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui inverted dimmer">
-              <div class="content">
-                <div class="center">
-                  <p><i class="icon envelope"></i>abifox@umich.edu</p>
-                  <p><i class="icon apple"></i>MacOS</p>
-                </div>
-              </div>
-            </div>
-            <img src="images/abifox.png">
-          </div>
-          <div class="content">
-            <a class="header">Abigail Fox</a>
-            <div class="meta">
-              <span class="date">IA</span>
-            </div>
-          </div>
-        </div>
-
-      </div> <!-- ui three stackable special cards -->
-      
-
-      <div class="ui section divider"></div>
+    </div> <!-- ui three stackable special cards -->
+    <div class="ui section divider"></div>
 
     </div><!-- ui text container -->
   </div>
@@ -730,14 +664,7 @@
   </script>
 
   <script>
-    $('.ui.sticky')
-      .sticky({
-        context: '#example1'
-      })
-    ;
-  </script>
-
-  <script>
+    // Highlights the last selected item
   $('.ui.blue.menu')
       .on('click', '.item', function() {
         if(!$(this).hasClass('dropdown') && !$(this).hasClass('external')) {
@@ -750,6 +677,7 @@
   </script>
 
   <script>
+    // Dims the staff cards
     $('.special.cards .image').dimmer({
       on: 'hover'
     });
