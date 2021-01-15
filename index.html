@@ -38,24 +38,33 @@
         <i class="home icon big"></i>
       </a>
       <a class="item" href="syllabus.html" target="_blank">
-        <span class="ui float right large text"> Syllabus </span>
+        <span class="ui float right large text"> **TODO - Replace w/ gdoc Syllabus </span>
         <i class="external alternate large icon"></i>
       </a>
       <a class="item" href="lectures.html" target="_blank">
-        <span class="ui large text"> Lectures </span>
+        <span class="ui large text"> **TODO - Replace w/ gsheet Lectures </span>
         <i class="external alternate large icon"></i>
+      </a>
+      <a class="item" href="reviewvod.html">
+        <span class="ui large text"> Video Review</span>
+          <i class="external alternate large icon"></i>
+      </a>
+      <a class="item" href="resources.html">
+        <span class="ui large text"> Course Resources</span>
+          <i class="external alternate large icon"></i>
+      </a>
+ 
+      <a class="item" href="#coursecal">
+        <span class="ui large text"> Course Calendar</span>
+      </a>
+       <a class="item" href="#ohcal">
+        <span class="ui large text"> Office Hours Calendar</span>
       </a>
       <a class="item" href="#discussions">
         <span class="ui large text"> Discussions</span>
       </a>
       <a class="item" href="#projects">
         <span class="ui large text"> Projects</span>
-      </a>
-      <a class="item" href="#resources">
-        <span class="ui large text"> Resources </span>
-      </a>
-      <a class="item" href="#video_review">
-        <span class="ui large text"> Video Review</span>
       </a>
       <a class="item" href="#exams">
         <span class="ui large text"> Exams</span>
@@ -70,7 +79,7 @@
       <br><br><br><br><br><br>
 
       <!-- External Links -->
-      <a class="item" href="https://autograder.io/" target="_blank">
+      <a class="item" href="https://autograder.io/web/course/101" target="_blank">
         <i class="file code large icon"></i>
         <span class="ui medium text">Autograder</span>
       </a>
@@ -82,7 +91,7 @@
         <i class="question circle large icon"></i>
         <span class="ui medium text">Piazza</span>
       </a>
-      <a class="item" href="https://drive.google.com/drive/folders/1jLwfxbt8YCg_hyMKPk95pB0pwHNIJSex?usp=sharing" target="_blank">
+      <a class="item" href="https://drive.google.com/drive/folders/14yJFN1MDjU10KPWuxa9XdXL80clrMKaE?usp=sharing" target="_blank">
         <i class="google drive large icon"></i>
         <span class="ui medium text">Google Drive</span>
       </a>
@@ -115,10 +124,11 @@
       </h1>
       
       <br><br><br>
-      <p>Welcome to EECS 370 Winter 2021!</p>
+      <p>Welcome to EECS 370 Winter 2021! **TODO Update Welcome Message</p>
       <br>
       <div class="ui section divider"></div>
-
+      <h2 id="coursecal"> Course Calendar </h2> 
+      <div id="coursecalendar"></div>
       <!--
            Google Calendar
 
@@ -126,7 +136,6 @@
            the JavaScript source code at the end of this file.  Remember to
            update the 'googleCalendarId' found in the JavaScript code.
       -->
-      <div id="calendar"></div>
       <!-- TODO: Update this Google Calendar link -->
       <p>
         <a href="https://calendar.google.com/calendar/embed?src=c_8aqth72tm08frm3vi1tbq1s798%40group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
@@ -134,25 +143,36 @@
         </a>
       </p>
       <div class="ui section divider"></div>
+      <h2 id="ohcal"> Office Hours Calendar </h2> 
+      <div id="ohcalendar"></div>
+      <!--
+           Google Calendar
+
+           The FullCalendar JS library inserts a Google Calendar here.  See
+           the JavaScript source code at the end of this file.  Remember to
+           update the 'googleCalendarId' found in the JavaScript code.
+      -->
+      <!-- TODO: Update this Google Calendar link -->
+      <p>
+        <a href="https://calendar.google.com/calendar/embed?src=c_m7lcgbjruajiss89kc24j2ptmc%40group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
+          Open calendar in new window
+        </a>
+      </p>
+      <div class="ui section divider"></div>
+
 
     <!-- Discussions section -->
     <h2 id="discussions">Discussions</h2>
     <ul>
+        <li>**TODO Update</li>
         <li>Abigail - Monday 4:30pm – 5:30pm (https://umich.zoom.us/j/94520936732)</li>
         <li>Hershal - Friday 1:30pm – 2:30pm (https://umich.zoom.us/j/97135367624)</li>
         <li>Alex - Friday 3:30pm - 4:30pm (https://umich.zoom.us/j/95948690503)</li>
     </ul>
 
-    <div class="ui three stackable cards" id="project-cards">
-        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/19pitKXD9YnssfR7nAbc_jKGJyClbmTve">
-            <div class="content">
-            <div class="description">
-                Discussion Pods
-            </div>
-            </div>
-        </a>
+    <div class="ui two stackable cards" id="project-cards">
 
-        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1KUefovDP1AazzwizioH-E-QUR0X7F3AP">
+        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1Yog9kn1xw6DhQUO3obs1ABhtKUMYFVIJ?usp=sharing">
             <div class="content">
             <div class="description">
                 Discussion Slides
@@ -160,7 +180,7 @@
             </div>
         </a>
 
-        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1dAp7qBjVQ_3zWLo8naPghQZpM9FW584w">
+        <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1KG8XgdFzCmbf1tODK9tiIieo2N-3maiw?usp=sharing">
             <div class="content">
             <div class="description">
                 Review Slides
@@ -222,171 +242,18 @@
       </div>
       <div class="ui section divider"></div>
 
-      <!-- Resources section -->
-      <h2 id="resources">Resources</h2>
-      <div class="ui three stackable cards">
-        <!-- Simulators -->
-        <a class="card" target="_blank" href="http://vhosts.eecs.umich.edu/370simulators/cache/simulator.html">
-          <div class="content">
-            <div class="description">
-              Cache Simulator
-            </div>
-          </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="http://vhosts.eecs.umich.edu/370simulators/pipeline/simulator.html">
-          <div class="content">
-            <div class="description">
-              Pipeline Simulator
-            </div>
-            <div class="meta">
-              <i>Note this is explicitly a simulator for the pipeline as presented in class</i>
-            </div>
-          </div>
-        </a>
-
-        <!-- ARM assembly -->
-        <a class="ui card" target="_blank" href="https://drive.google.com/open?id=1ysv_I8FjC00oIY_Td9UbgCzsQwdlpPzQ">
-          <div class="content">
-            <div class="description">
-                ARMv8 (LEG) Cheat Sheet
-            </div>
-          </div>
-        </a>
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/ARM-v8-Quick-Reference-Guide.pdf">
-          <div class="content">
-            <div class="description">
-                ARMv8 (LEG) Quick Reference Guide
-            </div>
-          </div>
-        </a>
-        <a class="ui card" target="_blank" href="https://www.element14.com/community/servlet/JiveServlet/previewBody/41836-102-1-229511/ARM.Reference_Manual.pdf">
-          <div class="content">
-            <div class="description">
-                ARMv8 (LEG) Reference Manual
-            </div>
-          </div>
-        </a>
-        <a class="ui card" target="_blank" href="https://yurichev.com/mirrors/ARMv8-A_Architecture_Reference_Manual_(Issue_A.a).pdf">
-          <div class="content">
-            <div class="description">
-                ARMv8 (LEG) Full Reference Manual
-            </div>
-          </div>
-        </a>
-
-        <!-- Programming and Debugging -->
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/ccc.html">
-          <div class="content">
-            <div class="description">
-                C for C++ users by Ian Cooke
-            </div>
-            <div class="meta">
-              <i> Guide to using C with prior C++ knowledge</i>
-            </div>
-          </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="http://c-faq.com/">
-          <div class="content">
-            <div class="description">
-                comp.lang.c Frequently Asked Questions
-            </div>
-            <div class="meta">
-              <i>Note this is explicitly a simulator for the pipeline as presented in class</i>
-            </div>
-          </div>
-        </a>
-        
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/gdb_tutorial.html">
-          <div class="content">
-            <div class="description">
-                GDB brief tutorial
-            </div>
-            <div class="meta">
-              <i>Learn to debug using GDB</i>
-            </div>
-          </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/gdb_refcard.ps">
-          <div class="content">
-            <div class="description">
-                GDB reference card (in .ps)
-            </div>
-          </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/number_systems.html">
-          <div class="content">
-            <div class="description">
-                Binary, Hex, and 2's complement
-            </div>
-            <div class="meta">
-              <i>Includes practice questions</i>
-            </div>
-          </div>
-        </a>
-
-        <a class="ui card" target="_blank" href="https://www.eecs.umich.edu/courses/eecs370/eecs370.f20/resources/materials/Symbol-Relocation-Data-Mapping.pdf">
-          <div class="content">
-            <div class="description">
-                Symbol and Relocation Table Guide
-            </div>
-          </div>
-        </a>
-
-    </div>
-    <div class="ui section divider"></div>
-
-    <!-- Video Review section -->
-    <h2 id="video_review">Video Review</h2>
-    <a class="ui label" href="https://youtu.be/KGPfymjE2z8" target="_blank"><i class="video icon"></i>EECS 370 Bonus Review #1 - Binary Representation/Operations</a>
-    <br>
-    <br>
-    <a class="ui label" href="https://youtu.be/FtRrT4PDfCk" target="_blank"><i class="video icon"></i>EECS 370 Bonus Review #2 - Floating Point Review</a>
-    <br>
-    <br>
-    <a class="ui label" href="https://youtu.be/Jcm8Vyyxrhw" target="_blank"><i class="video icon"></i>EECS 370 Review #1 - Binary, Hexadecimal, and Two's Complement</a>
-    <br><br>
-    <a class="ui label" href="https://youtu.be/AXPQ_swRlk8" target="_blank"><i class="video icon"></i>EECS 370 Review #2 - Struct Alignment</a>
-    <br><br>
-    <a class="ui label" href="https://youtu.be/iYrlAA69A3A" target="_blank"><i class="video icon"></i>EECS 370 Review #3 - Endianness and ARM Loads/Stores</a>
-    <br><br>
-    <a class="ui label" href="https://youtu.be/Yt9khGV14Z0" target="_blank"><i class="video icon"></i>EECS 370 Review #4 - Branching and C to ARM Example</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=SMH5uL3HiiU" target="_blank"><i class="video icon"></i>EECS 370 Review #5 - Caller/Callee Save Registers</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=hoLYnS2jOV8" target="_blank"><i class="video icon"></i>EECS 370 Review #6 - Symbol and Relocation Tables</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=AnRp_hIYPDA" target="_blank"><i class="video icon"></i>EECS 370 Review #7 - Benchmarking Datapaths</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=6PTk8frABfs" target="_blank"><i class="video icon"></i>EECS 370 Reviews #8 - Data Hazard Resolution</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=ECYXZxeMIX8" target="_blank"><i class="video icon"></i>EECS 370 Review #9 - Benchmarking with Hazards</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=r5vY6OFSB04" target="_blank"><i class="video icon"></i>EECS 370 Review #10 - Three C's of Cache Misses</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=-v5BE66grOU" target="_blank"><i class="video icon"></i>EECS 370 Review #11 - Reverse Engineering the Cache</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=2tMaN-z76EY" target="_blank"><i class="video icon"></i>EECS 370 Review #12 - Virtual Memory Overview</a>
-    <br><br>
-    <a class="ui label" href="https://www.youtube.com/watch?v=IZ_dAywX95Q" target="_blank"><i class="video icon"></i>EECS 370 Review #13 - Virtually vs. Physically Addressed Caches</a>
-
-    <div class="ui section divider"></div>
-
       <!-- Exams section -->
     <h2 id="exams">Exams</h2>
     <ul>
-        <li>Midterm: 10/20 7:00 pm</li>
-        <li>Final: 12/14 10:30 am</li>
+        <li>**TODO Update Midterm: 10/20 7:00 pm</li>
+        <li>**TODO Update Final: 12/14 10:30 am</li>
     </ul>
 
     <div class="ui three stackable cards" id="project-cards">
       <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1XQmPfXW5xwwus3GtRdc5XS39GgOwblgn">
           <div class="content">
           <div class="description">
-              Practice Final Solutions
+              **TODO Update Link Practice Final Solutions
           </div>
           </div>
       </a>
@@ -394,7 +261,7 @@
       <a class="ui card" target="_blank" href="https://drive.google.com/drive/folders/1cZ823hkyGKsRRqjFaM2bBycRHt0vhK59">
           <div class="content">
           <div class="description">
-              Practice Finals
+              **TODO Update Link Practice Finals
           </div>
           </div>
       </a>
@@ -402,7 +269,7 @@
       <a class="ui card" target="_blank" href="https://docs.google.com/document/d/1Hwo3zMpmxBT6CsOHa3RK8LiUY_vHLNym6022HThqB3E/edit?usp=drive_web">
           <div class="content">
           <div class="description">
-              Online Final Exam Instructions
+              **TODO Update Link Online Final Exam Instructions
           </div>
           </div>
       </a>
@@ -418,7 +285,7 @@
       <a class="ui card" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScbpGd0_R5jam0pDrz8F1qH_MRVSAgZ8f7iJTPDbYbWWzKyOQ/viewform?usp=sf_link">
           <div class="content">
           <div class="description">
-              General Admin Requests
+              **TODO Update Link General Admin Requests
           </div>
           <div class="meta">
               <i>For general administrative requests</i>
@@ -429,7 +296,7 @@
       <a class="ui card" target="_blank" href="https://forms.gle/y7Qugw9RjVRzvtDu6">
           <div class="content">
           <div class="description">
-              Exam Conflict Form
+              **TODO Update Link Exam Conflict Form
           </div>
           <div class="meta">
               <i>Please declare all exam conflicts by September 22nd 2020. In extraordinary circumstances, we will offer an alternate time for taking your exam.</i>
@@ -440,7 +307,7 @@
       <a class="ui card" target="_blank" href="https://forms.gle/ecJ7nzgytdxaA3vDA">
           <div class="content">
           <div class="description">
-              Special Accomodations Form
+              **TODO Update Link Special Accomodations Form
           </div>
           <div class="meta">
               <i>If you think you need an accommodation for a disability, please let us know by September 22nd for BOTH the Midterm and Final.</i>
@@ -453,7 +320,7 @@
 
 
     <!-- Staff section -->
-    <h2 id="staff">Staff</h2>
+    <h2 id="staff">Staff **TODO Include GDrive Bios + Update</h2>
     <p>When you have a question related to the material taught in class, in the book, or a general homework/project question, use the class forum (Piazza) first. First, check to see if your question has been asked. If not, post the question to the forum. This will allow other students with the same question to see the answer. It will also allow your question to be answered by other students in addition to the instruction staff. Effective use of the forum will make the class run more efficiently for both students and the staff.</p>
     <p>For submitting any administrative requests, including exam conflicts and SSD, please check the tab ''Administrative Requests'' on the left of this screen.</p>
 
@@ -689,7 +556,7 @@
    // https://fullcalendar.io/docs
    // https://fullcalendar.io/docs/google-calendar
    document.addEventListener('DOMContentLoaded', function() {
-     var calendarEl = document.getElementById('calendar');
+     var calendarEl = document.getElementById('coursecalendar');
      var calendar = new FullCalendar.Calendar(calendarEl, {
        // Google Calendar API, DO NOT CHANGE
        // https://fullcalendar.io/docs/google-calendar
@@ -806,6 +673,134 @@
      });
    }
   </script>
+
+  <script>
+   // Insert Google Calendar in <div id="calendar">
+   //
+   // REMINDER: update googleCalendarId each semester
+   //
+   // Uses the FullCalendar library and connects to Google Calendar
+   // https://fullcalendar.io/docs
+   // https://fullcalendar.io/docs/google-calendar
+   document.addEventListener('DOMContentLoaded', function() {
+     var calendarEl = document.getElementById('ohcalendar');
+     var calendar = new FullCalendar.Calendar(calendarEl, {
+       // Google Calendar API, DO NOT CHANGE
+       // https://fullcalendar.io/docs/google-calendar
+       googleCalendarApiKey: 'AIzaSyCR6M8NZ-KfOBZXdTcLNGcGDbOQWplqtqw',
+
+       // Google Calendar ID CHANGE THIS EACH SEMESTER
+       events: {
+         // TODO: Update this Google calendar ID based on the Google calendar URL
+         googleCalendarId: 'c_m7lcgbjruajiss89kc24j2ptmc@group.calendar.google.com',
+       },
+
+       // Tool bar options.  Hide "today" button on mobile to save space.
+       // https://fullcalendar.io/docs/headerToolbar
+       headerToolbar: {
+         end: isSmallScreen() ? 'prev,next' : 'today prev,next',
+       },
+
+       // View options
+       // https://fullcalendar.io/docs/timegrid-view
+       initialView: isSmallScreen() ? 'timeGridDay' : 'timeGridWeek',
+       allDaySlot: true,
+       nowIndicator: true,
+       scrollTime: "08:00:00",
+
+       // Selectively recolor calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventContent: recolorCalendarEvent,
+
+       // Add click-for-popup to calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventDidMount: addPopup,
+
+       aspectRatio: isSmallScreen() ? .75 : 1.35,
+     });
+     calendar.render();
+   });
+
+   function recolorCalendarEvent(arg) {
+     // TODO: Consider updating these strings based on your Google Calendar needs
+     // Change calendar event colors based on string prefix
+     var color_basil = 'rgb(57, 125, 73)';
+     var color_cornflowerblue = 'rgb(100, 149, 237)';
+     var color_blueberry = 'rgb(64, 84, 175)';
+     var color_saddlebrown = 'rgb(119, 33, 32)';
+     var color_darkseagreen = 'rgb(143, 188, 143)';
+     var color_darkblue = 'rgb(23, 37, 42)';
+     var color_blue = 'rgb(42, 71, 82)';
+     var color_teal = 'rgb(58, 175, 169)';
+     var color_lighterTeal = 'rgb(43, 122, 120)';
+     var color_lightestTeal = 'rgb(222, 242, 241)';
+     if (arg.event.title.toLowerCase().includes('oh') ){
+       arg.backgroundColor = color_teal;
+       arg.borderColor = color_teal;
+     }
+     else if (arg.event.title.toLowerCase().includes('office hour')) {
+       arg.backgroundColor = color_teal;
+       arg.borderColor = color_teal;
+     }
+     else if (arg.event.title.toLowerCase().includes('lecture')) {
+       arg.backgroundColor = color_darkblue;
+       arg.borderColor = color_darkblue;
+     }
+     else if (arg.event.title.toLowerCase().includes('discussion')) {
+       arg.backgroundColor = color_lighterTeal;
+       arg.borderColor = color_lighterTeal;
+     }
+     else if (
+       arg.event.title.toLowerCase().includes('due') ||
+       arg.event.title.toLowerCase().includes('deadline') ||
+       arg.event.title.toLowerCase().includes('exam')
+     ) {
+       arg.backgroundColor = color_saddlebrown;
+       arg.borderColor = color_saddlebrown;
+     }
+     else if (arg.event.title.toLowerCase().includes('proffice hours')) {
+       arg.backgroundColor = color_lightestTeal;
+       arg.borderColor = color_lightestTeal;
+     }
+     else {
+       arg.backgroundColor = color_blue;
+       arg.borderColor = color_blue;
+     }
+
+
+   }
+
+   function addPopup(arg) {
+     // Add a popup to a calendar event
+     //
+     // arg.event.extendedProps contains extra information from the Google
+     // Calendar event, e.g., description and location.
+     var element = arg.el;
+     var location = arg.event.extendedProps.location || '';
+     var description = arg.event.extendedProps.description || '';
+
+     // Remove link to Google Calendar automatically added by FullCalendar
+     $(element).removeAttr('href');
+
+     // Add Popup to DOM, links in the location field are clickable
+     // https://semantic-ui.com/modules/popup.html#/usage
+     //
+     // NOTE: overflow:scroll avoids text spilling out of the popup on iOS.
+     if (location.toLowerCase().startsWith('http')) {
+       var location_html = `<a href="${location}" target="_blank">${location}</a>`;
+     } else {
+       var location_html = `${location}<br>${description}`;
+     }
+     $(element).popup({
+       on: 'click',
+       html: `
+         <div class="header">${arg.event.title}</div>
+         <div class="content" style="overflow:auto">${location_html}</div>
+       `,
+     });
+   }
+  </script>
+
 
 </body>
 </html>
