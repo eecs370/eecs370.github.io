@@ -23,85 +23,167 @@
 
 
 <body>
-  <!-- Nav bar on left side -->
+
+  <div class="ui secondary left blue vertical inverted sidebar menu labeled icon">
+    
+    <button class="ui blue right floated icon button" id="close_sidebar_button">
+      <i class="times icon"></i>
+    </button>
+    <br>
+      <br>
+      <a class="item" href="#">
+        <span class="ui text"> EECS 370 </span>
+      </a>
+      <div class="ui fitted divider"></div>
+
+      <a class="item" href="https://docs.google.com/document/d/1RZ_a-6-6mIP-taZQQ37wL0KmazKi0HZ1LR7aoaScEyc/edit?usp=sharing" target="_blank">
+        <p> <i class="university icon"></i> Syllabus </p>
+      </a>
+
+      
+      <a class="item" href="https://drive.google.com/drive/folders/1znXrU3hP5JfhaUzf_k0UkRiPBtJ2C8mD?usp=sharing" target="_blank">
+        <p> <i class="video icon"></i> Lectures </p>
+      </a>
+
+      <a class="item" href="https://drive.google.com/drive/folders/15xkKKtoqTrwypwWwhlgNJIlwcMwhJo-J?usp=sharing" target="_blank">
+        <p> <i class="video icon"></i> Discussions </p>
+      </a>
+
+      <a class="item" href="https://www.youtube.com/channel/UCVHvjtdIZI40TWd5-64hTLQ/videos" target="_blank">
+        <p> <i class="youtube icon"></i> Review Videos </p>
+      </a>
+
+      <a class="item" href="resources.html" target="_blank">
+        <p> <i class="graduation cap
+          icon"></i> Course Resources </p>
+      </a>
+
+
+    <div class="ui fitted divider"></div>
+    <!-- Internal links -->
+      
+        <a class="item" href="#coursecal">
+          Course Calendar
+        </a>
+        <a class="item" href="#ohcal">
+          Office Hours Calendar
+        </a>
+        <a class="item" href="#projects">
+          Projects
+        </a>
+        <a class="item" href="#admin">
+          <span class="ui text"> Admin Requests</span>
+        </a>
+        <a class="item" href="#staff">
+          Staff
+        </a>
+      <!-- Internal links -->
+      
+      <div class="ui fitted divider"></div>
+
+    <!-- External links -->
+      <a class="item" href="https://piazza.com/class/kjvo5f629u23cu" target="_blank">
+        <p> <i class="talk outline icon small"> </i> Piazza </p>
+      </a>
+      <!--
+      <a class="item" href="https://umich.instructure.com/courses/391021/external_tools/28616" target="_blank">
+        <i class="video icon big"></i>
+        <br>
+        Lecture Recordings
+      </a>
+      -->
+      <a class="item" href="https://drive.google.com/drive/folders/14yJFN1MDjU10KPWuxa9XdXL80clrMKaE?usp=sharing" target="_blank">
+        <p> <i class="google icon"></i> Files </p>
+      </a>
+      <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
+        <p> <i class="help circle icon"></i> Office Hours </p>
+      </a>
+      <a class="item" href="https://autograder.io/web/course/101" target="_blank">
+        <p> <i class="upload icon"></i> Autograder </p>
+      </a>
+      <a class="item" href="https://www.gradescope.com/courses/228108" target="_blank">
+        <p> <i class="chart bar icon"></i> Gradescope </p>
+      </a>
+      <div class="ui fitted divider"></div>
+      
+    <!-- External links -->
+
+  </div>
+  <!--
   <div class="ui secondary blue vertical inverted sidebar menu">
 
-    <!-- Close sidebar button -->
     <button class="ui blue right floated icon button" id="close_sidebar_button">
       <i class="times icon"></i>
     </button>
 
-    <br><br><br><br>
-
-    <!-- Internal links -->
+    <br><br>
       <a class="item" href="#">
-        <i class="home icon big"></i>
+        <i class="home icon"></i>
       </a>
       <a class="item" href="https://docs.google.com/document/d/1RZ_a-6-6mIP-taZQQ37wL0KmazKi0HZ1LR7aoaScEyc/edit?usp=sharing" target="_blank">
-        <span class="ui float right large text"> Syllabus </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui float right text"> Syllabus </span>
+        <i class="external alternate icon"></i>
       </a>
       <a class="item" href="https://drive.google.com/drive/folders/1znXrU3hP5JfhaUzf_k0UkRiPBtJ2C8mD?usp=sharing" target="_blank">
-        <span class="ui large text"> Lectures </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui text"> Lectures </span>
+        <i class="external alternate icon"></i>
       </a>
 
       <a class="item" href="https://drive.google.com/drive/folders/15xkKKtoqTrwypwWwhlgNJIlwcMwhJo-J?usp=sharing" target="_blank">
-        <span class="ui large text"> Discussions </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui text"> Discussions </span>
+        <i class="external alternate icon"></i>
       </a>
 
       <a class="item" href="https://www.youtube.com/channel/UCVHvjtdIZI40TWd5-64hTLQ/videos" target="_blank">
-        <span class="ui large text"> Video Review</span>
-          <i class="external alternate large icon"></i>
+        <span class="ui text"> Video Review</span>
+          <i class="external alternate icon"></i>
       </a>
       <a class="item" href="resources.html" target="_blank">
-        <span class="ui large text"> Course Resources</span>
-          <i class="external alternate large icon"></i>
+        <span class="ui text"> Course Resources</span>
+          <i class="external alternate icon"></i>
       </a>
  
       <a class="item" href="#coursecal">
-        <span class="ui large text"> Course Calendar</span>
+        <span class="ui text"> Course Calendar</span>
       </a>
        <a class="item" href="#ohcal">
-        <span class="ui large text"> Office Hours Calendar</span>
+        <span class="ui text"> Office Hours Calendar</span>
       </a>
       <a class="item" href="#projects">
-        <span class="ui large text"> Projects</span>
+        <span class="ui text"> Projects</span>
       </a>
       <a class="item" href="#admin">
-        <span class="ui large text"> Admin Requests</span>
+        <span class="ui text"> Admin Requests</span>
       </a>
       <a class="item" href="#staff">
-        <span class="ui large text"> Staff</span>
+        <span class="ui text"> Staff</span>
       </a>
       
       <br><br><br><br><br><br>
 
-      <!-- External Links -->
       <a class="item" href="https://autograder.io/web/course/101" target="_blank">
-        <i class="file code large icon"></i>
+        <i class="file code icon"></i>
         <span class="ui medium text">Autograder</span>
       </a>
       <a class="item" href="https://www.gradescope.com/courses/228108" target="_blank">
-        <i class="chart bar large icon"></i>
+        <i class="chart bar icon"></i>
         <span class="ui medium text">Gradescope</span>
       </a>
       <a class="item" href="https://piazza.com/class/kjvo5f629u23cu" target="_blank">
-        <i class="question circle large icon"></i>
+        <i class="question circle icon"></i>
         <span class="ui medium text">Piazza</span>
       </a>
       <a class="item" href="https://drive.google.com/drive/folders/14yJFN1MDjU10KPWuxa9XdXL80clrMKaE?usp=sharing" target="_blank">
-        <i class="google drive large icon"></i>
+        <i class="google drive icon"></i>
         <span class="ui medium text">Google Drive</span>
       </a>
       <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
-        <i class="hands helping large icon"></i>
+        <i class="hands helping icon"></i>
         <span class="ui medium text">Office Hours</span>
       </a>
       
-  </div><!-- Nav bar -->
-
+  </div>
+-->
 
   <!-- Main page  -->
   <div class="pusher">
