@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.eecs.umich.edu/courses/eecs583/links/gdbtut.html -->
+<HTML><HEAD><TITLE>GDB Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2800.1515" name=GENERATOR></HEAD>
+<BODY>
+<H1>GDB Tutorial </H1>Gdb is a debugger for C (and C++). It allows you to do 
+things like run the program up to a certain point then stop and print out the 
+values of certain variables at that point, or step through the program one line 
+at a time and print out the values of each variable after executing each line. 
+It uses a command line interface. 
+<P>This is a brief description of some of the most commonly used features of 
+gdb. 
+<H2>Compiling </H2>To prepare your program for debugging with gdb, you must 
+compile it with the <CODE>-g</CODE> flag. So, if your program is in a source 
+file called <CODE>memsim.c</CODE> and you want to put the executable in the file 
+<CODE>memsim</CODE>, then you would compile with the following command: <CODE><PRE>gcc -g -o memsim memsim.c
+</PRE></CODE>
+<H2>Invoking and Quitting GDB </H2>To start gdb, just type <CODE>gdb</CODE> at 
+the unix prompt. Gdb will give you a prompt that looks like this: 
+<CODE>(gdb)</CODE>. From that prompt you can run your program, look at 
+variables, etc., using the commands listed below (and others not listed). Or, 
+you can start gdb and give it the name of the program executable you want to 
+debug by saying <CODE><PRE>gdb <I>executable</I>
+</PRE></CODE>
+<P>To exit the program just type <CODE>quit</CODE> at the <CODE>(gdb)</CODE> 
+prompt (actually just typing <CODE>q</CODE> is good enough). 
+<H2>Commands </H2>
+<H4>help </H4>Gdb provides online documentation. Just typing <CODE>help</CODE> 
+will give you a list of topics. Then you can type <CODE>help <I>topic</I></CODE> 
+to get information about that topic (or it will give you more specific terms 
+that you can ask for help about). Or you can just type <CODE>help 
+<I>command</I></CODE> and get information about any other command. 
+<H4>file </H4><CODE>file <I>executable</I></CODE> specifies which program you 
+want to debug. 
+<H4>run </H4><CODE>run</CODE> will start the program running under gdb. (The 
+program that starts will be the one that you have previously selected with the 
+<CODE>file</CODE> command, or on the unix command line when you started gdb. You 
+can give command line arguments to your program on the gdb command line the same 
+way you would on the unix command line, except that you are saying 
+<CODE>run</CODE> instead of the program name: <CODE><PRE>run 2048 24 4
+</PRE></CODE>You can even do input/output redirection: <CODE>run &gt; 
+outfile.txt</CODE>. 
+<H4>break </H4>A ``breakpoint'' is a spot in your program where you would like 
+to temporarily stop execution in order to check the values of variables, or to 
+try to find out where the program is crashing, etc. To set a breakpoint you use 
+the <CODE>break</CODE> command. 
+<P><CODE>break <I>function</I></CODE> sets the breakpoint at the beginning of 
+<CODE><I>function</I></CODE>. If your code is in multiple files, you might need 
+to specify <CODE><I>filename:function</I></CODE>. 
+<P><CODE>break <I>linenumber</I></CODE> or <CODE>break 
+<I>filename:linenumber</I></CODE> sets the breakpoint to the given line number 
+in the source file. Execution will stop before that line has been executed. 
+<H4>delete </H4><CODE>delete</CODE> will delete all breakpoints that you have 
+set. 
+<P><CODE>delete <I>number</I></CODE> will delete breakpoint numbered 
+<CODE><I>number</I></CODE>. You can find out what number each breakpoint is by 
+doing <CODE>info breakpoints</CODE>. (The command <CODE>info</CODE> can also be 
+used to find out a lot of other stuff. Do <CODE>help info</CODE> for more 
+information.) 
+<H4>clear </H4><CODE>clear <I>function</I></CODE> will delete the breakpoint set 
+at that function. Similarly for <CODE><I>linenumber</I></CODE>, 
+<CODE><I>filename:function</I></CODE>, and 
+<CODE><I>filename:linenumber</I></CODE>. 
+<H4>continue </H4><CODE>continue</CODE> will set the program running again, 
+after you have stopped it at a breakpoint. 
+<H4>step </H4><CODE>step</CODE> will go ahead and execute the current source 
+line, and then stop execution again before the next source line. 
+<H4>next </H4><CODE>next</CODE> will continue until the next source line in the 
+current function (actually, the current innermost stack frame, to be precise). 
+This is similar to <CODE>step</CODE>, except that if the line about to be 
+executed is a function call, then that function call will be completely executed 
+before execution stops again, whereas with <CODE>step</CODE> execution will stop 
+at the first line of the function that is called. 
+<H4>until </H4><CODE>until</CODE> is like <CODE>next</CODE>, except that if you 
+are at the end of a loop, <CODE>until</CODE> will continue execution until the 
+loop is exited, whereas <CODE>next</CODE> will just take you back up to the 
+beginning of the loop. This is convenient if you want to see what happens after 
+the loop, but don't want to step through every iteration. 
+<H4>list </H4><CODE>list <I>linenumber</I></CODE> will print out some lines from 
+the source code around <CODE><I>linenumber</I></CODE>. If you give it the 
+argument <CODE><I>function</I></CODE> it will print out lines from the beginning 
+of that function. Just <CODE>list</CODE> without any arguments will print out 
+the lines just after the lines that you printed out with the previous 
+<CODE>list</CODE> command. 
+<H4>print </H4><CODE>print <I>expression</I></CODE> will print out the value of 
+the expression, which could be just a variable name. To print out the first 25 
+(for example) values in an array called <CODE>list</CODE>, do <CODE><PRE>print list[0]@25
+</PRE></CODE>
+<H4>where or backtrace </H4><CODE>where </CODE>will print out the stack trace 
+for where you are currently at. It shows the sequence of functions that were 
+called (starting with main()) to reach the present location. The arguments for 
+each function are also displayed. </BODY></HTML>

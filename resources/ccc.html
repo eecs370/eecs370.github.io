@@ -1,0 +1,382 @@
+<html>
+<head><title>C for C++ Programmers</title>
+</head>
+<body bgcolor=white>
+<h1>C for C++ Programmers</h1>
+<h4>CS230/330 - Operating Systems (Winter 2001). </h4>
+<small>written by Ian Cooke, who is responsible for all errors</small><p>
+
+
+
+The good news is that C syntax is almost identical to that of
+C++. However, there are many things you're used to that aren't available in
+C:
+
+<ul>
+<li>classes and all their associated tricks: templates, inheritance, etc.
+<li><code>new</code> and <code>delete</code>
+<li>the stream operators <code>&lt;&lt; &gt;&gt;</code>
+<li>the <code>// </code> comment character
+<li>the bool keyword
+<li>all those weird casting operators (dynamic_cast, static_cast)
+<li>the standard libraries you're used to (e.g. iostream)
+<li>lots of other stuff
+</ul>
+
+We'll cover some of the basics here. The end of this document has
+a couple of recommended books where you can go for further information
+(including classic book on C written by Kernighan and Ritchie and
+referred to here as K&R). The man pages are also a great source of information.
+
+<h2>Comments</h2>
+The only valid way to specify a comment in C is like so:
+
+<pre>
+
+/* this is a comment */
+
+/* This is a multiline
+   comment */
+
+</pre>
+
+You <em>cannot</em> nest comments. 
+
+<pre>
+ /* This is  /*nested */ comment. And is illegal. */
+</pre>
+
+
+
+
+<h2>I/O</h2>
+C doesn't have stream operators. Instead you'll want to use the
+functions provided in the stdio library.  In particular: printf,
+fprintf, fgets, fputs.
+
+<h3>Output: printf, fprintf, fputs</h3>
+
+The most common output function in C is printf() which prints characters to the screen (or wherever standard out is directed to go). Here's a quick hello world program that illustrates its use:
+<pre>
+ #include &lt;stdio.h&gt;
+
+ int main() {
+   printf("Hello World");
+ }
+</pre>
+
+printf() has a variable number of arguments, the first of which is a format
+string.  The format string can contain both ordinary characters (what
+you want to appear on the screen like 'Hello World' above) and
+conversion character sequences.  You can think of conversion characters as
+placeholders for a specific type formatted in a particular way.  Conversion character sequences begin with %
+and end with a conversion character.  An example will perhaps make this
+clearer.  Here we're printing out the integers from 0 to 9.
+
+<pre>
+
+ int i;
+ for (i = 0; i < 10; i++) {
+   printf("the variable 'i' is: %d", i);
+ }
+
+</pre>
+
+The conversion sequence is %d, which you can think of as a placeholder
+for an integer.  Since this is the first conversion character sequence, the
+value of the first argument after the format string--in this case the value of 'i'-- will be placed in the held spot.  Conversion characters can specify type, precision, and
+all sorts of other formatting information. See K&R or the man pages
+for all the gory details, but here are essential ones cribbed from K&R:
+
+<pre>
+   sequence    type   : produces
+
+   %d or %i  - int    : signed decimal notation
+   %s        - char * : prints characters until the null character is reached
+   %x        - int    : hexidecimal notation
+   %p        - void * : prints as a pointer 
+</pre>
+
+<p>
+printf() always prints to standard out.  If you want to print to another
+place, such as standard error, use fprintf() which takes as its first
+argument the stream you're printing on:
+
+<pre>
+  fprintf(stderr, "Fatal Error #2212. We're hosed");
+  /* or with values */
+  fprintf(stderr, "Fatal Error in foo(): value of bar is %p\n", bar);
+</pre>
+
+Note that we're calling standard in, out, and error slightly different
+names than we do in C++:
+
+<pre>
+   C++   C
+
+   cin   stdin
+  cout   stdout
+  cerr   stderr
+</pre>
+
+
+
+Finally, fputs() will also allow us to write to a stream.
+<pre>
+  int fputs(const char *str, FILE *stream);
+</pre>
+fputs() takes a null-terminated string 'str' and writes it to 'stream'.  It
+omits the null character when it does this.  It returns a non-negative
+integer if okay and EOF on error.
+
+An example:
+<pre>
+  if ( (fputs("Hello world", stdout)) == EOF) {
+    fprint(stderr, "Whoops, something went wrong");
+ }
+</pre>
+
+fputs() functions similarly to printf() when it writes to stdout, but
+it doesn't do any conversion which probably means it's quite a bit faster.
+
+
+<h3>Input</h3>
+Input is a bit trickier.  For reading an entire line you'll probably
+want to use fgets().  Here's the prototype:
+
+<pre>
+  char *fgets(char *buffer, int size, FILE *stream);
+</pre>
+
+fgets() reads up to size-1 characters from stream and stores them in
+buffer.  fgets() stores the null character ('\0') after the last
+character read into the buffer and returns 'buffer' if everything
+works fine, or NULL on error or end of file. Here's an example:
+
+<pre>
+  char *cptr;
+  char buffer[256];
+  
+  printf("Enter some stuff:\n");
+  cptr = fgets(buffer, 256, stdin);
+  if(cptr != NULL) {
+    printf("You typed : %s\n", cptr);
+  } 
+
+</pre>
+
+
+Here's a more complicated example.  Readline() uses fgets() to read up
+to MAX_LINE - 1 characters into the buffer 'in'.  It strips preceding
+whitespace and returns a pointer to the first non-whitespace character.  
+
+<pre>
+ char *Readline(char *in) {
+   char *cptr;
+ 
+   if (cptr = fgets(in, MAX_LINE, stdin)) {
+     /* kill preceding whitespace but leave \n 
+        so we're guaranteed to have something*/
+     while(*cptr == ' ' || *cptr == '\t') {
+       cptr++;
+     }
+     return cptr;    
+    } else {
+     return 0;
+   }
+ }
+
+</pre>
+
+
+
+<h2>Memory Allocation</h2>
+There are no memory management operators such as <code>new</code> and
+<code>delete</code> in C.  All memory allocation is done with the
+function malloc().  Here's its prototype:  
+<pre>
+  void * malloc(int nbytes)
+</pre>
+malloc() takes an int indicating the number of bytes you want
+allocated and it returns a void pointer to the start of the allocated
+memory.  
+
+<pre>
+  /* We're going to allocate enough space for an integer 
+     and assign 5 to that memory location */
+  int *foo;
+  /* malloc call: note the cast of the return value
+     from a void * to the appropriate pointer type */
+  foo = (int *) malloc(sizeof(int));  
+  *foo = 5;
+
+</pre>
+
+Even more complicated structures like arrays are allocated through
+malloc():
+
+<pre>
+  /* Here we're allocating space for 5 integers */
+  int *foo;
+  foo = (int *) malloc(sizeof(int) * 5);
+  foo[0] = 17;
+  foo[4] = 22;
+</pre>
+
+Freeing memory is done with the function free().  The prototype: 
+
+<pre>
+  void free(void *);
+</pre>
+Here's an example of it being used:
+<pre>
+  free(foo);
+</pre>
+
+Pretty simple.  However, note that it's disastrous to free a piece of
+memory that's already been freed.
+<p>
+More information is available in the man pages. 
+
+
+<h2>Variable Declaration</h2>
+
+In C++ you can declare variables pretty much anywhere in your
+program.  This is not the case with C.  Variables must be declared at
+the beginning of a function and must be declared before any other
+code.  This <em>includes</em> loop counter variables, which means you
+can't do this:
+<pre>
+  for(int i = 0; i < 200; i++) {
+</pre>
+Forgetting that you can't declare variables just anywhere is one of the most frequent causes of  'it won't compile' problems for programmers moving from C++ to C.
+
+<h2>Constants</h2>
+The standard way to declare a constant in C is to use #define. 
+
+<pre>
+  #define MAX_LEN 1024
+  #define NUM_CALLS 20
+</pre>
+
+This is also valid C++ code, though the use of #define is usually
+discouraged in C++.  Like all preprocessor directives, #defines
+usually appear at the top of the source file.
+
+
+<h2>Types</h2>
+
+<h3>structs</h3>
+C has no classes, but you can create composite types with <code>struct</code>: 
+
+<pre>
+
+  struct point {
+    int x;
+    int y;
+  };
+
+</pre>
+You would then use it like so:
+
+<pre>
+
+  struct point p;
+  p.x = 0;
+  p.y = 0;
+
+</pre>
+
+While this is acceptable, the preferred approach is to use
+pointers when using structures:
+
+<pre>
+
+  struct point *p;
+  p = (struct point *) malloc(sizeof(struct point));
+  p->x = 0;
+  p->y = 0;
+
+</pre>
+
+The struct qualifier is <em>required</em> any time you're referring to a
+struct.  You can see this above in the cast of the return value from
+malloc() and in the sizeof expression.  In other words, having declared
+the struct point, we can't simply write:
+
+<pre>
+ /* this code won't work */
+ point p;
+ p.x = 0;
+
+</pre>
+
+as we would with a C++ class.  We can get rid of this repetition of
+the struct qualifier by using typedefs.  The <code>typedef </code>
+keyword essentially creates an alias.  Thus we can typedef struct
+point to Point (or to lowercase 'point', but we're using uppercase to
+remind ourselves it's a struct).
+
+<pre>
+  typdef struct point Point;
+  Point *p;
+  p = (Point *) malloc(sizeof(Point);
+  p->x = 0;
+</pre>
+
+
+<h3>booleans</h3>
+
+There is no <code>bool</code> keyword in C.  Instead booleans in C are
+the same as integers with a value of 0 for false or 1 for true.  Thus
+the following is an infinite loop:
+
+<pre>
+  while(1) {
+    ; /* do nothing */
+  }
+</pre>
+
+
+
+<h2>Libraries</h2>
+
+Libraries functions are included by specying the name of the
+appropriate header file in an include statement:
+
+<pre>
+  #include &lt;stdlib.h&gt;
+  #include &lt;string.h&gt;
+</pre>
+
+This is similar to C++ but the .h is required.  
+<P> 
+Here are some of the most useful C libraries:
+<ul>
+<li>stdio : printf, fprintf, sprintf, fgets, fputs
+<li>string : strcpy, strcmp, strncmp, strtok, strlen
+<li>stdlib : utility functions: atoi, atol, 
+<li>assert : useful in debugging: assert
+</ul>
+
+You should know what most of these functions do, especially strtok()
+which you'll be using at a crucial point in the Yash shell.
+
+<h2>Other References</h2>
+More information is available in the man pages and also in the best
+book on C: <i>The C++ Programming Language</i> by Kernighan and
+Ritchie (referred to as K&R by nearly everyone).  <i>Expert
+C Programming</i> by Peter Van Der Linden is also an excellent book on all
+kinds of advanced C topics such as linking, the differences between pointers
+and arrays, and how to make sense of stuff like this:
+
+<pre>
+
+ int *(*foo[20]) (char *c);
+
+</pre>
+
+It also has a pretty good description of program memory. 
+
+</body>
+</html>
