@@ -23,85 +23,171 @@
 
 
 <body>
-  <!-- Nav bar on left side -->
+
+  <div class="ui secondary left blue vertical inverted sidebar menu labeled icon">
+    
+    <button class="ui blue right floated icon button" id="close_sidebar_button">
+      <i class="times icon"></i>
+    </button>
+    <br>
+      <br>
+      <a class="item" href="#">
+        <span class="ui text"> EECS 370 </span>
+      </a>
+      <div class="ui fitted divider"></div>
+
+      <a class="item" href="https://docs.google.com/document/d/1RZ_a-6-6mIP-taZQQ37wL0KmazKi0HZ1LR7aoaScEyc/edit?usp=sharing" target="_blank">
+        <p> <i class="university icon"></i> Syllabus </p>
+      </a>
+
+      
+      <a class="item" href="https://drive.google.com/drive/folders/1znXrU3hP5JfhaUzf_k0UkRiPBtJ2C8mD?usp=sharing" target="_blank">
+        <p> <i class="calendar alternate outline icon"></i> Schedule & Recordings </p>
+      </a>
+
+      <a class="item" href="https://drive.google.com/drive/folders/15xkKKtoqTrwypwWwhlgNJIlwcMwhJo-J?usp=sharing" target="_blank">
+        <p> <i class="video icon"></i> Discussions </p>
+      </a>
+
+      <a class="item" href="https://www.youtube.com/channel/UCVHvjtdIZI40TWd5-64hTLQ/videos" target="_blank">
+        <p> <i class="youtube icon"></i> Review Videos </p>
+      </a>
+
+      <a class="item" href="resource.html" target="_blank">
+        <p> <i class="graduation cap
+          icon"></i> Course Resources </p>
+      </a>
+
+
+    <div class="ui fitted divider"></div>
+    <!-- Internal links -->
+      
+        <a class="item" href="#coursecal">
+          Course Calendar
+        </a>
+        <a class="item" href="#ohcal">
+          Office Hours Calendar
+        </a>
+        <a class="item" href="#projects">
+          Projects
+        </a>
+        <a class="item" href="#admin">
+          <span class="ui text"> Admin Requests</span>
+        </a>
+        <a class="item" href="#staff">
+          Staff
+        </a>
+      <!-- Internal links -->
+      
+      <div class="ui fitted divider"></div>
+
+    <!-- External links -->
+      <a class="item" href="https://piazza.com/class/kjvo5f629u23cu" target="_blank">
+        <p> <i class="talk outline icon small"> </i> Piazza </p>
+      </a>
+      <!--
+      <a class="item" href="https://umich.instructure.com/courses/391021/external_tools/28616" target="_blank">
+        <i class="video icon big"></i>
+        <br>
+        Lecture Recordings
+      </a>
+      -->
+      <a class="item" href="https://drive.google.com/drive/folders/14yJFN1MDjU10KPWuxa9XdXL80clrMKaE?usp=sharing" target="_blank">
+        <p> <i class="google icon"></i> Files </p>
+      </a>
+      <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
+        <p> <i class="help circle icon"></i> Office Hours </p>
+      </a>
+      <a class="item" href="https://autograder.io/web/course/101" target="_blank">
+        <p> <i class="upload icon"></i> Autograder </p>
+      </a>
+      <a class="item" href="https://www.gradescope.com/courses/228108" target="_blank">
+        <p> <i class="chart bar icon"></i> Gradescope </p>
+      </a>
+      <a class="item" href="https://umich.instructure.com/courses/405277" target="_blank">
+        <p> <i class="globe icon"></i> Canvas </p>
+      </a>
+ 
+      <div class="ui fitted divider"></div>
+      
+    <!-- External links -->
+
+  </div>
+  <!--
   <div class="ui secondary blue vertical inverted sidebar menu">
 
-    <!-- Close sidebar button -->
     <button class="ui blue right floated icon button" id="close_sidebar_button">
       <i class="times icon"></i>
     </button>
 
-    <br><br><br><br>
-
-    <!-- Internal links -->
+    <br><br>
       <a class="item" href="#">
-        <i class="home icon big"></i>
+        <i class="home icon"></i>
       </a>
       <a class="item" href="https://docs.google.com/document/d/1RZ_a-6-6mIP-taZQQ37wL0KmazKi0HZ1LR7aoaScEyc/edit?usp=sharing" target="_blank">
-        <span class="ui float right large text"> Syllabus </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui float right text"> Syllabus </span>
+        <i class="external alternate icon"></i>
       </a>
       <a class="item" href="https://drive.google.com/drive/folders/1znXrU3hP5JfhaUzf_k0UkRiPBtJ2C8mD?usp=sharing" target="_blank">
-        <span class="ui large text"> Lectures </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui text"> Lectures </span>
+        <i class="external alternate icon"></i>
       </a>
 
       <a class="item" href="https://drive.google.com/drive/folders/15xkKKtoqTrwypwWwhlgNJIlwcMwhJo-J?usp=sharing" target="_blank">
-        <span class="ui large text"> Discussions </span>
-        <i class="external alternate large icon"></i>
+        <span class="ui text"> Discussions </span>
+        <i class="external alternate icon"></i>
       </a>
 
-      <a class="item" href="reviewvod.html" target="_blank">
-        <span class="ui large text"> Video Review</span>
-          <i class="external alternate large icon"></i>
+      <a class="item" href="https://www.youtube.com/channel/UCVHvjtdIZI40TWd5-64hTLQ/videos" target="_blank">
+        <span class="ui text"> Video Review</span>
+          <i class="external alternate icon"></i>
       </a>
       <a class="item" href="resources.html" target="_blank">
-        <span class="ui large text"> Course Resources</span>
-          <i class="external alternate large icon"></i>
+        <span class="ui text"> Course Resources</span>
+          <i class="external alternate icon"></i>
       </a>
  
       <a class="item" href="#coursecal">
-        <span class="ui large text"> Course Calendar</span>
+        <span class="ui text"> Course Calendar</span>
       </a>
        <a class="item" href="#ohcal">
-        <span class="ui large text"> Office Hours Calendar</span>
+        <span class="ui text"> Office Hours Calendar</span>
       </a>
       <a class="item" href="#projects">
-        <span class="ui large text"> Projects</span>
+        <span class="ui text"> Projects</span>
       </a>
       <a class="item" href="#admin">
-        <span class="ui large text"> Admin Requests</span>
+        <span class="ui text"> Admin Requests</span>
       </a>
       <a class="item" href="#staff">
-        <span class="ui large text"> Staff</span>
+        <span class="ui text"> Staff</span>
       </a>
       
       <br><br><br><br><br><br>
 
-      <!-- External Links -->
       <a class="item" href="https://autograder.io/web/course/101" target="_blank">
-        <i class="file code large icon"></i>
+        <i class="file code icon"></i>
         <span class="ui medium text">Autograder</span>
       </a>
       <a class="item" href="https://www.gradescope.com/courses/228108" target="_blank">
-        <i class="chart bar large icon"></i>
+        <i class="chart bar icon"></i>
         <span class="ui medium text">Gradescope</span>
       </a>
       <a class="item" href="https://piazza.com/class/kjvo5f629u23cu" target="_blank">
-        <i class="question circle large icon"></i>
+        <i class="question circle icon"></i>
         <span class="ui medium text">Piazza</span>
       </a>
       <a class="item" href="https://drive.google.com/drive/folders/14yJFN1MDjU10KPWuxa9XdXL80clrMKaE?usp=sharing" target="_blank">
-        <i class="google drive large icon"></i>
+        <i class="google drive icon"></i>
         <span class="ui medium text">Google Drive</span>
       </a>
       <a class="item" href="https://oh.eecs.umich.edu/courses/eecs370" target="_blank">
-        <i class="hands helping large icon"></i>
+        <i class="hands helping icon"></i>
         <span class="ui medium text">Office Hours</span>
       </a>
       
-  </div><!-- Nav bar -->
-
+  </div>
+-->
 
   <!-- Main page  -->
   <div class="pusher">
@@ -122,7 +208,17 @@
           </div>
         </div>
       </h1>
-      
+
+       <!-- Announcements 
+       <div class="ui info message">
+        <div class="header">
+          First Lecture
+        </div>
+        <p>
+          Our first lecture is on Wednesday Jan 20.  Attendance is <i>not</i> required.  You are welcome to attend any of the live lectures, watch recordings posted shortly afterward, or choose an asynchronous lecture option.
+        </p>
+      </div>-->
+
       <div class="ui section divider"></div>
       <h2 id="coursecal"> Course Calendar </h2> 
       <div id="coursecalendar"></div>
@@ -134,6 +230,7 @@
            update the 'googleCalendarId' found in the JavaScript code.
       -->
       <!-- TODO: Update this Google Calendar link -->
+      
       <p>
         <a href="https://calendar.google.com/calendar/embed?src=c_8aqth72tm08frm3vi1tbq1s798%40group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
           Open calendar in new window
@@ -162,6 +259,9 @@
       <div class="ui three stackable cards" id="project-cards">
 
         <a class="ui card" target="_blank" href="projects/p1_spec.html">
+          <div class="right aligned floating ui red label">
+            1A Due Thurs, Feb 4th @ 11:55pm ET
+          </div>
           <div class="content">
             <div class="description">
               Project 1
@@ -257,7 +357,7 @@
           </div>
       </a>
 
-      <a class="ui card" target="_blank" href="https://forms.gle/JzKiR5XiuLn1xe2F8">
+      <a class="ui card" target="_blank" href="https://forms.gle/4KNcAX7odZ4CQgRTA">
           <div class="content">
           <div class="description">
               Exam Conflict Form
@@ -265,7 +365,7 @@
           </div>
       </a>
 
-      <a class="ui card" target="_blank" href="https://forms.gle/JzKiR5XiuLn1xe2F8">
+      <a class="ui card" target="_blank" href="https://forms.gle/MWk3X657jbPJ3R1F8">
           <div class="content">
           <div class="description">
               Special Accomodations Form
@@ -289,15 +389,17 @@
             <div class="content">
               <div class="center">
                 <p><i class="icon envelope"></i><a href="mailto:profmars@umich.edu">profmars@umich.edu</a></p>
+                <p><i class="icon apple"></i>MacOS, <i class = "icon windows"></i> Windows ,<i class="icon linux"></i>Linux</p>
               </div>
             </div>
           </div>
-          <img src="images/profmars.png">
+          <img src="images/profmars_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugov1c/edit?usp=sharing" class="header">Prof. Jason Mars</a>
+          <p class="header">Prof. Jason Mars</p>
           <div class="meta">
-            <span class="date">Instructor</span>
+            <span style ="font-weight:bold;font-size:18px">Instructor</span>
+            <p> <b>Ask me about :</b> Scalable systems for AI and NLP, having impact with ideas and inventions, entrepreneurship and starting highly technical companies, all things React, Django, Kubernetes, doing world class research.</p>
           </div>
         </div>
       </div>
@@ -309,16 +411,17 @@
             <div class="content">
               <div class="center">
                 <p><i class="icon envelope"></i><a href="mailto:reetudas@umich.edu">reetudas@umich.edu</a></p>
-                <p><i class="icon apple"></i>MacOS
+                <p><i class="icon apple"></i>MacOS </p>
               </div>
             </div>
           </div>
-          <img src="images/reetudas.png">
+          <img src="images/reetudas_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Prof. Reetu Das</a>
+          <p class="header">Prof. Reetu Das</p>
           <div class="meta">
-            <span class="date">Instructor</span>
+            <span style ="font-weight:bold;font-size:18px">Instructor</span>
+            <p> <b>Ask me about :</b> Accelerating your code/hardware, how to sequence your DNA and ultra-rapid COVID diagnosis, research and grad school, starting startups, world trotting, travelling, being an academic mama, restaurants and recipes! </p>
           </div>
         </div>
       </div>
@@ -333,12 +436,13 @@
               </div>
             </div>
           </div>
-          <img src="images/rdreslin.jpg">
+          <img src="images/rdreslin_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Prof. Dreslinksi</a>
+          <p class="header">Prof. Dreslinksi</p>
           <div class="meta">
-            <span class="date">Instructor</span>
+            <span style ="font-weight:bold;font-size:18px">Instructor</span>
+            <p> <b>Ask me about :</b> 1st Generation College Student, research in chip design and manufacturing, what it was like being a student when Michigan won a NCAA football National Championship </p>
           </div>
         </div>
       </div>
@@ -353,12 +457,13 @@
               </div>
             </div>
           </div>
-          <img src="images/hsatam.png">
+          <img src="images/hsatam_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Hershal Satam</a>
+          <p class="header">Hershal Satam</p>
           <div class="meta">
-            <span class="date">Instructor</span>
+            <span style ="font-weight:bold;font-size:18px">Instructor</span>
+            <p> <b>Ask me about :</b> Teaching this class 6 times, IA/GSI-ing in EECS, SUGS, CS classes, personal projects, video games, movies, Hamilton, hiking, why Bloodborne is one of the greatest pieces of art of the past decade (seriously), dealing with imposter syndrome </p>
           </div>
         </div>
       </div>
@@ -382,9 +487,11 @@
           <img src="images/jinx.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Jinx </a>
+          <p class="header">Jinx </p>
           <div class="meta">
-            <span class="date">Official 370 Cat </span>
+            <span style ="font-weight:bold;font-size:18px">Official 370 Mascot</span>
+            <p> <b>Ask me about :</b> meow </p>
+
           </div>
         </div>
       </div>
@@ -400,12 +507,13 @@
               </div>
             </div>
           </div>
-          <img src="images/leulb.jpg">
+          <img src="images/leulb_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Leul Wuletaw Belayneh </a>
+          <p class="header">Leul Wuletaw Belayneh </p>
           <div class="meta">
-            <span class="date">GSI</span>
+            <span style ="font-weight:bold;font-size:18px">GSI</span>
+            <p> <b>Ask me about :</b> Grad School, Graphs, Soccer, Swimming, East Africa/Ethiopia</p>
           </div>
         </div>
       </div>
@@ -421,12 +529,13 @@
               </div>
             </div>
           </div>
-          <img src="images/salar.jpg">
+          <img src="images/salar_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Salar Latifi </a>
+          <p class="header">Salar Latifi </p>
           <div class="meta">
-            <span class="date">GSI</span>
+            <span style ="font-weight:bold;font-size:18px">GSI</span>
+            <p> <b>Ask me about :</b> Deep learning, road trips, camping/hiking, cooking, pets</p>
           </div>
         </div>
       </div>
@@ -441,12 +550,13 @@
               </div>
             </div>
           </div>
-          <img src="images/jbaile2.jpg">
+          <img src="images/jbaile_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Jonathan Bailey </a>
+          <p class="header">Jonathan Bailey </p>
           <div class="meta">
-            <span class="date">GSI</span>
+            <span style ="font-weight:bold;font-size:18px">GSI</span>
+            <p> <b>Ask me about :</b> The joys of bicycling (when you peddle faster, you go faster!), movies (and why Metacritic is a better review aggregator than Rotten Tomatoes), and podcasts. </p>
           </div>
         </div>
       </div>
@@ -461,12 +571,13 @@
               </div>
             </div>
           </div>
-          <img src="images/kfaryabh.png">
+          <img src="images/kfaryabh_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">K. Faryab Haye </a>
+          <p class="header">K. Faryab Haye </p>
           <div class="meta">
-            <span class="date">GSI</span>
+            <span style ="font-weight:bold;font-size:18px">GSI</span>
+            <p> <b>Ask me about :</b> Cats, Anime, cooking!, table tennis, advice for Math and CS classes, imposter syndrome, doing well in EECS 370, pursuing a double major, getting CS Internships, thinking about Grad School vs Full Time SWE roles. </p>
           </div>
         </div>
       </div>
@@ -481,12 +592,13 @@
               </div>
             </div>
           </div>
-          <img src="images/yujiaxie.png">
+          <img src="images/yujiaxie_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Yujia Xie</a>
+          <p class="header">Yujia Xie</p>
           <div class="meta">
-            <span class="date">GSI</span>
+            <span style ="font-weight:bold;font-size:18px">GSI</span>
+            <p> <b>Ask me about :</b> EECS Classes, Musical Instruments (Piano, Ukulele, Mbira…...)</p>
           </div>
         </div>
       </div>
@@ -501,12 +613,13 @@
               </div> 
             </div>
           </div>
-          <img src="images/kevincc.jpg">
+          <img src="images/kevincc_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Kevin Choong</a>
+          <p class="header">Kevin Choong</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Drums, Singing, Penang Malaysia, Southeast Asian food, Coding habits, EECS worries,  Rhythm games, Competitive FPS games, Favorite places on campus, EECS Classes</p>
           </div>
         </div>
       </div>
@@ -522,12 +635,13 @@
               </div> 
             </div>
           </div>
-          <img src="images/gujames.png">
+          <img src="images/gujames_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">James Gu</a>
+          <p class="header">James Gu</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> internships/recruiting, pre-med track, music, swimming, tennis, fast food, and poker</p>
           </div>
         </div>
       </div>
@@ -543,12 +657,13 @@
               </div> 
             </div>
           </div>
-          <img src="images/iyerm.png">
+          <img src="images/iyerm_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Mahalakshmi Iyer</a>
+          <p class="header">Mahalakshmi Iyer</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Traveling, Soccer, Music, Adventure sports, Internships/Recruiting, Connected and Autonomous Vehicles, Coffee </p>
           </div>
         </div>
       </div>
@@ -565,12 +680,13 @@
               </div> 
             </div>
           </div>
-          <img src="images/iinicole.jpg">
+          <img src="images/iinicole_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Nicole Lam</a>
+          <p class="header">Nicole Lam</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Basketball, drawing, filming, editing, China Macau, my dog Coffee (inu shiba), different ways to cook eggs</p>
           </div>
         </div>
       </div>
@@ -583,16 +699,16 @@
               <div class="center">
                 <p><i class="icon envelope"></i><a href="mailto:bdmanley@umich.edu">bdmanley@umich.edu</a></p>
                 <i class="icon ubuntu"></i>Ubuntu, <i class="icon windows"></i>Windows</p>
-
               </div> 
             </div>
           </div>
-          <img src="images/bdmanley.jpg">
+          <img src="images/bdmanley_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Ben (or "Bean") Manley</a>
+          <p class="header">Ben (or "Bean") Manley</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Miami/Florida, Engineering Design Teams (Hyperloop or RoboSubmarine), Filmmaking, Photoshop, Internships/Recruiting</p>
           </div>
         </div>
       </div>
@@ -605,16 +721,16 @@
               <div class="center">
                 <p><i class="icon envelope"></i><a href="mailto:aisaav@umich.edu">aisaav@umich.edu</a></p>
                 <p><i class="icon apple"></i>MacOS, <i class="icon ubuntu"></i>Ubuntu</p>
-
               </div> 
             </div>
           </div>
-          <img src="images/aisaav.jpg">
+          <img src="images/aisaav_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Alexandra Saavedra </a>
+          <p class="header">Alexandra Saavedra </p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Computer Science, Cognitive Science, Double Majoring, Machine Learning, Art/Creativity, Music, Boxing, Rock climbing, Internships, and the Society of Hispanic Professional Engineers</p>
           </div>
         </div>
       </div>
@@ -630,12 +746,13 @@
               </div> 
             </div>
           </div>
-          <img src="images/nelsontm.jpg">
+          <img src="images/nelsontm_cropped.jpeg">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Thomas Mason Nelson (Mason)</a>
+          <p class="header">Thomas Mason Nelson (Mason)</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Texas, CoE Honors, Eagle scout, Minors in Math and Latin, Graduating early, video games (racing, fighter, battle royale), Michigan Cru, dual booting, Mazda 3, Texas again (yeehaw)</p>
           </div>
         </div>
       </div>
@@ -650,20 +767,28 @@
               </div>
             </div>
           </div>
-          <img src="images/danlliu.png">
+          <img src="images/danlliu_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Daniel Liu</a>
+          <p class="header">Daniel Liu</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Anything in 370, designing my own programming languages, doing a dual degree, Minecraft, Starcraft II, why virtual memory is the best part of 370</p>
           </div>
         </div>
       </div>
 
 
       <div class="card">
+
         <div class="blurring dimmable image">
+          <!--
+          <div class="right aligned floating ui purple label">
+            linux user btw
+          </div>
+          -->
           <div class="ui inverted dimmer">
+            
             <div class="content">
               <div class="center">
                 <p><i class="icon envelope"></i><a href="mailto:jackhong@umich.edu">jackhong@umich.edu</a></p>
@@ -671,12 +796,13 @@
               </div>
             </div>
           </div>
-          <img src="images/jackhong.png">
+          <img src="images/jackhong_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Jack Hong</a>
+          <p class="header">Jack Hong</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Why you should rebind caps to control (It’s comfy). I also have taken the following ULCS courses : 482, 373, 388.</p>
           </div>
         </div>
       </div>
@@ -691,12 +817,34 @@
               </div>
             </div>
           </div>
-          <img src="images/abifox.png">
+          <img src="images/abifox_cropped.png">
         </div>
         <div class="content">
-          <a href="https://docs.google.com/document/d/1ujUbn-36xqDB6RUhDKbEvAmyWURgBfIxK6mprugovlc/edit?usp=sharing" class="header">Abigail Fox</a>
+          <p class="header">Abigail Fox</p>
           <div class="meta">
-            <span class="date">IA</span>
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> knitting, discovering pokemon as an adult, running, national parks, backpacking</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <p><i class="icon envelope"></i><a href="mailto:bpuzycki@umich.edu">bpuzycki@umich.edu</a></p>
+                <p><i class="icon apple"></i>MacOS</p>
+              </div>
+            </div>
+          </div>
+          <img src="images/bpuzycki_cropped.jpeg">
+        </div>
+        <div class="content">
+          <p class="header">Benjamin Puzycki </p>
+          <div class="meta">
+            <span style ="font-weight:bold;font-size:18px">IA</span>
+            <p> <b>Ask me about :</b> Good hikes in Michigan, baking, coffee, managing time, good food in AA, investing in a comfy office chair, why toaster ovens are great, the card game SET</p>
           </div>
         </div>
       </div>
