@@ -35,7 +35,7 @@ All you need to do to update the specs is edit the markdown file and the config 
 
 TODO: these markdown specs were from Winter 2020, so please do a diff between the the specs (a lot of the differences are concerning remote teaching arrangements i.e. 5 submits/day)
 
-Example url of p1 specs: https://eecs370.github.io/specs/p1_specs
+Example url of p1 specs: https://eecs370.github.io/projects/p1_specs
 
 ## Calendar
 The home page uses the FullCalendar JS library to render the official staff Google Calendar. It is configured to recolor events based on their title, and displays a popup with the event's title and location.
