@@ -2,10 +2,11 @@
 layout: spec
 ---
 
-Project 2 EECS 370 (Winter 2020)
+Project 2 EECS 370 (Winter 2021)
 ==============================
 {: .primer-spec-toc-ignore }
 
+<!-- TODO: update due dates -->
 | Worth:             | 100 points                         |
 | Assigned:          | Tuesday, February 4, 2020   	      |
 | Part 2a Due:       | 11:55 pm, Tuesday, February 18     |
