@@ -446,7 +446,8 @@ Here are the files you should submit for each project part:
 
 Your assembler and simulator must each be in a single C file.  We will compile
 your program on a Linux workstation using the command below so your program 
-should not require additional compiler flags or libraries.
+should not require additional compiler flags or libraries. You are allowed to use any 
+standard C libraries which compile with the specified flags below.
 
     gcc program.c -lm -std=c99
 

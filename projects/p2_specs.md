@@ -456,7 +456,7 @@ We are currently in the process of setting up the competition leaderboards.  We 
 # 6. Compiling the Project
 
 
-Your code will be compiled with the GCC compiler using the C99 standard. The following bash command compiles `program.c` and writes the executable into program.
+Your code will be compiled with the GCC compiler using the C99 standard. The following bash command compiles `program.c` and writes the executable into program. You are allowed to use any standard C libraries which compile with the specified flags below.
 
 ```console
 gcc -std=c99 program.c -o program
