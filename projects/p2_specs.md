@@ -4,7 +4,6 @@ layout: spec
 
 Project 2 EECS 370 (Winter 2021)
 ==============================
-{: .primer-spec-toc-ignore }
 
 <!-- TODO: update due dates -->
 | Worth:                   | 100 Points                           |
