@@ -8,6 +8,7 @@ Project 1 — EECS 370 (Winter 2021)
 
 <!-- TODO: update due dates -->
 | Worth:             | 100 points                           |
+| -----------        | -----------                          |
 | Assigned:          | Thursday, January 9, 2020            |
 | Part 1a Due:       | 11:55 pm, Thursday, January 23, 2020 |
 | Part 1s & 1m Due:  | 11:55 pm, Tuesday, February 4, 2020  |
