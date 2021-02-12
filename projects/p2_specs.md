@@ -7,13 +7,13 @@ Project 2 EECS 370 (Winter 2021)
 {: .primer-spec-toc-ignore }
 
 <!-- TODO: update due dates -->
-| Worth:             | 100 points                         |
-| -----------        | -----------                          |
-| Assigned:          | Friday, February 12, 2020   	      |
-| Part 2a Due:       | 11:55 pm, Thursday, February 25     |
-| Part 2l Due:       | 11:55 pm, Friday, March 5         |
-| Part 2c Due:       | 11:55 pm, Thursday, March 11        |
-| Part 2z *OPTIONAL* Due:  | 11:55 pm, Tuesday, March 11        |
+| Worth:                   | 100 Points                           |
+|--------------------------|--------------------------------------|
+| Assigned:                | Friday, Febuary 12th, 2021           |
+| Part 2A Due:             | 11:55 PM EST, Thursday, Febuary 25th |
+| Part 2L Due:             | 11:55 PM EST, Friday, March 5        |
+| Part 2C Due:             | 11:55 PM EST, Thursday, March 11     |
+| Part 2Z *OPTIONAL* Due:  | 11:55 PM EST, Thursday, March 11     |
 # 0. Starter Code
 We provide [starter code for the linker](https://drive.google.com/drive/folders/1G2DwUZpcAq-8j59w1nsxznRARjM84vbk). For the assembler, you should build on top of the Project 1A Assembler. 
 
