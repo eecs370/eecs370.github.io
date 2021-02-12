@@ -8,12 +8,14 @@ Project 2 EECS 370 (Winter 2021)
 
 <!-- TODO: update due dates -->
 | Worth:             | 100 points                         |
-| Assigned:          | Tuesday, February 4, 2020   	      |
-| Part 2a Due:       | 11:55 pm, Tuesday, February 18     |
-| Part 2l Due:       | 11:55 pm, Sunday, February 23      |
-| Part 2c Due:       | 11:55 pm, Tuesday, March 10        |
-| Part 2z *OPTIONAL* Due:  | 11:55 pm, Tuesday, March 10        |
-
+| -----------        | -----------                          |
+| Assigned:          | Friday, February 12, 2020   	      |
+| Part 2a Due:       | 11:55 pm, Thursday, February 25     |
+| Part 2l Due:       | 11:55 pm, Friday, March 5         |
+| Part 2c Due:       | 11:55 pm, Thursday, March 11        |
+| Part 2z *OPTIONAL* Due:  | 11:55 pm, Tuesday, March 11        |
+# 0. Starter Code
+We provide [starter code for the linker](https://drive.google.com/drive/folders/1G2DwUZpcAq-8j59w1nsxznRARjM84vbk). For the assembler, you should build on top of the Project 1A Assembler. 
 
 # 1. Purpose
 
@@ -169,7 +171,7 @@ The test cases for the assembler part of this project will be short assembly-lan
 submit your suite of test cases together with your assembler, and we will grade your test suite according to how thoroughly it exercises an assembler. Each test case may be at most 50 lines long, and your test suite may contain up to 20 test cases. These limits are much larger than needed for full credit (the solution test suite is composed of 5 test cases, each < 10 lines long). See [section 7](#7-grading-auto-grading-and-formatting) for how your test suite will be graded.
 
 
-Hints: the example assembly-language program above is a good case to include in your test suite, though you'll need to write more test cases to get full credit.  Remember to create some test cases that test the ability of an assembler to check for the errors in [section 3.3](#33-error-checking).
+Hint: the example assembly-language program (Example 2a) in [section 9](#9-sample-test-cases) is a good case to include in your test suite, though you'll need to write more test cases to get full credit.  Remember to create some test cases that test the ability of an assembler to check for the errors in [section 3.3](#33-error-checking).
 
 
 # 4. Linker (40%)
@@ -469,7 +471,7 @@ gcc -std=c99 program.c -o program
 We will grade primarily on functionality, including error handling, correct assembly, and comprehensiveness of the test suites.
 
 
-To help you validate your project, your submission will be graded automatically, and the result will be available on the website. You may then continue to work on the project and re-submit. To deter you from using the autograder as a debugger, you will receive feedback from the autograder only for the first **THREE SUBMISSIONS** for each project part on any given day. All subsequent submissions will be silently graded. Your final score will be derived from your overall _best submission_ to the autograder.
+To help you validate your project, your submission will be graded automatically, and the result will be available on the website. You may then continue to work on the project and re-submit. To deter you from using the autograder as a debugger, you will receive feedback from the autograder only for the first **FIVE SUBMISSIONS** for each project part on any given day. All subsequent submissions will be silently graded. Your final score will be derived from your overall _best submission_ to the autograder.
 
 
 The feedback from the autograder will not be very illuminating; it won't tell you where your problem is or give you the test programs. The purpose of the autograder is to let you know that you should keep working on your project (rather than thinking it's perfect and ending up with a 0). The best way to debug your program is to generate your own test cases, figure out the correct answers, and compare your program's output to the correct answer. This is also one of the best ways to learn the concepts in the project.
