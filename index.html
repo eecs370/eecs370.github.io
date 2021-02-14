@@ -66,12 +66,8 @@
 
     <div class="ui fitted divider"></div>
     <!-- Internal links -->
-      
-        <a class="item" href="#coursecal">
-          Course Calendar
-        </a>
-        <a class="item" href="#ohcal">
-          Office Hours Calendar
+        <a class="item" href="#cal">
+          Calendar
         </a>
         <a class="item" href="#projects">
           Projects
@@ -225,8 +221,8 @@
       </div>-->
 
       <div class="ui section divider"></div>
-      <h2 id="coursecal"> Course Calendar </h2> 
-      <div id="coursecalendar"></div>
+      <h2 id="cal"> Calendar </h2> 
+      <div id="dualcal"></div>
       <!--
            Google Calendar
 
@@ -235,26 +231,13 @@
            update the 'googleCalendarId' found in the JavaScript code.
       -->
       <!-- TODO: Update this Google Calendar link -->
-      
       <p>
-        <a href="https://calendar.google.com/calendar/embed?src=c_8aqth72tm08frm3vi1tbq1s798%40group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
-          Open calendar in new window
+        <a href="https://calendar.google.com/calendar/u/0/embed?src=c_8aqth72tm08frm3vi1tbq1s798@group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
+          Course Calendar
         </a>
-      </p>
-      <div class="ui section divider"></div>
-      <h2 id="ohcal"> Office Hours Calendar </h2> 
-      <div id="ohcalendar"></div>
-      <!--
-           Google Calendar
-
-           The FullCalendar JS library inserts a Google Calendar here.  See
-           the JavaScript source code at the end of this file.  Remember to
-           update the 'googleCalendarId' found in the JavaScript code.
-      -->
-      <!-- TODO: Update this Google Calendar link -->
-      <p>
+        |
         <a href="https://calendar.google.com/calendar/embed?src=c_m7lcgbjruajiss89kc24j2ptmc%40group.calendar.google.com&ctz=America%2FDetroit" target="_blank">
-          Open calendar in new window
+          Office Hours Calendar
         </a>
       </p>
       <div class="ui section divider"></div>
@@ -920,52 +903,6 @@
    // Uses the FullCalendar library and connects to Google Calendar
    // https://fullcalendar.io/docs
    // https://fullcalendar.io/docs/google-calendar
-   document.addEventListener('DOMContentLoaded', function() {
-     var calendarEl = document.getElementById('coursecalendar');
-     var calendar = new FullCalendar.Calendar(calendarEl, {
-       // Google Calendar API, DO NOT CHANGE
-       // https://fullcalendar.io/docs/google-calendar
-       googleCalendarApiKey: 'AIzaSyCR6M8NZ-KfOBZXdTcLNGcGDbOQWplqtqw',
-
-       // Google Calendar ID CHANGE THIS EACH SEMESTER
-       events: {
-         // TODO: Update this Google calendar ID based on the Google calendar URL
-         googleCalendarId: 'c_8aqth72tm08frm3vi1tbq1s798@group.calendar.google.com',
-       },
-
-       // Tool bar options.  Hide "today" button on mobile to save space.
-       // https://fullcalendar.io/docs/headerToolbar
-       headerToolbar: {
-         end: isSmallScreen() ? 'prev,next' : 'prev,next timeGridWeek,timeGridFourDay',
-       },
-      views: {
-      timeGridFourDay: {
-        type: 'timeGrid',
-        duration: { days: 4 },
-        buttonText: '4 day'
-        }
-      },
-
-       // View options
-       // https://fullcalendar.io/docs/timegrid-view
-       initialView: isSmallScreen() ? 'timeGridDay' : 'timeGridWeek',
-       allDaySlot: true,
-       nowIndicator: true,
-       scrollTime: "08:00:00",
-
-       // Selectively recolor calendar events
-       // https://fullcalendar.io/docs/event-render-hooks
-       eventContent: recolorCalendarEvent,
-
-       // Add click-for-popup to calendar events
-       // https://fullcalendar.io/docs/event-render-hooks
-       eventDidMount: addPopup,
-
-       aspectRatio: isSmallScreen() ? .75 : 1,
-       height: 650,
-     });
-     calendar.render();
-   });
 
    function recolorCalendarEvent(arg) {
      // TODO: Consider updating these strings based on your Google Calendar needs
@@ -1056,7 +993,7 @@
    // https://fullcalendar.io/docs
    // https://fullcalendar.io/docs/google-calendar
    document.addEventListener('DOMContentLoaded', function() {
-     var calendarEl = document.getElementById('ohcalendar');
+     var calendarEl = document.getElementById('dualcal');
      var calendar = new FullCalendar.Calendar(calendarEl, {
        // Google Calendar API, DO NOT CHANGE
        // https://fullcalendar.io/docs/google-calendar
@@ -1065,21 +1002,50 @@
        // Google Calendar ID CHANGE THIS EACH SEMESTER
        events: {
          // TODO: Update this Google calendar ID based on the Google calendar URL
-         googleCalendarId: 'c_m7lcgbjruajiss89kc24j2ptmc@group.calendar.google.com',
+         googleCalendarId: 'c_8aqth72tm08frm3vi1tbq1s798@group.calendar.google.com',
        },
 
        // Tool bar options.  Hide "today" button on mobile to save space.
        // https://fullcalendar.io/docs/headerToolbar
-       headerToolbar: {
-         end: isSmallScreen() ? 'prev,next' : 'prev,next timeGridWeek,timeGridFourDay',
-       },
-       views: {
-      timeGridFourDay: {
-        type: 'timeGrid',
-        duration: { days: 4 },
-        buttonText: '4 day'
+       customButtons: {
+        ohbutton: {
+      text: 'Course Calendar',
+      click: function() {
+        var originalCalendarSource = calendar.getEventSources()[0]
+        originalCalendarSource.remove()
+        if(calendar.getEventSources().length < 1){
+          calendar.addEventSource({
+          googleCalendarId: 'c_8aqth72tm08frm3vi1tbq1s798@group.calendar.google.com',
+          });
         }
-      },
+        calendar.render();
+      }
+    }, 
+    coursebutton: {
+      text: 'Office Hours',
+      click: function() {
+        var originalCalendarSource = calendar.getEventSources()[0]
+        originalCalendarSource.remove()
+        if(calendar.getEventSources().length < 1){
+          calendar.addEventSource({
+          googleCalendarId: 'c_m7lcgbjruajiss89kc24j2ptmc@group.calendar.google.com',
+          });
+        }
+        calendar.render();
+      }
+    }
+  },
+       headerToolbar: {
+         end: isSmallScreen() ? 'prev,next ohbutton,coursebutton' : 'prev,next timeGridWeek,timeGridFourDay ohbutton,coursebutton',
+       },
+
+      views: {
+          timeGridFourDay: {
+          type: 'timeGrid',
+          duration: { days: 4 },
+          buttonText: '4 day'
+          }
+      } ,
        height: 650,
 
        // View options
