@@ -936,8 +936,15 @@
        // Tool bar options.  Hide "today" button on mobile to save space.
        // https://fullcalendar.io/docs/headerToolbar
        headerToolbar: {
-         end: isSmallScreen() ? 'prev,next' : 'today prev,next',
+         end: isSmallScreen() ? 'prev,next' : 'prev,next timeGridWeek,timeGridFourDay',
        },
+      views: {
+      timeGridFourDay: {
+        type: 'timeGrid',
+        duration: { days: 4 },
+        buttonText: '4 day'
+        }
+      },
 
        // View options
        // https://fullcalendar.io/docs/timegrid-view
@@ -954,7 +961,8 @@
        // https://fullcalendar.io/docs/event-render-hooks
        eventDidMount: addPopup,
 
-       aspectRatio: isSmallScreen() ? .75 : 1.35,
+       aspectRatio: isSmallScreen() ? .75 : 1,
+       height: 650,
      });
      calendar.render();
    });
@@ -1063,8 +1071,16 @@
        // Tool bar options.  Hide "today" button on mobile to save space.
        // https://fullcalendar.io/docs/headerToolbar
        headerToolbar: {
-         end: isSmallScreen() ? 'prev,next' : 'today prev,next',
+         end: isSmallScreen() ? 'prev,next' : 'prev,next timeGridWeek,timeGridFourDay',
        },
+       views: {
+      timeGridFourDay: {
+        type: 'timeGrid',
+        duration: { days: 4 },
+        buttonText: '4 day'
+        }
+      },
+       height: 650,
 
        // View options
        // https://fullcalendar.io/docs/timegrid-view
