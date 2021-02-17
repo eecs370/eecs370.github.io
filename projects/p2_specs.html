@@ -517,39 +517,28 @@ r7  return address - ENFORCED
 
 <h3 id="example-2a">Example 2a</h3>
 <p>Here is a multi-file assembly-language program that counts down from 5, stopping when it hits 0, and then halts:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>–––––––– main.as ––––––––
-
-        lw          0       1       five
+<i> File 1: main.as </i>
+<div class="language-plaintext highlighter-rouge"><pre class="highlight"><code>        lw          0       1       five
         lw          0       4       SubAdr
 start   jalr        4       7               
         beq         0       1       done
         beq         0       0       start
 done    halt
-five    .fill       5
-
-
-–––––––– subone.as ––––––––
-
-subOne  lw          0       2       neg1
+five    .fill       5</code></pre></div>
+<i> File 2: subone.as </i>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subOne  lw          0       2       neg1
         add         1       2       1         
         jalr        7       6
 neg1    .fill       -1
-SubAdr  .fill       subOne
-
-</code></pre></div></div>
+SubAdr  .fill       subOne</code></pre></div></div>
 
 <p>And here are the corresponding object files after running the following lines of code:</p>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./assembler main.as main.obj
 ./assembler subone.as subone.obj
 </span></code></pre></div></div>
-
-<p>NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>–––––––– main.obj ––––––––
-
-6 1 1 2                 (Header)
+<i> File 1: main.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6 1 1 2                 (Header) 
 8454150                 (Text)
 8650752
 23527424
@@ -561,10 +550,9 @@ SubAdr U 0              (Symbol Table)
 0 lw five               (Relocation Table)
 1 lw SubAdr
 
-
-–––––––– subone.obj ––––––––
-
-3 2 1 2                 (Header)
+</code></pre></div></div>
+<i> File 1: main.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2 1 2                 (Header)
 8519683                 (Text)
 655361
 25034752
@@ -575,44 +563,15 @@ SubAdr D 1              (Symbol Table)
 1 .fill subOne
 
 </code></pre></div></div>
-<p>This is <code class="language-plaintext highlighter-rouge">main.obj</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6 1 1 2
-8454150
-8650752
-23527424
-16842753
-16842749
-25165824
-5
-SubAdr U 0
-0 lw five
-1 lw SubAdr
-
-</code></pre></div></div>
-<p>This is <code class="language-plaintext highlighter-rouge">subone.obj</code>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2 1 2
-8519683
-655361
-25034752
--1
-0
-SubAdr D 1
-0 lw neg1
-1 .fill subOne
-
-</code></pre></div></div>
 <p><strong>NOTE: Be careful when copying and editing these examples</strong></p>
 
 <h3 id="example-2l">Example 2l</h3>
-<p>This example uses the object files from example 2a. Here is the machine code produced after the linking process:</p>
+<p>This example uses the main.obj and subone.obj object files from example 2a. Here is the machine code produced after the linking process:</p>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./linker main.obj subone.obj count5.mc
 </span></code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>–––––––– count5.mc ––––––––
-
-8454153             (main.as TEXT)
+<i> File: count5.mc </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8454153             (main.as TEXT)
 8650763
 23527424
 16842753
