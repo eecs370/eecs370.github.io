@@ -537,7 +537,7 @@ SubAdr  .fill       subOne</code></pre></div></div>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./assembler main.as main.obj
 ./assembler subone.as subone.obj
 </span></code></pre></div></div>
-<i> File 1: main.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :</p>
+<i> File 1: main.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6 1 1 2                 (Header) 
 8454150                 (Text)
 8650752
@@ -551,7 +551,7 @@ SubAdr U 0              (Symbol Table)
 1 lw SubAdr
 
 </code></pre></div></div>
-<i> File 1: main.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :</p>
+<i> File 2: subone.obj </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output) :
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2 1 2                 (Header)
 8519683                 (Text)
 655361
@@ -567,7 +567,6 @@ SubAdr D 1              (Symbol Table)
 
 <h3 id="example-2l">Example 2l</h3>
 <p>This example uses the main.obj and subone.obj object files from example 2a. Here is the machine code produced after the linking process:</p>
-
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./linker main.obj subone.obj count5.mc
 </span></code></pre></div></div>
 <i> File: count5.mc </i> (NOTE: Text within parenthesis should not be included in your assembler’s or linker’s output)
