@@ -361,21 +361,17 @@ combination(n,r) = combination(n-1,r) + combination(n-1,r-1);
 <p>Not all registers can or should be callee-save, however.  For example, one
 register will contain the subroutine’s return value. Also, the jalr instruction used to return from the subroutine will leave a register with a different value than it held when the subroutine was called.</p>
 
-<p>Here is a small LC-2K program that uses a subroutine call. It takes
+<p>The files main.as and sub4n.as are the assembly code for a program that uses a subroutine call. It takes
 an argument in register 1 and calls a subroutine to compute the quantity <code class="language-plaintext highlighter-rouge">4*input</code>. Register 1 is used to pass input to the subroutine; register 3 is used by the subroutine to pass the result back. The current top-of-stack (first empty location) is given by <code class="language-plaintext highlighter-rouge">Stack</code> + register 5.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>–––––––– main.as ––––––––
-
-        lw         0        1      input        r1 = memory[input]
+<i> File 1 : main.as </i>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        lw         0        1      input        r1 = memory[input]
         lw         0        4      SubAdr       prepare to call sub4n. r4=addr(sub4n)
         jalr       4        7                   call sub4n; r7=return address r3=answer  
         halt
-input   .fill      10                        
+input   .fill      10</code></pre></div></div>
 
-
-–––––––– sub4n.as ––––––––
-
-sub4n   lw          0       6       pos1        r6 = 1
+<i> File 2 : sub4n.as </i>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code>sub4n   lw          0       6       pos1        r6 = 1
         sw          5       7       Stack       save return address on stack
         add         5       6       5           increment stack pointer
         sw          5       1       Stack       save input on stack
@@ -390,23 +386,19 @@ sub4n   lw          0       6       pos1        r6 = 1
         jalr        7       4                   return.  r4 is not restored.
 pos1    .fill       1
 neg1    .fill       -1
-SubAdr  .fill       sub4n                         contains the address of sub4n
-</code></pre></div></div>
+SubAdr  .fill       sub4n                         contains the address of sub4n</code></pre></div></div>
 
 <p>The stack array starts at the implicit label <code class="language-plaintext highlighter-rouge">Stack</code> and extends to larger addresses, which is why the linker inserts the <code class="language-plaintext highlighter-rouge">Stack</code> label as the last line in the final executable (see <a href="#43-stack-label">section 4.3</a> for more).</p>
 
 <p>The combination function you submit must be an assembly file. Your function will be called by the following main function:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>–––––––– combination_main.as ––––––––
-
-        lw          0       1       n
+<i> File : combination_main.as </i>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        lw          0       1       n
         lw          0       2       r
         lw          0       4       Caddr        load combination function address
         jalr        4       7                    call function
         halt
 n       .fill       7
-r       .fill       3
-</code></pre></div></div>
+r       .fill       3</code></pre></div></div>
 
 <p>Your combination function must follow these guidelines:</p>
 
