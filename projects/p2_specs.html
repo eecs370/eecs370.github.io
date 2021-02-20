@@ -298,7 +298,7 @@ This final executable will be backwards compatible with the simulator from proje
 
 <p>Write your program to take N command-line arguments, where N &gt;= 2. The first argument is the object file to execute first, arguments 2 through N-1 are additional object files (these are not required), and the Nth argument is the filename where the machine code output is written. For example, with a program name of <code class="language-plaintext highlighter-rouge">linker</code> and an assembly-language program in <code class="language-plaintext highlighter-rouge">prog_1.obj</code> and <code class="language-plaintext highlighter-rouge">prog_2.obj</code>, the machine code file <code class="language-plaintext highlighter-rouge">prog.mc</code> will be generated:</p>
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./assemble prog_1.obj prog_2.obj prog.mc
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./linker prog_1.obj prog_2.obj prog.mc
 </span></code></pre></div></div>
 
 <p>The number of object files your linker must be able to link together is between 1 and 6. If a program is self-contained within one object file, your linker should still be able to translate it into a machine code file. We will not test you on linking more than 6 object files.</p>
