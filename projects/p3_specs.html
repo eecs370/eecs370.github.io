@@ -297,6 +297,143 @@ Do not use any other branch optimizations, e.g., resolving branches earlier,
 more advanced branch prediction, or special handling for short forward
 branches.</p>
 
+<h2 id="35-whywbend">3.5. Why do we use WBEND in Project 3?</h2>
+
+<p>Imagine you are given the following pipe trace:</p>
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-0pky">Time</th>
+		<th class="tg-0pky">0</th>
+		<th class="tg-0pky">1</th>
+		<th class="tg-0pky">2</th>
+		<th class="tg-0lax">4</th>
+		<th class="tg-0lax"><i><b>5</b></i></th>
+		<th class="tg-0lax">6</th>
+		<th class="tg-0lax">7</th>
+		<th class="tg-0lax">8</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-0pky">add 0 0 1</td>
+		<td class="tg-0pky">IF</td>
+		<td class="tg-0pky">ID</td>
+		<td class="tg-0pky">EX</td>
+		<td class="tg-0lax">MEM</td>
+		<td class="tg-0lax">WB</td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax"></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky">noop</td>
+		<td class="tg-0pky"></td>
+		<td class="tg-0pky">IF</td>
+		<td class="tg-0pky">ID</td>
+		<td class="tg-0lax">EX</td>
+		<td class="tg-0lax">MEM</td>
+		<td class="tg-0lax">WB</td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax"></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky">noop</td>
+		<td class="tg-0pky"></td>
+		<td class="tg-0pky"></td>
+		<td class="tg-0pky">IF</td>
+		<td class="tg-0lax">ID</td>
+		<td class="tg-0lax">EX</td>
+		<td class="tg-0lax">MEM</td>
+		<td class="tg-0lax">WB</td>
+		<td class="tg-0lax"></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0lax">add 1 1 2</td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax"></td>
+		<td class="tg-0lax">IF </td>
+		<td class="tg-0lax"><i><b>ID</b></i></td>
+		<td class="tg-0lax">EX</td>
+		<td class="tg-0lax">MEM</td>
+		<td class="tg-0lax">WB</td>
+	  </tr>
+	</tbody>
+	</table>
+	In our lecture pipeline, time is not a hazard for the lecture pipeline because we have internal forwarding. 
+	When <code class="language-plaintext highlighter-rouge">add 0 0 1</code> writes to the WB register, 
+	<code class="language-plaintext highlighter-rouge">lw 0 1 0</code> will fetch the updated value at time 5. 
+
+	We have one issue, you will <b> NOT </b> have internally forwarded registers for project 3. This means time 5 will be a hazard. The fix is the introduction of the new <code class="language-plaintext highlighter-rouge">WBEND</code> register.
+	Now our stack trace looks like the following:
+	<table class="tg">
+		<thead>
+		  <tr>
+			<th class="tg-0pky">Time</th>
+			<th class="tg-0pky">0</th>
+			<th class="tg-0pky">1</th>
+			<th class="tg-0pky">2</th>
+			<th class="tg-0lax">4</th>
+			<th class="tg-0lax">5</th>
+			<th class="tg-0lax">6</th>
+			<th class="tg-0lax">7</th>
+			<th class="tg-0lax">8</th>
+			<th class="tg-0lax">9</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td class="tg-0pky">add 0 0 1</td>
+			<td class="tg-0pky">IF</td>
+			<td class="tg-0pky">ID</td>
+			<td class="tg-0pky">EX</td>
+			<td class="tg-0lax">MEM</td>
+			<td class="tg-0lax">WB</td>
+			<td class="tg-0lax">END</td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">noop</td>
+			<td class="tg-0pky"></td>
+			<td class="tg-0pky">IF</td>
+			<td class="tg-0pky">ID</td>
+			<td class="tg-0lax">EX</td>
+			<td class="tg-0lax">MEM</td>
+			<td class="tg-0lax">WB</td>
+			<td class="tg-0lax">END</td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">noop</td>
+			<td class="tg-0pky"></td>
+			<td class="tg-0pky"></td>
+			<td class="tg-0pky">IF</td>
+			<td class="tg-0lax">ID</td>
+			<td class="tg-0lax">EX</td>
+			<td class="tg-0lax">MEM</td>
+			<td class="tg-0lax">WB</td>
+			<td class="tg-0lax">END</td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax">add 1 1 2</td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax">IF </td>
+			<td class="tg-0lax">ID</td>
+			<td class="tg-0lax">EX</td>
+			<td class="tg-0lax">MEM</td>
+			<td class="tg-0lax">WB</td>
+			<td class="tg-0lax">END</td>
+		  </tr>
+		</tbody>
+		</table>
+		We can use regular forwarding to resolve the hazard found in time 5, at time 6.
 <h1 id="4-running-your-program">4. Running Your Program</h1>
 
 <p>Your simulator should be run using the same command format specified in
