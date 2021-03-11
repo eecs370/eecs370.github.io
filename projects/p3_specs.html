@@ -433,7 +433,8 @@ branches.</p>
 		  </tr>
 		</tbody>
 		</table>
-		We can use regular forwarding to resolve the hazard found in time 5, at time 6.
+		In our updated Project 3 Pipeline <code class="language-plaintext highlighter-rouge">add 0 0 1</code> will still write the ALUResult to register 1 at time 5. However since there is no internal forwarding, <code class="language-plaintext highlighter-rouge">add 1 1 2</code>
+		will read a stale value for register 1. Because of this we retain the ALUResult in the new <code class="language-plaintext highlighter-rouge">WBEND</code> register, where at time 6, <code class="language-plaintext highlighter-rouge">add 1 1 2</code> can have the corrected value forwarded.
 <h1 id="4-running-your-program">4. Running Your Program</h1>
 
 <p>Your simulator should be run using the same command format specified in
