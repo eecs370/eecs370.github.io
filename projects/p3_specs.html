@@ -362,10 +362,10 @@ branches.</p>
 	</tbody>
 	</table>
 	In our lecture pipeline, time 5 is not a hazard for the lecture pipeline because we have internal forwarding. 
-	When <code class="language-plaintext highlighter-rouge">add 0 0 1</code> writes to the WB register, 
-	<code class="language-plaintext highlighter-rouge">lw 0 1 0</code> will fetch the updated value at time 5. 
+	When <code class="language-plaintext highlighter-rouge">add 0 0 1</code> writes the ALUResult to register 1, 
+	<code class="language-plaintext highlighter-rouge">add 1 1 2</code> will fetch the updated value for register 1 at time 5. 
 
-	We have one issue, you will <b> NOT </b> have internally forwarded registers for project 3. This means time 5 will be a hazard. The fix is the introduction of the new <code class="language-plaintext highlighter-rouge">WBEND</code> register.
+	We have one issue, you will <b> NOT </b> have internally forwarded registers for project 3. This means time 5 will be a hazard for our project pipeline. The fix is the introduction of the new <code class="language-plaintext highlighter-rouge">WBEND</code> register.
 	Now our stack trace looks like the following:
 	<table class="tg">
 		<thead>
@@ -376,7 +376,7 @@ branches.</p>
 			<th class="tg-0pky">2</th>
 			<th class="tg-0lax">4</th>
 			<th class="tg-0lax">5</th>
-			<th class="tg-0lax">6</th>
+			<th class="tg-0lax"><i><b>6</b></i></th>
 			<th class="tg-0lax">7</th>
 			<th class="tg-0lax">8</th>
 			<th class="tg-0lax">9</th>
@@ -390,7 +390,7 @@ branches.</p>
 			<td class="tg-0pky">EX</td>
 			<td class="tg-0lax">MEM</td>
 			<td class="tg-0lax">WB</td>
-			<td class="tg-0lax">END</td>
+			<td class="tg-0lax"><i><b>END</b></i></td>
 			<td class="tg-0lax"></td>
 			<td class="tg-0lax"></td>
 			<td class="tg-0lax"></td>
@@ -426,7 +426,7 @@ branches.</p>
 			<td class="tg-0lax"></td>
 			<td class="tg-0lax">IF </td>
 			<td class="tg-0lax">ID</td>
-			<td class="tg-0lax">EX</td>
+			<td class="tg-0lax"><i><b>EX</b></i></td>
 			<td class="tg-0lax">MEM</td>
 			<td class="tg-0lax">WB</td>
 			<td class="tg-0lax">END</td>
