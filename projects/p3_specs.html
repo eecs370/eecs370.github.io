@@ -72,7 +72,7 @@ simple branch prediction.</p>
 <h2 id="21-datapath">2.1. Datapath</h2>
 
 <!-- TODO: add hyperlink to lecture slides -->
-<p>For this project we will use the datapath from <a href="">Lecture 12</a>, “Introduction to Pipelining.”</p>
+<p>For this project we will use the datapath from <a href="https://docs.google.com/spreadsheets/d/1Iwf9UjJyzBPJ6Kq1Uo5lD-ZUWfctd8Wqrx7V2qPA-SM/edit#gid=0" target="_blank">Lecture 12</a>, “Introduction to Pipelining.”</p>
 
 <p>One difference between Project 3 and the pipelined processor described in
 lecture is that we will add a pipeline register after the write-back stage
@@ -92,7 +92,7 @@ eliminates several dependencies.</p>
 <h2 id="23-memory">2.3. Memory</h2>
 
 <p>We are keeping a simple representation of a memory unit. Just access memory
-directly as an array (similar to <a href="https://www.eecs.umich.edu/courses/eecs370/eecs370.w20/projects/p1_spec">Project 1</a>).</p>
+directly as an array (similar to <a href="https://eecs370.github.io/projects/p1_spec.html">Project 1</a>).</p>
 
 <p>Note in the typedef of <code class="language-plaintext highlighter-rouge">stateType</code> below that there are two memories: <code class="language-plaintext highlighter-rouge">instrMem</code>
 and <code class="language-plaintext highlighter-rouge">dataMem</code>.  When the program starts, read the machine-code file into BOTH
@@ -174,7 +174,7 @@ down the pipeline in its entirety.</p>
 <h2 id="31-basic-structure">3.1. Basic Structure</h2>
 
 <p>Your task is to write a cycle-accurate simulator for the LC-2K.  We recommend
-you start with the <a href="https://www.eecs.umich.edu/courses/eecs370/eecs370.w20/projects/p1_spec/#5-behavioral-simulator-40">Project 1 simulator</a>.  The main
+you start with the <a href="https://eecs370.github.io/projects/p1_spec.html#5-behavioral-simulator-40">Project 1 simulator</a>.  The main
 modifications will be in the <code class="language-plaintext highlighter-rouge">run()</code> function.</p>
 
 <p>At the start of the program, initialize the pc and all registers to zero.
@@ -190,7 +190,7 @@ the end of the cycle.  Conceptually, all stages of the pipeline compute their
 new states simultaneously.  Since statements execute sequentially in C rather
 than simultaneously, you will need two state variables: <code class="language-plaintext highlighter-rouge">state</code> and <code class="language-plaintext highlighter-rouge">newState</code>.
 For clarity, <code class="language-plaintext highlighter-rouge">state</code> and <code class="language-plaintext highlighter-rouge">newState</code> refer to the C variable names, and state
-without quotes refers to the English word meaning the condition of the datapath
+without codeblocks refers to the English word meaning the condition of the datapath
 at an instant of time. <code class="language-plaintext highlighter-rouge">state</code> will be the state of the machine while the cycle
 is executing; <code class="language-plaintext highlighter-rouge">newState</code> will be the state of the machine at the end of the
 cycle.  Each stage of the pipeline will modify the <code class="language-plaintext highlighter-rouge">newState</code> variable using the
@@ -289,7 +289,7 @@ DATA TO THE EX STAGE (not to memory)</strong>.</p>
 <p>You will need to stall for one type of data hazard: a lw followed by an
 instruction that uses the register being loaded.</p>
 
-<p>Use branch-not-taken to resolve most branch hazards, and decide whether or not
+<p>Use branch-not-taken to resolve control hazards, and decide whether or not
 to branch in the MEM stage.  This requires you to discard instructions if it
 turns out that the branch really was taken.  To discard instructions, change
 the relevant instructions in the pipeline to the noop instruction (0x1c00000).
@@ -321,7 +321,7 @@ branches.</p>
 		<td class="tg-0pky">ID</td>
 		<td class="tg-0pky">EX</td>
 		<td class="tg-0lax">MEM</td>
-		<td class="tg-0lax">WB</td>
+		<td class="tg-0lax"><i><b>WB</b></i></td>
 		<td class="tg-0lax"></td>
 		<td class="tg-0lax"></td>
 		<td class="tg-0lax"></td>
@@ -361,11 +361,11 @@ branches.</p>
 	  </tr>
 	</tbody>
 	</table>
-	In our lecture pipeline, time 5 is not a hazard for the lecture pipeline because we have internal forwarding. 
+	In our lecture pipeline, time 5 is not a hazard because we have internal forwarding. 
 	When <code class="language-plaintext highlighter-rouge">add 0 0 1</code> writes the ALUResult to register 1, 
 	<code class="language-plaintext highlighter-rouge">add 1 1 2</code> will fetch the updated value for register 1 at time 5. 
 
-	We have one issue, you will <b> NOT </b> have internally forwarded registers for project 3. This means time 5 will be a hazard for our project pipeline. The fix is the introduction of the new <code class="language-plaintext highlighter-rouge">WBEND</code> register.
+	We have one issue, you will <b> NOT </b> have internally forwarded registers for project 3. This means time 5 <b>WILL</b> be a hazard for our project pipeline. The fix is the introduction of the new <code class="language-plaintext highlighter-rouge">WBEND</code> register.
 	Now our stack trace looks like the following:
 	<table class="tg">
 		<thead>
@@ -444,7 +444,7 @@ Project 1:</p>
 
 <p>You should use the solution assembler from Project 1 to create the
 machine-code file that your simulator will run (since that’s how we’ll test
-it).  The solution assembler can be found at <code class="language-plaintext highlighter-rouge">/afs/umich.edu/class/eecs370/bin/asol</code>.</p>
+it).  The solution assembler can be found <a href="https://drive.google.com/drive/folders/17H5Fs5yDk3OdNiyYVK5OQbsqhuwrz3ud" target="_blank">here</a>
 
 <h1 id="5-test-cases">5. Test Cases</h1>
 
@@ -565,7 +565,7 @@ the class, so you should see EECS 370 listed as a class.</p>
 <p>Your simulator must be in a single C file.  We will compile your program on a
 Linux workstation using</p>
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">gcc program.c -lm
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">gcc &lt;c_file_name&gt; -lm -o &lt;executable_name&gt;
 </span></code></pre></div></div>
 <p>so your program should not require additional compiler flags or libraries.</p>
 
