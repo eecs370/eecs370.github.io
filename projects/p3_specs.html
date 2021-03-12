@@ -58,7 +58,9 @@
 	</tbody>
   </table>
 <h1 id="0-starter-code">0. Starter Code</h1>
-<p>This project has no starter code. However, we recommend that you use the <a href="#24-pipeline-registers">pipeline register structs</a> along with the following <a href="#31-basic-structure"> basic structure </a> </p>
+<p>We provide you with some functions here: <a href="https://drive.google.com/drive/folders/1hvas75ZsTlqRhAirgIV3iB5TSnc3yKMI" target="_blank">starter_functions.c</a>. 
+	Note that you should not modify <code class="language-plaintext highlighter-rouge">printState</code> as the autograder will use this output to grade your submission.
+	We recommend that you use the <a href="#24-pipeline-registers">pipeline register structs</a> along with the following <a href="#31-basic-structure"> basic structure </a> </p>
   
 <h1 id="1-purpose">1. Purpose</h1>
 
@@ -574,109 +576,8 @@ Linux workstation using</p>
 is sent. If you send in anything after the due date, your project will be
 considered late (and will use up your late days or will receive a zero).</p>
 
-<h1 id="8-program-fragment">8. Program Fragment</h1>
 
-<p>Here’s the code for <code class="language-plaintext highlighter-rouge">printState()</code> and associated functions.  Don’t modify this
-code at all.</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span>
-<span class="nf">printState</span><span class="p">(</span><span class="n">stateType</span> <span class="o">*</span><span class="n">statePtr</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">@@@</span><span class="se">\n</span><span class="s">state before cycle %d starts</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">cycles</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">pc %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">pc</span><span class="p">);</span>
-
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">data memory:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">numMemory</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">dataMem[ %d ] %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">dataMem</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-	<span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">registers:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">NUMREGS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">reg[ %d ] %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">reg</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-	<span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">IFID:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">instruction "</span><span class="p">);</span>
-	<span class="n">printInstruction</span><span class="p">(</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IFID</span><span class="p">.</span><span class="n">instr</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">pcPlus1 %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IFID</span><span class="p">.</span><span class="n">pcPlus1</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">IDEX:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">instruction "</span><span class="p">);</span>
-	<span class="n">printInstruction</span><span class="p">(</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IDEX</span><span class="p">.</span><span class="n">instr</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">pcPlus1 %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IDEX</span><span class="p">.</span><span class="n">pcPlus1</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">readRegA %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IDEX</span><span class="p">.</span><span class="n">readRegA</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">readRegB %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IDEX</span><span class="p">.</span><span class="n">readRegB</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">offset %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">IDEX</span><span class="p">.</span><span class="n">offset</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">EXMEM:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">instruction "</span><span class="p">);</span>
-	<span class="n">printInstruction</span><span class="p">(</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">EXMEM</span><span class="p">.</span><span class="n">instr</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">branchTarget %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">EXMEM</span><span class="p">.</span><span class="n">branchTarget</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">aluResult %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">EXMEM</span><span class="p">.</span><span class="n">aluResult</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">readRegB %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">EXMEM</span><span class="p">.</span><span class="n">readRegB</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">MEMWB:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">instruction "</span><span class="p">);</span>
-	<span class="n">printInstruction</span><span class="p">(</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">MEMWB</span><span class="p">.</span><span class="n">instr</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">writeData %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">MEMWB</span><span class="p">.</span><span class="n">writeData</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">WBEND:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">instruction "</span><span class="p">);</span>
-	<span class="n">printInstruction</span><span class="p">(</span><span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">WBEND</span><span class="p">.</span><span class="n">instr</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t</span><span class="s">writeData %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">statePtr</span><span class="o">-&gt;</span><span class="n">WBEND</span><span class="p">.</span><span class="n">writeData</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">field0</span><span class="p">(</span><span class="kt">int</span> <span class="n">instruction</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span><span class="p">(</span> <span class="p">(</span><span class="n">instruction</span><span class="o">&gt;&gt;</span><span class="mi">19</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">field1</span><span class="p">(</span><span class="kt">int</span> <span class="n">instruction</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span><span class="p">(</span> <span class="p">(</span><span class="n">instruction</span><span class="o">&gt;&gt;</span><span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">field2</span><span class="p">(</span><span class="kt">int</span> <span class="n">instruction</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span><span class="p">(</span><span class="n">instruction</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">opcode</span><span class="p">(</span><span class="kt">int</span> <span class="n">instruction</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span><span class="p">(</span><span class="n">instruction</span><span class="o">&gt;&gt;</span><span class="mi">22</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span>
-<span class="nf">printInstruction</span><span class="p">(</span><span class="kt">int</span> <span class="n">instr</span><span class="p">)</span>
-<span class="p">{</span>
-
-	<span class="kt">char</span> <span class="n">opcodeString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">ADD</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"add"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">NOR</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"nor"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">LW</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"lw"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">SW</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"sw"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">BEQ</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"beq"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">JALR</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"jalr"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">HALT</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"halt"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">opcode</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="n">NOOP</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"noop"</span><span class="p">);</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="n">strcpy</span><span class="p">(</span><span class="n">opcodeString</span><span class="p">,</span> <span class="s">"data"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%s %d %d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">opcodeString</span><span class="p">,</span> <span class="n">field0</span><span class="p">(</span><span class="n">instr</span><span class="p">),</span> <span class="n">field1</span><span class="p">(</span><span class="n">instr</span><span class="p">),</span>
-		<span class="n">field2</span><span class="p">(</span><span class="n">instr</span><span class="p">));</span>
-<span class="p">}</span>
-
-</code></pre></div></div>
-
-<h1 id="9-sample-assembly-language-program-and-output">9. Sample Assembly-Language Program and Output</h1>
+<h1 id="8-sample-assembly-language-program-and-output">8. Sample Assembly-Language Program and Output</h1>
 
 <p>Here is a sample assembly-language program:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	lw	0	1	data1	$1= mem[data1]
