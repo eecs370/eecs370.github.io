@@ -8,8 +8,8 @@ Project 4 EECS 370 (Winter 2021)
 <!-- TODO: update due dates -->
 
 | Worth:             | 100 points                         |
-| Assigned:          | Thursday, March 30, 2021   	      |
-| Due:               | 11:55 pm ET, Thursday, April 20, 2021 |
+| Assigned:          | Tuesday, March 30, 2021   	      |
+| Due:               | 11:55 pm ET, Tuesday, April 20, 2021 |
 
 
 # 1. Purpose
@@ -83,8 +83,13 @@ of these data transfers will be logged by calling the `printAction` function
 
 ```c
 enum actionType
-        {cacheToProcessor, processorToCache, memoryToCache, cacheToMemory,
-         cacheToNowhere};
+        {
+            cacheToProcessor, 
+            processorToCache, 
+            memoryToCache, 
+            cacheToMemory,
+            cacheToNowhere
+        };
 /*
  * Log the specifics of each cache action.
  *
@@ -156,7 +161,7 @@ case.  These parameters will be communicated via the name of the test case
 file.  Each test case should have a 3-part suffix, where each part identifies a
 cache parameter and the parts are separated by periods:
 
-```console
+```
 anyName.<blockSizeInWords>.<numberOfSets>.<blocksPerSet>
 ```
 For example, the test case in [Section 8](#8-sample-assembly-language-program-and-output) would be named "test.as.4.2.1".  The
@@ -215,7 +220,7 @@ the exact formatting rules in the project description:
 
 # 7. Turning in the Project
 
-Use [autograder.io](https://www.autograder.io/) to submit your files.  You have been added as a student to 
+Use [autograder.io](https://www.autograder.io) to submit your files.  You have been added as a student to 
 the class, so you should see EECS 370 listed as a class.
 
 1) cache simulator (part 4)
