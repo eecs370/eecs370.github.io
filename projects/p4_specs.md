@@ -6,9 +6,10 @@ Project 4 EECS 370 (Winter 2021)
 {: .primer-spec-toc-ignore }
 
 <!-- TODO: update due dates -->
+
 | Worth:             | 100 points                         |
-| Assigned:          | Thursday, March 26, 2020   	      |
-| Due:               | 11:55 pm, Thursday, April 16, 2020 |
+| Assigned:          | Thursday, March 30, 2021   	      |
+| Due:               | 11:55 pm ET, Thursday, April 20, 2021 |
 
 
 # 1. Purpose
@@ -68,7 +69,7 @@ the cache data structure).
 As the processor executes an assembly-language program, it accesses addresses.
 The three sources of address references are instruction fetch, lw, and sw.
 When the program starts up, it will initialize the memory with the machine-code
-file as in [Project 1](https://www.eecs.umich.edu/courses/eecs370/eecs370.w20/projects/p1_spec).  These initialization references should **NOT** be passed to
+file as in [Project 1](https://eecs370.github.io/projects/p1_spec.html).  These initialization references should **NOT** be passed to
 the cache simulator; they should simply set the initial memory state.
 Each address reference should be passed to the cache simulator.  The cache
 simulator keeps track of what blocks are currently in the cache and what state
@@ -209,7 +210,7 @@ the exact formatting rules in the project description:
     output at the end of this handout.
 
 3) Don't print the sequence `@@@` anywhere except in printAction().  You
-    may find the [Project 1 printState function](https://drive.google.com/file/d/1xefhNmWrqjf_AUlvqmaQaLlWqV6ABi3M/view?usp=sharing) useful in debugging, but
+    may find the [Project 1 printState function](https://drive.google.com/drive/folders/11jWd-CGz321801v-yvkKzCVSF2bwELjC) useful in debugging, but
     make sure to take out printState's `@@@`.
 
 # 7. Turning in the Project
@@ -263,4 +264,3 @@ understand each of the data transfers and their order.
 @@@ transferring word [30-30] from the cache to the processor
 @@@ transferring word [3-3] from the cache to the processor
 ```
-
