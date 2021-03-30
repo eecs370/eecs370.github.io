@@ -220,7 +220,7 @@ the exact formatting rules in the project description:
 
 # 7. Turning in the Project
 
-Use [autograder.io](https://www.autograder.io) to submit your files.  You have been added as a student to 
+Use [autograder.io](https://autograder.io/web/course/101) to submit your files.  You have been added as a student to 
 the class, so you should see EECS 370 listed as a class.
 
 1) cache simulator (part 4)
