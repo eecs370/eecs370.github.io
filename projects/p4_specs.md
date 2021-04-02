@@ -164,7 +164,7 @@ cache parameter and the parts are separated by periods:
 ```
 anyName.<blockSizeInWords>.<numberOfSets>.<blocksPerSet>
 ```
-For example, the test case in [Section 8](#8-sample-assembly-language-program-and-output) would be named "test.as.4.2.1".  The
+For example, the test case in [Section 8](#8-sample-assembly-language-program-and-output) would be named "test.4.2.1.as".  The
 combination of cache parameters should be legal (e.g. they should all be powers
 of two; `numberOfSets` and `blocksPerSet` should not exceed 256).  The instructor
 buggy simulators will not have error-checking bugs.  See [Section 6](#6-grading-auto-grading-and-formatting) for how your
