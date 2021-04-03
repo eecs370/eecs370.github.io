@@ -10,6 +10,7 @@ Project 4 EECS 370 (Winter 2021)
 | Worth:             | 100 points                         |
 | Assigned:          | Tuesday, March 30, 2021   	      |
 | Due:               | 11:55 pm ET, Tuesday, April 20, 2021 |
+
 # 0. Starter Code
 
 Starter code can be found in the public google drive folder under projects/project4. Here is a direct link to the [starter code](https://drive.google.com/drive/folders/1e12ZC7GijEYzgr9LTgs9cgdS40kQmEyi).
