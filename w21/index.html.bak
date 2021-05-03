@@ -139,15 +139,6 @@
         </div>
       </h1>
 
-  
-
-      <p>
-          <span class="ui left pointing red basic label">
-            Looking for <a href="w21">Winter 2021</a>?
-        </span>
-      </p>
-
-
        <!-- Announcements -->
        <div class="ui info message">
         <div class="header">
@@ -155,9 +146,7 @@
         </div>
         <p>
         We are looking forward to having you join us for the spring semester! Attendance is <i>not</i> required for lectures (recordings will be made available afterwards), however live attendance is required for your registered discussion section. Make sure that you can attend the section you are enrolled in.
-        </p>
         
-        <p>
         <a href="https://umich.zoom.us/j/93810696596">Zoom link for live lectures</a>
         </p>
       </div>
