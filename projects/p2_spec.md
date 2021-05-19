@@ -365,6 +365,8 @@ gcc -std=c99 program.c -o program
 
 # 7. Grading, Auto-Grading, and Formatting
 
+**For spring 21 semester:**  To incentivize starting early,
+students will receive 1 bonus point  for parts a and l each if they earn all of the available points for exposing instructor bugs **48-hours** before the posted deadlines.
 
 We will grade primarily on functionality, including error handling, correct assembly, and comprehensiveness of the test suites.
 
