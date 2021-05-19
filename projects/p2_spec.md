@@ -402,9 +402,23 @@ Here are the files you should submit for each project part:
 2. linker (part 2l)
     a. C program for your linker called "linker.c"
     b. Suite of test cases (each test case is a set of assembly-language programs using the naming scheme specified in [section 4.9](TODO:). and ending in ".as"
+```
 
-s"
-e    halt
+# 9. Sample Test Cases
+
+
+### Example 2a
+Here is a multi-file assembly-language program that counts down from 5, stopping when it hits 0, and then halts:
+
+```
+–––––––– main.as ––––––––
+
+        lw          0       1       five
+        lw          0       4       SubAdr
+start   jalr        4       7               
+        beq         0       1       done
+        beq         0       0       start
+done    halt
 five    .fill       5
 
 
