@@ -2,16 +2,15 @@
 layout: spec
 ---
 
-Project 1 — EECS 370 (Winter 2021)
+Project 1 — EECS 370 (Spring 2021)
 ==============================
 {: .primer-spec-toc-ignore }
 
-<!-- TODO: update due dates -->
 | Worth:             | 100 points                           |
 | -----------        | -----------                          |
-| Assigned:          | Thursday, January 9, 2020            |
-| Part 1a Due:       | 11:55 pm, Thursday, January 23, 2020 |
-| Part 1s & 1m Due:  | 11:55 pm, Tuesday, February 4, 2020  |
+| Assigned:          | Wednesday, May 5, 2021               |
+| Part 1a Due:       | 11:55 PM EDT, Wednesday, May 12, 2021|
+| Part 1s & 1m Due:  | 11:55 PM EDT, Tuesday, May 18, 2021  |
 
 # 1. Purpose
 
@@ -347,6 +346,10 @@ to perform the multiplication; algorithms such as successive addition
 (e.g. multiplying 5 * 6 by adding 5 six times) will take too long.
 
 # 7. Grading, Auto-Grading, and Formatting
+
+[**For spring 21 semester:** To incentivize starting early, students will receive 
+1 bonus point for parts a and s each if they submit test cases that expose all or 
+all but one of the instructor bugs 48-hours before the posted deadlines.]
 
 We will grade primarily on functionality, including error handling, correctly
 assembling and simulating all instructions, input and output format, method of
