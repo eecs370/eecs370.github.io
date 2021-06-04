@@ -4,12 +4,11 @@ layout: spec
 
 Project 3 EECS 370 (Spring 2021)
 ==============================
-{: .primer-spec-toc-ignore }
 
-<!-- TODO: update due dates -->
-| Worth:             | 100 points                         |
-| Assigned:          | Friday, June 4th, 2021   	      |
-| Due:               | 11:55 pm, Friday, June 11, 2021  |
+| Worth:                   | 100 Points                           |
+|--------------------------|--------------------------------------|
+| Assigned:                | Friday, June 4th, 2021               |
+| Due:                     | 11:55 PM EDT, Friday, June 11th      |
 
 
 # 1. Purpose
@@ -282,7 +281,7 @@ will submit your suite of test cases together with your simulator, and we will
 grade your test suite according to how thoroughly it exercises an LC-2K
 pipeline simulator.  Each test case may execute at most 100 cycles on a
 correct simulator, and your test suite may contain up to 20 test cases.  These
-limits are much larger than needed for full credit.  See [Section 6]() for how
+limits are much larger than needed for full credit.  See Section 6 for how
 your test suite will be graded.
 <!-- TODO: add hyperlink -->
 Writing good test cases for this project will require more thinking than the
