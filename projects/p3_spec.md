@@ -2,14 +2,14 @@
 layout: spec
 ---
 
-Project 3 EECS 370 (Winter 2021)
+Project 3 EECS 370 (Spring 2021)
 ==============================
 {: .primer-spec-toc-ignore }
 
 <!-- TODO: update due dates -->
 | Worth:             | 100 points                         |
-| Assigned:          | Thursday, March 12, 2020   	      |
-| Due:               | 11:55 pm, Tuesday, March 31, 2020  |
+| Assigned:          | Friday, June 4th, 2021   	      |
+| Due:               | 11:55 pm, Friday, June 11, 2021  |
 
 
 # 1. Purpose
@@ -24,7 +24,7 @@ simple branch prediction.
 ## 2.1. Datapath
 
 <!-- TODO: add hyperlink to lecture slides -->
-For this project we will use the datapath from [Lecture 12](), "Introduction to Pipelining."
+For this project we will use the datapath from [Lecture 12](https://drive.google.com/file/d/1xaoG0dg8EUobqg_NdUkLQvk5_ouPSMGL/view?usp=sharing), "Introduction to Pipelining."
 
 One difference between Project 3 and the pipelined processor described in
 lecture is that we will add a pipeline register after the write-back stage
@@ -44,7 +44,7 @@ eliminates several dependencies.
 ## 2.3. Memory
 
 We are keeping a simple representation of a memory unit. Just access memory
-directly as an array (similar to [Project 1](https://www.eecs.umich.edu/courses/eecs370/eecs370.w20/projects/p1_spec)).
+directly as an array (similar to [Project 1](https://eecs370.github.io/projects/p1_spec.html)).
 
 Note in the typedef of `stateType` below that there are two memories: `instrMem`
 and `dataMem`.  When the program starts, read the machine-code file into BOTH
@@ -127,7 +127,7 @@ typedef struct stateStruct {
 ## 3.1. Basic Structure
 
 Your task is to write a cycle-accurate simulator for the LC-2K.  We recommend
-you start with the [Project 1 simulator](https://www.eecs.umich.edu/courses/eecs370/eecs370.w20/projects/p1_spec/#5-behavioral-simulator-40).  The main
+you start with the [Project 1 simulator](https://eecs370.github.io/projects/p1_spec.html#5-behavioral-simulator-40).  The main
 modifications will be in the `run()` function.
 
 At the start of the program, initialize the pc and all registers to zero.
@@ -296,6 +296,9 @@ on what different conditions you've tested for (e.g., forwarding from different
 stages).
 
 # 6. Grading, Auto-Grading, and Formatting
+
+**For spring 21 semester:**  To incentivize starting early,
+students will receive 1 bonus point if they earn all of the available points for exposing instructor bugs **48-hours** before the posted deadlines.
 
 We will grade primarily on functionality.  In particular, we will run your
 program on various assembly-language programs and check the contents of your
