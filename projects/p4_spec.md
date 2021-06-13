@@ -1,19 +1,19 @@
 ---
 layout: spec
 ---
-Project 4 EECS 370 (Winter 2021)
+Project 4 EECS 370 (Spring 2021)
 ==============================
 {: .primer-spec-toc-ignore }
 
 <!-- TODO: update due dates -->
 
 | Worth:             | 100 points                         |
-| Assigned:          | Tuesday, March 30, 2021   	      |
-| Due:               | 11:55 pm ET, Tuesday, April 20, 2021 |
+| Assigned:          | Saturday, June 12, 2021   	      |
+| Due:               | 11:55 pm ET, Monday, June 21, 2021 |
 
 # 0. Starter Code
 
-Starter code can be found in the public google drive folder under projects/project4. Here is a direct link to the [starter code](https://drive.google.com/drive/folders/1e12ZC7GijEYzgr9LTgs9cgdS40kQmEyi).
+Starter code can be found in the public google drive folder under projects/project4. Here is a direct link to the [starter code](https://drive.google.com/drive/u/1/folders/1NjIW2ZbOQDBmKG_p5J16PXXPT4cmhKj-).
 
 
 # 1. Purpose
@@ -184,6 +184,9 @@ cases to test those conditions.
 
 # 6. Grading, Auto-Grading, and Formatting
 
+**For spring 21 semester:**  To incentivize starting early,
+students will receive 1 bonus point if they earn all of the available points for exposing instructor bugs **48-hours** before the posted deadlines.
+
 We will grade on the correctness of your cache simulator and the
 comprehensiveness of your test suite.
 
@@ -219,7 +222,7 @@ the exact formatting rules in the project description:
     output at the end of this handout.
 
 3) Don't print the sequence `@@@` anywhere except in printAction().  You
-    may find the [Project 1 printState function](https://drive.google.com/drive/folders/11jWd-CGz321801v-yvkKzCVSF2bwELjC) useful in debugging, but
+    may find the [Project 1 printState function](https://drive.google.com/drive/u/1/folders/1hs_tQXSgpNPBbQSCrKHPLpolrgQqoGxD) useful in debugging, but
     make sure to take out printState's `@@@`.
 
 # 7. Turning in the Project
