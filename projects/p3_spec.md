@@ -386,7 +386,7 @@ considered late (and will use up your late days or will receive a zero).
 # 8. Program Fragment
 
 Here's the code for `printState()` and associated functions.  Don't modify this
-code at all.
+code at all. You can find this included in starter_functions [here](https://drive.google.com/drive/folders/15qRSTGOpPVpHB7o4u9zwHngTLuGTHX4r).
 
 ```c
 void
