@@ -10,6 +10,9 @@ Project 3 EECS 370 (Spring 2021)
 | Assigned:                | Friday, June 4th, 2021               |
 | Due:                     | 11:55 PM EDT, Friday, June 11th      |
 
+# 0. Starter Code
+
+Starter code can be found in the public google drive folder under projects/project4. Here is a direct link to the [starter code](https://drive.google.com/drive/folders/15qRSTGOpPVpHB7o4u9zwHngTLuGTHX4r).
 
 # 1. Purpose
 
@@ -386,7 +389,7 @@ considered late (and will use up your late days or will receive a zero).
 # 8. Program Fragment
 
 Here's the code for `printState()` and associated functions.  Don't modify this
-code at all. You can find this included in starter_functions [here](https://drive.google.com/drive/folders/15qRSTGOpPVpHB7o4u9zwHngTLuGTHX4r).
+code at all. You can find this included in the starter code.
 
 ```c
 void
