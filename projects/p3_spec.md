@@ -263,7 +263,7 @@ Project 1:
 
 You should use the solution assembler from Project 1 to create the
 machine-code file that your simulator will run (since that's how we'll test
-it).  The solution assembler can be found at `/afs/umich.edu/class/eecs370/bin/asol`.
+it).  The solution assembler can be found at `https://drive.google.com/drive/u/1/folders/17H5Fs5yDk3OdNiyYVK5OQbsqhuwrz3ud`.
 
 # 5. Test Cases
 
